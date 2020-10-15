@@ -5,17 +5,25 @@
  */
 package recipeapp;
 
+import Controller.StarterControl;
+import View.StarterView;
+import Model.StarterModel;
+
 /**
  *
  * @author Kurtis
  */
-public class RecipeApp {
-
+public class RecipeApp
+{
     /**
      * @param args the command line arguments
      */
-    public static void main(String[] args) {
-        // TODO code application logic here
+    public static void main(String[] args)
+    {
+        StarterModel model = new StarterModel();
+        StarterView view = new StarterView();
+        StarterControl controller = new StarterControl(model, view);
+        
     }
     
 }
