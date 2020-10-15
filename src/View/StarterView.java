@@ -15,6 +15,7 @@ public class StarterView
 {
     private MainFrame mainFrame;
     private LoginPanel loginPanel;
+
     private MainPanel mainPanel;
 
     
