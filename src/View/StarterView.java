@@ -24,9 +24,7 @@ public class StarterView
     {
         mainFrame = new MainFrame();
         loginPanel = new LoginPanel();
-
         mainPanel = new MainPanel();
-
     }
     
     public MainFrame getMainFrame()
