@@ -9,6 +9,7 @@ package View;
  *
  * @author Kurtis
  */
-public class MainPanel {
+public class MainPanel 
+{
     
 }

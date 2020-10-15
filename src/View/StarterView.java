@@ -15,13 +15,18 @@ public class StarterView
 {
     private MainFrame mainFrame;
     private LoginPanel loginPanel;
+
     private MainPanel mainPanel;
+
+
     
     public StarterView()
     {
         mainFrame = new MainFrame();
         loginPanel = new LoginPanel();
+
         mainPanel = new MainPanel();
+
     }
     
     public MainFrame getMainFrame()
