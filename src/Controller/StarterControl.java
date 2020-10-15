@@ -28,7 +28,8 @@ public class StarterControl
         this.model = model;
         this.view = view;
 
-        view.updatePanel(view.getLoginPanel());
+        //view.updatePanel(view.getLoginPanel());
+        view.updatePanel(view.getMainPanel());
     }
     
 }
