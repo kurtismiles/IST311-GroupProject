@@ -21,6 +21,7 @@ public class StarterControl
     public StarterControl()
     {
         //empty constructor
+        //testing
     }
     
     public StarterControl(StarterModel model, StarterView view)
