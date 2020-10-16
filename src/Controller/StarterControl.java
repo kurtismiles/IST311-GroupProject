@@ -15,6 +15,7 @@ import Model.StarterModel;
 public class StarterControl
 {
     private StarterView view;
+    
     private StarterModel model;
    
     public StarterControl()
