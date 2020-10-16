@@ -7,19 +7,13 @@ package View;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import java.awt.Component;
-import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.GridLayout;
-import java.util.ArrayList;
-import javax.swing.BoxLayout;
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JPanel;
-
 
 /**
  *
@@ -27,58 +21,59 @@ import javax.swing.JPanel;
  */
 public class MainPanel extends JPanel
 {
-  
-   
-   private JButton b1;
-   private JButton b2;
-   private JButton b3;
-   private JButton b4;
-   private JButton button;
-    
+
+    private Image image1;
+    private JButton b1;
+    private JButton b2;
+    private JButton b3;
+    private JButton b4;
+
     public MainPanel()
     {
-        
-        JPanel frame = new JPanel(new GridBagLayout());
-        frame.setLayout(new GridBagLayout());
-        GridBagConstraints c = new GridBagConstraints();
-        
-        
 
-            b1 = new JButton("Recipes");
-            b1.setFont(new Font("Courier", Font.PLAIN, 18));
-            b1.setBackground(Color.LIGHT_GRAY);
-            b1.setForeground(Color.BLACK);
-            frame.add(b1);
-            add(b1); 
-            
-            b2 = new JButton("Ingredients");
-            b2.setFont(new Font("Courier", Font.PLAIN, 18));
-            b2.setBackground(Color.LIGHT_GRAY);
-            b2.setForeground(Color.BLACK); 
-            frame.add(b2);
-            add(b2); 
-      
-       
-            b3 = new JButton("ShoppingList");
-            b3.setFont(new Font("Courier", Font.PLAIN, 18));
-            b3.setBackground(Color.LIGHT_GRAY);
-            b3.setForeground(Color.BLACK);
-            frame.add(b3);
-            add(b3);
-            
-            b4 = new JButton("Settings");
-            b4.setFont(new Font("Courier", Font.PLAIN, 18));
-            b4.setBackground(Color.LIGHT_GRAY);
-            b4.setForeground(Color.BLACK);
-            frame.add(b4);
-            add(b4);
-            
-      
-      frame.setSize(550, 300);
-      frame.setVisible(true);
-            
+        JPanel Background = new JPanel();
+
+        FlowLayout fl = new FlowLayout(1);
+        setLayout(fl);
+
+        JPanel frame = new JPanel(new BorderLayout());
+        frame.setLayout(fl);
+
+        image1 = (new ImageIcon("Images/FoodBackground.jpg")).getImage();
+        ImageIcon icon1 = new ImageIcon("Images/FoodBackground.jpg");
+
+        b1 = new JButton("Recipes");
+        b1.setAlignmentY(CENTER_ALIGNMENT);
+        b1.setFont(new Font("Courier", Font.PLAIN, 18));
+        b1.setBackground(Color.LIGHT_GRAY);
+        b1.setForeground(Color.BLACK);
+        frame.add(b1);
+        add(b1);
+
+        b2 = new JButton("Ingredients");
+        b2.setBounds(100, 100, 500, 500);
+        b2.setFont(new Font("Courier", Font.PLAIN, 18));
+        b2.setBackground(Color.LIGHT_GRAY);
+        b2.setForeground(Color.BLACK);
+        frame.add(b2);
+        add(b2);
+
+        b3 = new JButton("ShoppingList");
+        b3.setFont(new Font("Courier", Font.PLAIN, 18));
+        b3.setBackground(Color.LIGHT_GRAY);
+        b3.setForeground(Color.BLACK);
+        frame.add(b3);
+        add(b3);
+
+        b4 = new JButton("Settings");
+        b4.setFont(new Font("Courier", Font.PLAIN, 18));
+        b4.setBackground(Color.LIGHT_GRAY);
+        b4.setForeground(Color.BLACK);
+        frame.add(b4);
+        add(b4);
+
     }
-    
+
     public JButton getB1()
     {
         return b1;
@@ -108,7 +103,7 @@ public class MainPanel extends JPanel
     {
         this.b3 = b3;
     }
-    
+
     public JButton getB4()
     {
         return b4;
@@ -118,15 +113,12 @@ public class MainPanel extends JPanel
     {
         this.b4 = b4;
     }
-    
-    
 
-    
-    
-    
-   
+    @Override
+    protected void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+        g.drawImage(image1, 0, 0, null);
+    }
 
-  
-
-    
 }
