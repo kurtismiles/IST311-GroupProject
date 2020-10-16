@@ -5,12 +5,19 @@
  */
 package View;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.util.ArrayList;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 
@@ -26,26 +33,29 @@ public class MainPanel extends JPanel
    private JButton b2;
    private JButton b3;
    private JButton b4;
+   private JButton button;
     
     public MainPanel()
     {
-      
         
-        GridLayout gr = new GridLayout(1, 4);
-        setLayout(gr);
-       
-       
+        JPanel frame = new JPanel(new GridBagLayout());
+        frame.setLayout(new GridBagLayout());
+        GridBagConstraints c = new GridBagConstraints();
+        
+        
+
             b1 = new JButton("Recipes");
             b1.setFont(new Font("Courier", Font.PLAIN, 18));
             b1.setBackground(Color.LIGHT_GRAY);
             b1.setForeground(Color.BLACK);
+            frame.add(b1);
             add(b1); 
             
-        
             b2 = new JButton("Ingredients");
             b2.setFont(new Font("Courier", Font.PLAIN, 18));
             b2.setBackground(Color.LIGHT_GRAY);
-            b2.setForeground(Color.BLACK);          
+            b2.setForeground(Color.BLACK); 
+            frame.add(b2);
             add(b2); 
       
        
@@ -53,14 +63,19 @@ public class MainPanel extends JPanel
             b3.setFont(new Font("Courier", Font.PLAIN, 18));
             b3.setBackground(Color.LIGHT_GRAY);
             b3.setForeground(Color.BLACK);
+            frame.add(b3);
             add(b3);
             
             b4 = new JButton("Settings");
             b4.setFont(new Font("Courier", Font.PLAIN, 18));
             b4.setBackground(Color.LIGHT_GRAY);
             b4.setForeground(Color.BLACK);
+            frame.add(b4);
             add(b4);
             
+      
+      frame.setSize(550, 300);
+      frame.setVisible(true);
             
     }
     
@@ -103,6 +118,8 @@ public class MainPanel extends JPanel
     {
         this.b4 = b4;
     }
+    
+    
 
     
     
