@@ -49,7 +49,7 @@ public class MainPanel extends JPanel
             add(b2); 
       
        
-            b3 = new JButton("Shopping");
+            b3 = new JButton("ShoppingList");
             b3.setFont(new Font("Courier", Font.PLAIN, 18));
             b3.setBackground(Color.LIGHT_GRAY);
             b3.setForeground(Color.BLACK);
