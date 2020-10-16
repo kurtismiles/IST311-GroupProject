@@ -21,53 +21,49 @@ import javax.swing.JPanel;
 public class MainPanel extends JPanel
 {
   
-   private ArrayList<JButton> jbs;
+   
    private JButton b1;
    private JButton b2;
    private JButton b3;
+   private JButton b4;
     
     public MainPanel()
     {
       
-        jbs = new ArrayList<JButton>();
-        GridLayout gr = new GridLayout(1, 3);
+        
+        GridLayout gr = new GridLayout(1, 4);
         setLayout(gr);
        
        
             b1 = new JButton("Recipes");
             b1.setFont(new Font("Courier", Font.PLAIN, 18));
-            b1.setBackground(Color.lightGray);
+            b1.setBackground(Color.LIGHT_GRAY);
             b1.setForeground(Color.BLACK);
-            jbs.add(b1);
             add(b1); 
             
         
             b2 = new JButton("Ingredients");
             b2.setFont(new Font("Courier", Font.PLAIN, 18));
-            b2.setBackground(Color.lightGray);
-            b2.setForeground(Color.BLACK);
-            jbs.add(b2);
+            b2.setBackground(Color.LIGHT_GRAY);
+            b2.setForeground(Color.BLACK);          
             add(b2); 
       
        
-            b3 = new JButton("shopping");
+            b3 = new JButton("Shopping");
             b3.setFont(new Font("Courier", Font.PLAIN, 18));
-            b3.setBackground(Color.lightGray);
+            b3.setBackground(Color.LIGHT_GRAY);
             b3.setForeground(Color.BLACK);
-            jbs.add(b3);
             add(b3);
+            
+            b4 = new JButton("Settings");
+            b4.setFont(new Font("Courier", Font.PLAIN, 18));
+            b4.setBackground(Color.LIGHT_GRAY);
+            b4.setForeground(Color.BLACK);
+            add(b4);
+            
+            
     }
-
-    public ArrayList<JButton> getJbs()
-    {
-        return jbs;
-    }
-
-    public void setJbs(ArrayList<JButton> jbs)
-    {
-        this.jbs = jbs;
-    }
-
+    
     public JButton getB1()
     {
         return b1;
@@ -96,6 +92,16 @@ public class MainPanel extends JPanel
     public void setB3(JButton b3)
     {
         this.b3 = b3;
+    }
+    
+    public JButton getB4()
+    {
+        return b4;
+    }
+
+    public void setB4(JButton b4)
+    {
+        this.b4 = b4;
     }
 
     
