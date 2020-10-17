@@ -58,6 +58,9 @@ public class StarterControl
         {
             System.out.println("Authorization Failed. Try Again");
         }
+
+        //view.updatePanel(view.getLoginPanel());
+        view.updatePanel(view.getMainPanel());
     }
     
 }

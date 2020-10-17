@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.awt.Graphics;
+import java.awt.Toolkit;
 import javax.swing.*;
 
 /**
@@ -61,4 +63,6 @@ public class MainFrame extends JFrame
         validate();
     }
     
+
+   
 }
