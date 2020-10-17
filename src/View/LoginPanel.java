@@ -18,7 +18,7 @@ public class LoginPanel extends JPanel {
         //-----------------------------Color
         Color cake = new Color(255, 253, 219);
         Color sblue = new Color(187, 244, 255);
-        Color icing = new Color(0, 0, 0);
+        //Color icing = new Color(0, 0, 0);
 //------------------------------
         setLayout(new BorderLayout());
         //setBackground(Color.darkGray);   //loading tester
@@ -44,7 +44,7 @@ public class LoginPanel extends JPanel {
         JPanel[] innerCPnl = new JPanel[Cpnlsize];
         for (int i = 0; i < innerCPnl.length; i++) {
             innerCPnl[i] = new JPanel();
-            innerCPnl[i].setBackground(Color.pink);
+            innerCPnl[i].setBackground(Color.white);
         }
         innerCPnl[0].setBackground(cake);
         JLabel login = new JLabel("Login");
@@ -61,7 +61,7 @@ public class LoginPanel extends JPanel {
         JPanel pwd = new JPanel();
         pwd.add(passlbl);
         pwd.add(pass);
-        pwd.setBackground(cake);
+        pwd.setBackground(Color.white);
         ups.add(usr);
         ups.add(pwd);
         innerCPnl[1].add(ups);
@@ -81,7 +81,7 @@ public class LoginPanel extends JPanel {
         }
         add(gridCPnl, "Center");
         //-----------------------------Left-Hand User List
-        int num = 10;
+        /*int num = 10;
         int displaylimit = 10;
         JButton[] jb = new JButton[num];
         for (int i = 0; i < jb.length; i++) {
@@ -95,7 +95,7 @@ public class LoginPanel extends JPanel {
             pnl.add(jb[i]);
             pnl.add(new JLabel());
         }
-        add(pnl, "West");
+        add(pnl, "West");*/
         //-----------------------------North Border
         JPanel north = new JPanel();
         north.setLayout(new GridLayout(4, 1));
@@ -105,7 +105,7 @@ public class LoginPanel extends JPanel {
             north.add(jlbl[i]);
         }
         //-----------------------------
-        north.setBackground(Color.darkGray);
+        north.setBackground(sblue);
         add(north, "North");
     }
 
