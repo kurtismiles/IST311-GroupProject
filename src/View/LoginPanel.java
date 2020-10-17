@@ -10,7 +10,7 @@ import java.awt.*;
 
 public class LoginPanel extends JPanel {
 
-    private JButton clickMe;
+    private JButton submit;
     private JTextField usern;
     private JTextField passw;
 
@@ -19,20 +19,20 @@ public class LoginPanel extends JPanel {
         passw = new JTextField("Key");
         JLabel uselbl = new JLabel("Username:");
         JLabel passlbl = new JLabel("Password:");
-        clickMe = new JButton("TESTING: CLICK ME");
+        submit = new JButton("TESTING: CLICK ME");
         add(uselbl);
         add(usern);
         add(passlbl);
         add(passw);
-        add(clickMe);
+        add(submit);
     }
 
-    public JButton getClickMe() {
-        return clickMe;
+    public JButton getSubmit() {
+        return submit;
     }
 
-    public void setClickMe(JButton clickMe) {
-        this.clickMe = clickMe;
+    public void setClickMe(JButton submit) {
+        this.submit = submit;
     }
 
     public JTextField getUsern() {

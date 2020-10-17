@@ -5,11 +5,13 @@
  */
 package View;
 
+import javax.swing.JPanel;
+
 /**
  *
  * @author Kurtis
  */
-public class MainPanel 
+public class MainPanel extends JPanel
 {
     
 }
