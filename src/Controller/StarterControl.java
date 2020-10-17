@@ -41,7 +41,7 @@ public class StarterControl
             public void actionPerformed(ActionEvent ae)
             {
                 System.out.println();
-                authorize(view.getLoginPanel().getUsern().getText(), view.getLoginPanel().getPassw().getText());
+                authorize(view.getLoginPanel().getUser().getText(), view.getLoginPanel().getPass().getText());
             }
         });
     }
@@ -51,16 +51,13 @@ public class StarterControl
         boolean match = model.Authorize(username, password);
         if (match)
         {
-            //view.updatePanel(view.getMainPanel());
+            view.updatePanel(view.getMainPanel());
             System.out.println("Authoization Success. Taking you to new Panel");
         }
         else
         {
             System.out.println("Authorization Failed. Try Again");
         }
-
-        //view.updatePanel(view.getLoginPanel());
-        view.updatePanel(view.getMainPanel());
     }
     
 }
