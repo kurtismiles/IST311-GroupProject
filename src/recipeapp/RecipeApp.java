@@ -24,6 +24,10 @@ public class RecipeApp
         StarterView view = new StarterView();
         StarterControl controller = new StarterControl(model, view);
         
+        
+        
+        
     }
+    
     
 }
