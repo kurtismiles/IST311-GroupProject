@@ -17,52 +17,61 @@ public class RecipePanel extends JPanel {
    
     private JButton back;
     private JButton create;
-    private JFrame ourFrame = new JFrame("Create");
+    private JFrame PopupFrame = new JFrame("Create");
     
     public RecipePanel()
     {
         back = new JButton("back");
         add(back);
         
-        ourFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ourFrame.setBounds(200, 100, 400, 200);
+        PopupFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                PopupFrame.setBounds(250, 100, 800, 400);
 		
-		Container container = ourFrame.getContentPane();
+		Container container = PopupFrame.getContentPane();
 		container.setLayout(null);
 		
-		JLabel logo = new JLabel("Create a New Recipe");
-		logo.setBounds(60,5,250,30);
+		//JLabel logo = new JLabel("Create a New Recipe");
+		//logo.setBounds(350,5,250,30);
 		
-		JLabel name_label = new JLabel("Name :");
-		name_label.setBounds(20,30,250,30);
+		JLabel name_label = new JLabel("Recipe Name :");
+		name_label.setBounds(90,30,250,30);
 		
 		JLabel description_label = new JLabel("Description :");
-		description_label.setBounds(20,60,250,30);
+		description_label.setBounds(90,80,250,30);
                 
                 JLabel ingredients_label = new JLabel("Ingredients :");
-		ingredients_label.setBounds(20,90,250,30);
+		ingredients_label.setBounds(90,130,250,30);
+                
+                JLabel tags_label = new JLabel("Tags :");
+		tags_label.setBounds(90,180,250,30);
 		
 		JTextField nameText = new JTextField();
-		nameText.setBounds(65,30,250,30);
+		nameText.setBounds(220,30, 490, 30);
 		
-		JTextField emailText = new JTextField();
-		emailText.setBounds(65, 60, 250, 30);
+		JTextField descriptionText = new JTextField();
+		descriptionText.setBounds(220, 80, 490, 30);
 		
                 JTextField ingredientText = new JTextField();
-		ingredientText.setBounds(65, 90, 250, 30);
+		ingredientText.setBounds(220, 130, 490, 30);
                 
-		JButton subBtn  = new JButton("Subscribe");
-		subBtn.setBounds(150,120,100,30);
+                JTextField tagsText = new JTextField();
+		tagsText.setBounds(220, 180, 490, 30);
+                
+		JButton subBtn  = new JButton("Create");
+		subBtn.setBounds(350,280,100,30);
+                
 		
-                container.add(logo);
+                //container.add(logo);
                 container.add(name_label);
                 container.add(description_label);
                 container.add(ingredients_label);
+                container.add(tags_label);
                 container.add(nameText);
-                container.add(emailText);
+                container.add(descriptionText);
                 container.add(ingredientText);
+                container.add(tagsText);
                 container.add(subBtn);
-                ourFrame.setVisible(true);
+                PopupFrame.setVisible(true);
     }
     
     
