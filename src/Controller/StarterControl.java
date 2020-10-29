@@ -18,6 +18,9 @@ public class StarterControl
 {
     private StarterView view;
     private StarterModel model;
+    
+    private RecipeController recipeControl;
+    
    
     public StarterControl()
     {
@@ -44,6 +47,31 @@ public class StarterControl
                 authorize(view.getLoginPanel().getUser().getText(), view.getLoginPanel().getPass().getText());
             }
         });
+        
+        //MainPanel Recipe Button Listener
+        view.getMainPanel().getB1().addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                
+                //passes control to RecipeController
+                recipeControl = new RecipeController(view.getMainFrame());
+                
+                //back button listener in RecipePanel
+                recipeControl.getView().getRecipePanel().getBackButton().addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                       view.getMainFrame().updateFrame(view.getMainPanel());
+                    }
+                });
+                
+            }
+        });
+        
+        
+        
+        
+        
+        
     }
     
     void authorize(String username, String password)
@@ -59,5 +87,4 @@ public class StarterControl
             System.out.println("Authorization Failed. Try Again");
         }
     }
-    
 }
