@@ -11,5 +11,5 @@ package View;
  */
 class panel
 {
-    
+
 }

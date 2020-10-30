@@ -8,13 +8,15 @@ package View;
 import javax.swing.*;
 import java.awt.*;
 
-public class LoginPanel extends JPanel {
-        
+public class LoginPanel extends JPanel
+{
+
     private JButton submit;
     private JTextField user;
     private JTextField pass;
 
-    public LoginPanel() {
+    public LoginPanel()
+    {
         //-----------------------------Color
         Color cake = new Color(255, 253, 219);
         Color sblue = new Color(187, 244, 255);
@@ -31,7 +33,8 @@ public class LoginPanel extends JPanel {
         JPanel gridCPnl = new JPanel();
         gridCPnl.setLayout(new GridLayout(3, 3));
         JPanel[] gridinCPnl = new JPanel[8];
-        for (int i = 0; i < gridinCPnl.length; i++) {
+        for (int i = 0; i < gridinCPnl.length; i++)
+        {
             gridinCPnl[i] = new JPanel();
             gridinCPnl[i].setPreferredSize(new Dimension(2, 2));
             gridinCPnl[i].setBackground(sblue);
@@ -42,7 +45,8 @@ public class LoginPanel extends JPanel {
         CPnl.setLayout(new GridLayout(Cpnlsize, 1));
         CPnl.setBackground(Color.orange);
         JPanel[] innerCPnl = new JPanel[Cpnlsize];
-        for (int i = 0; i < innerCPnl.length; i++) {
+        for (int i = 0; i < innerCPnl.length; i++)
+        {
             innerCPnl[i] = new JPanel();
             innerCPnl[i].setBackground(Color.white);
         }
@@ -68,14 +72,17 @@ public class LoginPanel extends JPanel {
         //-----------------------------
         //innerCPnl[2].setLayout(new GridBagLayout());
         innerCPnl[2].add(submit);
-        for (int i = 0; i < innerCPnl.length; i++) {
+        for (int i = 0; i < innerCPnl.length; i++)
+        {
             CPnl.add(innerCPnl[i]);
         }
         //add(CPnl, "Center");
         //-----------------------------Grid Padding Sequence
-        for (int i = 0; i < gridinCPnl.length; i++) {
+        for (int i = 0; i < gridinCPnl.length; i++)
+        {
             gridCPnl.add(gridinCPnl[i]);
-            if (i == 3) {
+            if (i == 3)
+            {
                 gridCPnl.add(CPnl);
             }
         }
@@ -100,7 +107,8 @@ public class LoginPanel extends JPanel {
         JPanel north = new JPanel();
         north.setLayout(new GridLayout(4, 1));
         JLabel[] jlbl = new JLabel[4];
-        for (int i = 0; i < jlbl.length; i++) {
+        for (int i = 0; i < jlbl.length; i++)
+        {
             jlbl[i] = new JLabel(" ");
             north.add(jlbl[i]);
         }
@@ -109,27 +117,33 @@ public class LoginPanel extends JPanel {
         add(north, "North");
     }
 
-    public JButton getSubmit() {
+    public JButton getSubmit()
+    {
         return submit;
     }
 
-    public void setClickMe(JButton submit) {
+    public void setClickMe(JButton submit)
+    {
         this.submit = submit;
     }
 
-    public JTextField getUser() {
+    public JTextField getUser()
+    {
         return user;
     }
 
-    public void setUser(JTextField user) {
+    public void setUser(JTextField user)
+    {
         this.user = user;
     }
 
-    public JTextField getPass() {
+    public JTextField getPass()
+    {
         return pass;
     }
 
-    public void setPass(JTextField pass) {
+    public void setPass(JTextField pass)
+    {
         this.pass = pass;
     }
 }

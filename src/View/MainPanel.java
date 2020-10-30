@@ -41,7 +41,6 @@ public class MainPanel extends JPanel
 
         image1 = (new ImageIcon("Images/FoodBackground.jpg")).getImage();
         ImageIcon icon1 = new ImageIcon("Images/FoodBackground.jpg");
-        
 
         b1 = new JButton("Recipes");
         b1.setAlignmentY(CENTER_ALIGNMENT);
@@ -114,8 +113,6 @@ public class MainPanel extends JPanel
     {
         this.b4 = b4;
     }
-    
-    
 
     @Override
     protected void paintComponent(Graphics g)

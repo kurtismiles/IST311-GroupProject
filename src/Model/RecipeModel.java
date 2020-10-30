@@ -9,6 +9,7 @@ package Model;
  *
  * @author Kurtis
  */
-public class RecipeModel {
-    
+public class RecipeModel
+{
+
 }

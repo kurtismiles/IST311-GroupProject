@@ -16,30 +16,30 @@ import java.awt.event.ActionListener;
  */
 public class StarterControl
 {
+
     private StarterView view;
     private StarterModel model;
-    
     private RecipeController recipeControl;
-    
-   
+
     public StarterControl()
     {
         //empty constructor
     }
-    
+
     public StarterControl(StarterModel model, StarterView view)
     {
         this.model = model;
         this.view = view;
 
         view.updatePanel(view.getLoginPanel());
-        
+
         addListeners();
     }
-    
+
     void addListeners()
     {
-        view.getLoginPanel().getSubmit().addActionListener(new ActionListener() {
+        view.getLoginPanel().getSubmit().addActionListener(new ActionListener()
+        {
             @Override
             public void actionPerformed(ActionEvent ae)
             {
@@ -47,33 +47,43 @@ public class StarterControl
                 authorize(view.getLoginPanel().getUser().getText(), view.getLoginPanel().getPass().getText());
             }
         });
-        
+
         //MainPanel Recipe Button Listener
-        view.getMainPanel().getB1().addActionListener(new ActionListener() {
+        view.getMainPanel().getB1().addActionListener(new ActionListener()
+        {
             @Override
-            public void actionPerformed(ActionEvent ae) {
-                
+            public void actionPerformed(ActionEvent ae)
+            {
+
                 //passes control to RecipeController
                 recipeControl = new RecipeController(view.getMainFrame());
-                
+
                 //back button listener in RecipePanel
-                recipeControl.getView().getRecipePanel().getBackButton().addActionListener(new ActionListener() {
+                recipeControl.getView().getRecipePanel().getBackButton().addActionListener(new ActionListener()
+                {
                     @Override
-                    public void actionPerformed(ActionEvent ae) {
-                       view.getMainFrame().updateFrame(view.getMainPanel());
+                    public void actionPerformed(ActionEvent ae)
+                    {
+                        view.getMainFrame().updateFrame(view.getMainPanel());
                     }
                 });
-                
+
+                recipeControl.getView().getRecipePanel().getCreateButton().addActionListener(new ActionListener()
+                {
+                    @Override
+                    public void actionPerformed(ActionEvent ae)
+                    {
+                        
+
+                    }
+
+                });
+
             }
         });
-        
-        
-        
-        
-        
-        
+
     }
-    
+
     void authorize(String username, String password)
     {
         boolean match = model.Authorize(username, password);
@@ -81,8 +91,7 @@ public class StarterControl
         {
             view.updatePanel(view.getMainPanel());
             System.out.println("Authoization Success. Taking you to new Panel");
-        }
-        else
+        } else
         {
             System.out.println("Authorization Failed. Try Again");
         }

@@ -11,13 +11,13 @@ import java.io.FileOutputStream;
 import javax.swing.JButton;
 import javax.swing.JPanel;
 
-
 /**
  *
  * @author fredfonseca
  */
 public abstract class XML
 {
+
     XMLEncoder xe;
     XMLDecoder de;
 
