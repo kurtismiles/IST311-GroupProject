@@ -22,8 +22,8 @@ public class LoginPanel extends JPanel {
 //------------------------------
         setLayout(new BorderLayout());
         //setBackground(Color.darkGray);   //loading tester
-        user = new JTextField("", 30);
-        pass = new JTextField("", 30);
+        user = new JTextField("Sam@yahoo.com", 30);  //remove login info later
+        pass = new JTextField("Puppies", 30);
         JLabel userlbl = new JLabel("Username:");
         JLabel passlbl = new JLabel("Password: ");
         submit = new JButton("Submit");
