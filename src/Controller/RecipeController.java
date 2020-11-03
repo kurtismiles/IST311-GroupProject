@@ -20,18 +20,17 @@ public class RecipeController {
     
     private RecipeModel model;
     private RecipeView view;
-    private MainFrame frame;
     private RecipePop popup;
     
-    public RecipeController(MainFrame currentFrame)
+    public RecipeController(){}
+    
+    public RecipeController(RecipeModel model, RecipeView view)
     {
-        model = new RecipeModel();
-        view = new RecipeView(currentFrame);
-        
-        view.updatePanel(view.getRecipePanel());
-        
+        this.model = model;
+        this.view = view;
         addListeners();
-       
+        
+        view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine(), model.getRecipeData().getLastLine());
     }
     
     /**
@@ -62,20 +61,6 @@ public class RecipeController {
         this.view = view;
     }
 
-    /**
-     * @return the frame
-     */
-    public MainFrame getFrame() {
-        return frame;
-    }
-
-    /**
-     * @param frame the frame to set
-     */
-    public void setFrame(MainFrame frame) {
-        this.frame = frame;
-    }
-    
     void addListeners()
     {     
         view.getRecipePanel().getCreateButton().addActionListener(new ActionListener()
@@ -94,6 +79,9 @@ public class RecipeController {
                                 {
                                     model.writeRecipe(new Recipe(popup.getNameText().getText(), popup.getDescriptionText().getText(), popup.getIngredientText().getText(), popup.getTagsText().getText()));      
                                     popup.dispose();
+                                    
+                                    view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine(), model.getRecipeData().getLastLine());
+                                    
                                 }
                                 //error message if one of the fields are empty
                                 else
@@ -102,11 +90,8 @@ public class RecipeController {
                                 }
                                 
                             }
-                        });
-                        
-                        
+                        });     
                     }
-            
         }
         );
           

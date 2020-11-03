@@ -13,26 +13,13 @@ import javax.swing.JPanel;
  */
 public class StarterView
 {
-
-    private MainFrame mainFrame;
     private LoginPanel loginPanel;
     private MainPanel mainPanel;
 
     public StarterView()
     {
-        mainFrame = new MainFrame();
         loginPanel = new LoginPanel();
         mainPanel = new MainPanel();
-    }
-
-    public MainFrame getMainFrame()
-    {
-        return mainFrame;
-    }
-
-    public void setMainFrame(MainFrame inputFrame)
-    {
-        this.mainFrame = inputFrame;
     }
 
     public LoginPanel getLoginPanel()
@@ -55,8 +42,4 @@ public class StarterView
         this.mainPanel = inputMain;
     }
 
-    public void updatePanel(JPanel updatePanel)
-    {
-        mainFrame.updateFrame(updatePanel);
-    }
 }

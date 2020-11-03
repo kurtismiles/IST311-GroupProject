@@ -8,6 +8,9 @@ package Model;
 import java.beans.XMLEncoder;
 import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 
 /**
  *
@@ -20,7 +23,7 @@ public class RecipeModel
     
     public RecipeModel()
     {
-        recipeData = new RecipeList();
+        recipeData = new RecipeList();    
     }
 
     /**
@@ -41,19 +44,18 @@ public class RecipeModel
     
     public void writeRecipe(Recipe input)
     {
-        System.out.println(input);
-        
-        try
-        {
-           XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("recipes.xml")));
-           xe.writeObject(input);
-           xe.close();
-           
-        } catch (Exception xx)
-        {
-            xx.printStackTrace();
-        }
+        recipeData.addRecipe(input);
+        recipeData.saveXMLList();
+        refreshRecipeList();
     }
+    
+    public void removeRecipe(Recipe input)
+    {
+        recipeData.removeRecipe(input);
+        recipeData.saveXMLList();
+        refreshRecipeList();
+    }
+    
     
     public void refreshRecipeList()
     {

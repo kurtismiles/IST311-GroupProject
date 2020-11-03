@@ -1,17 +1,85 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <java version="1.8.0_111" class="java.beans.XMLDecoder">
- <object class="Model.Recipe">
-  <void property="description">
-   <string>apples</string>
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>This recipe makes apple pie</string>
+    </void>
+    <void property="ingredients">
+     <string>Apples, Sugar, Butter, Pie Crust</string>
+    </void>
+    <void property="name">
+     <string>Apple Pie</string>
+    </void>
+    <void property="tags">
+     <string>#pie</string>
+    </void>
+   </object>
   </void>
-  <void property="ingredients">
-   <string>apples</string>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>This recipe makes Pumpkin Pie</string>
+    </void>
+    <void property="ingredients">
+     <string>Pumpkin, Butter, Sugar, Pie Crust</string>
+    </void>
+    <void property="name">
+     <string>Pumpkin Pie</string>
+    </void>
+    <void property="tags">
+     <string>#pie</string>
+    </void>
+   </object>
   </void>
-  <void property="name">
-   <string>apples</string>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>This is just apples</string>
+    </void>
+    <void property="ingredients">
+     <string>apples</string>
+    </void>
+    <void property="name">
+     <string>More Apples</string>
+    </void>
+    <void property="tags">
+     <string>#apples</string>
+    </void>
+   </object>
   </void>
-  <void property="tags">
-   <string>apples</string>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>test</string>
+    </void>
+    <void property="ingredients">
+     <string>test</string>
+    </void>
+    <void property="name">
+     <string>Testing</string>
+    </void>
+    <void property="tags">
+     <string>test</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>Testing</string>
+    </void>
+    <void property="ingredients">
+     <string>testing</string>
+    </void>
+    <void property="name">
+     <string>Testing2</string>
+    </void>
+    <void property="tags">
+     <string>testing</string>
+    </void>
+   </object>
   </void>
  </object>
 </java>
