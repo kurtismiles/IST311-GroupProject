@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="1.8.0_111" class="java.beans.XMLDecoder">
+ <object class="Model.Recipe">
+  <void property="description">
+   <string>apples</string>
+  </void>
+  <void property="ingredients">
+   <string>apples</string>
+  </void>
+  <void property="name">
+   <string>apples</string>
+  </void>
+  <void property="tags">
+   <string>apples</string>
+  </void>
+ </object>
+</java>

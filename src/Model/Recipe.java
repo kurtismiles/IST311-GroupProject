@@ -18,7 +18,7 @@ public class Recipe
     
     public Recipe(){}
     
-    public Recipe(String name, String description, String tags, String ingredients)
+    public Recipe(String name, String description, String ingredients, String tags)
     {
         this.name = name;
         this.description = description;

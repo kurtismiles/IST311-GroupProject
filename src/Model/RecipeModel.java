@@ -5,14 +5,18 @@
  */
 package Model;
 
+import java.beans.XMLEncoder;
+import java.io.BufferedOutputStream;
+import java.io.FileOutputStream;
+
 /**
  *
  * @author Kurtis
  */
 public class RecipeModel
 {
+
     private RecipeList recipeData;
-    private XML xm;
     
     public RecipeModel()
     {
@@ -37,14 +41,23 @@ public class RecipeModel
     
     public void writeRecipe(Recipe input)
     {
-        xm.openWriterXML("recipelist.xml");
-        xm.writeObject(input);
-        xm.closeWriterXML();
+        System.out.println(input);
+        
+        try
+        {
+           XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("recipes.xml")));
+           xe.writeObject(input);
+           xe.close();
+           
+        } catch (Exception xx)
+        {
+            xx.printStackTrace();
+        }
     }
     
     public void refreshRecipeList()
     {
         recipeData = new RecipeList();
     }
-    
+
 }

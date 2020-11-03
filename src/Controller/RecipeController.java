@@ -5,12 +5,15 @@
  */
 package Controller;
 
+import Model.Recipe;
 import Model.RecipeModel;
 import View.RecipeView;
 import View.RecipePanel;
 import View.MainFrame;
+import View.RecipePop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.JOptionPane;
 
 
 public class RecipeController {
@@ -18,6 +21,7 @@ public class RecipeController {
     private RecipeModel model;
     private RecipeView view;
     private MainFrame frame;
+    private RecipePop popup;
     
     public RecipeController(MainFrame currentFrame)
     {
@@ -74,7 +78,38 @@ public class RecipeController {
     
     void addListeners()
     {     
-        
+        view.getRecipePanel().getCreateButton().addActionListener(new ActionListener()
+        {
+            @Override
+                    public void actionPerformed(ActionEvent ae)
+                    {
+                        popup = new RecipePop(); 
+                        
+                        popup.getCreateBtn().addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent ae)
+                            {   
+                                //checks to see if any RecipePop fields are empty
+                                if (!popup.getNameText().getText().isEmpty() && !popup.getDescriptionText().getText().isEmpty() && !popup.getIngredientText().getText().isEmpty() && !popup.getTagsText().getText().isEmpty())
+                                {
+                                    model.writeRecipe(new Recipe(popup.getNameText().getText(), popup.getDescriptionText().getText(), popup.getIngredientText().getText(), popup.getTagsText().getText()));      
+                                    popup.dispose();
+                                }
+                                //error message if one of the fields are empty
+                                else
+                                {
+                                    System.out.println("Error: placeholder error message");
+                                }
+                                
+                            }
+                        });
+                        
+                        
+                    }
+            
+        }
+        );
+          
     }
     
 }

@@ -15,6 +15,7 @@ import Model.StarterModel;
  */
 public class RecipeApp
 {
+
     /**
      * @param args the command line arguments
      */
@@ -23,7 +24,7 @@ public class RecipeApp
         StarterModel model = new StarterModel();
         StarterView view = new StarterView();
         StarterControl controller = new StarterControl(model, view);
-        
+
     }
-    
+
 }
