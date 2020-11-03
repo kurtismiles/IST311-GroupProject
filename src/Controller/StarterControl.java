@@ -67,17 +67,12 @@ public class StarterControl
                         view.getMainFrame().updateFrame(view.getMainPanel());
                     }
                 });
+                
+                
+                
+            
 
-                recipeControl.getView().getRecipePanel().getCreateButton().addActionListener(new ActionListener()
-                {
-                    @Override
-                    public void actionPerformed(ActionEvent ae)
-                    {
-                        
-
-                    }
-
-                });
+                
 
             }
         });

@@ -62,5 +62,17 @@ public class MainFrame extends JFrame
         repaint();
         validate();
     }
+    
+    public void updatePopUpFrame(JFrame updateFrame)
+    {
+        
+        add(currentPanel);
+        add(updateFrame);
+        repaint();
+        validate();
+    }
+    
+    
+    
 
 }

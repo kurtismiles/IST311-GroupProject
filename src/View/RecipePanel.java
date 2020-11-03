@@ -27,6 +27,12 @@ public class RecipePanel extends JPanel
         create = new JButton("create");
         add(create);
 
+    }
+    
+    public JFrame PopFrame()
+    {
+        
+        
         PopupFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         PopupFrame.setBounds(250, 100, 800, 400);
 
@@ -73,7 +79,12 @@ public class RecipePanel extends JPanel
         container.add(tagsText);
         container.add(createBtn);
         PopupFrame.setVisible(true);
+        
+        return PopupFrame;
     }
+
+    
+    
 
     /**
      * @return the back
@@ -110,5 +121,13 @@ public class RecipePanel extends JPanel
     {
         this.PopupFrame = PopupFrame;
     }
+    
+    
+    
+
+    
+    
+
+    
 
 }
