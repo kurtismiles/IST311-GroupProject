@@ -80,6 +80,7 @@ public class RecipeController {
             @Override
                     public void actionPerformed(ActionEvent ae)
                     {
+                        
                         view.getMainFrame().updatePopUpFrame(view.getRecipePanel().PopFrame());
                         
                     }

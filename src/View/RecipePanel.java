@@ -32,7 +32,6 @@ public class RecipePanel extends JPanel
     public JFrame PopFrame()
     {
         
-        
         PopupFrame.setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
         PopupFrame.setBounds(250, 100, 800, 400);
 
