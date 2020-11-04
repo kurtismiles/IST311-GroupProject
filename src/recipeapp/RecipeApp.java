@@ -5,9 +5,10 @@
  */
 package recipeapp;
 
-import Controller.StarterControl;
-import View.StarterView;
-import Model.StarterModel;
+
+import Controller.NavigationController;
+import Model.NavigationModel;
+import View.NavigationView;
 
 /**
  *
@@ -21,9 +22,9 @@ public class RecipeApp
      */
     public static void main(String[] args)
     {
-        StarterModel model = new StarterModel();
-        StarterView view = new StarterView();
-        StarterControl controller = new StarterControl(model, view);
+        NavigationModel model = new NavigationModel();
+        NavigationView view = new NavigationView();
+        NavigationController controller = new NavigationController(model, view);
 
     }
 
