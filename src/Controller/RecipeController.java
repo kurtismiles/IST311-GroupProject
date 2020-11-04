@@ -13,6 +13,7 @@ import View.MainFrame;
 import View.RecipePop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.*;
 import javax.swing.JOptionPane;
 
 
@@ -94,7 +95,29 @@ public class RecipeController {
                     }
         }
         );
-          
+        view.getRecipePanel().getSave().addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent ae)
+            {
+                
+            }
+        });
+        view.getRecipePanel().getDelete().addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent ae)
+            {
+                
+            }
+        });
+        view.getRecipePanel().getScroll().addMouseWheelListener(new MouseWheelListener()
+        {
+            public void mouseWheelMoved(MouseWheelEvent we)
+            {
+                int scroll = we.getUnitsToScroll();
+                System.out.println(scroll);
+                view.getRecipePanel().setScrollpos(scroll);
+            }
+        });
     }
     
 }
