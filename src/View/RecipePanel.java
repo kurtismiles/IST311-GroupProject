@@ -105,7 +105,6 @@ public class RecipePanel extends JPanel {
         jb = new JButton[5];
         for (int i = 0; i < jb.length; i++) {
         jb[i] = new JButton();
-        jb[i].setPreferredSize(new Dimension(100, 100));
         pos.gridy = i;
         dataPanel.add(jb[i], pos);
         }
