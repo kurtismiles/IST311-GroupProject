@@ -134,17 +134,36 @@ public class RecipePanel extends JPanel {
 
         int displayLine = firstLine;
 
-        if (recipeList.size() < 5) {
-            for (int i = 0; i < recipeList.size(); ++i) {
+//        if (recipeList.size() < 5) {
+//            for (int i = 0; i < recipeList.size(); ++i) {
+//                jb[i].setText(recipeList.get(i).getName());
+//            }
+//        } else {
+//
+//            for (int i = 0; i < 5; ++i) {
+//                jb[i].setText(recipeList.get(displayLine).getName());
+//                ++displayLine;
+//            }
+//        }
+        if (firstLine < 0) {
+            firstLine = 0;
+            lastLine = firstLine + jb.length;
+            for (int i = firstLine; i < lastLine; i++) {
+                jb[i].setText(recipeList.get(i).getName());
+            }
+        } else if (recipeList.size() < lastLine) {
+            lastLine = recipeList.size();
+            firstLine = lastLine - jb.length;
+            for (int i = firstLine; i < lastLine; i++) {
                 jb[i].setText(recipeList.get(i).getName());
             }
         } else {
+            for (int i = firstLine; i < lastLine + 1; i++) {
 
-            for (int i = 0; i < 5; ++i) {
-                jb[i].setText(recipeList.get(displayLine).getName());
-                ++displayLine;
+                jb[i].setText(recipeList.get(i).getName());
             }
         }
+        //System.out.printf("a" + firstLine + " " + "b" + lastLine + "\n");   //Testing
     }
 
     /**

@@ -109,13 +109,14 @@ public class RecipeController {
                 
             }
         });
-        view.getRecipePanel().getScroll().addMouseWheelListener(new MouseWheelListener()
+        view.getRecipePanel().addMouseWheelListener(new MouseWheelListener()
         {
             public void mouseWheelMoved(MouseWheelEvent we)
             {
                 int scroll = we.getUnitsToScroll();
-                System.out.println(scroll);
+                //System.out.println(scroll);
                 view.getRecipePanel().setScrollpos(scroll);
+                view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine()+scroll, model.getRecipeData().getLastLine()+scroll);
             }
         });
     }
