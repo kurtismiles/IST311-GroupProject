@@ -81,5 +81,21 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>Testin3</string>
+    </void>
+    <void property="ingredients">
+     <string>Testin3</string>
+    </void>
+    <void property="name">
+     <string>Testing3</string>
+    </void>
+    <void property="tags">
+     <string>#Testing3</string>
+    </void>
+   </object>
+  </void>
  </object>
 </java>

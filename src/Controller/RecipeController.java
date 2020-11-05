@@ -10,6 +10,7 @@ import Model.RecipeModel;
 import View.RecipeView;
 import View.RecipePanel;
 import View.MainFrame;
+import View.MenuPop;
 import View.RecipePop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -21,6 +22,7 @@ public class RecipeController {
     private RecipeModel model;
     private RecipeView view;
     private RecipePop popup;
+    private MenuPop menupop;
     
     public RecipeController(){}
     
@@ -68,7 +70,8 @@ public class RecipeController {
             @Override
                     public void actionPerformed(ActionEvent ae)
                     {
-
+                        popup = new RecipePop();
+                        
                         popup.getCreateBtn().addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent ae)
@@ -91,8 +94,26 @@ public class RecipeController {
                             }
                         });     
                     }
-        }
-        );
+        });
+        
+                
+        for(int i = 0; i < view.getRecipePanel().getJb().length; ++i)
+        {
+            view.getRecipePanel().getJb(i).addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent ae) {
+                    
+                    menupop = new MenuPop();
+                    
+                    
+                }
+            });
+        }        
+       
+        
+                
+                
+ 
           
     }
     

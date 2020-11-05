@@ -14,7 +14,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Kurtis
+ * @author Jordan
  */
 public class RecipePop extends JFrame
 {

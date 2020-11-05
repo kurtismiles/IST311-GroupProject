@@ -16,10 +16,11 @@ import javax.swing.*;
 
 public class RecipePanel extends JPanel {
 
+
     private JButton back;
     private JButton create;
     private JPanel dataPanel;
-    JButton[] jb;
+    private JButton[] jb;
     
     public RecipePanel() {
         
@@ -95,6 +96,29 @@ public class RecipePanel extends JPanel {
         this.create = create;
     }
     
+    /**
+     * @return the jb
+     */
+    public JButton[] getJb() {
+        return jb;
+    }
+    
+    /**
+     * @return the jb in jb[] at input
+     */
+    public JButton getJb(int input) {
+        return jb[input];
+    }
+
+    /**
+     * @param jb the jb to set
+     */
+    public void setJb(JButton[] jb) {
+        this.jb = jb;
+    }
+
+    
+    
     public void initializeDataPanel()
     {
         dataPanel = new JPanel();
@@ -103,11 +127,11 @@ public class RecipePanel extends JPanel {
         pos.ipadx = 400;
         pos.ipady = 70;
         
-        jb = new JButton[5];
-        for (int i = 0; i < jb.length; i++) {
-        jb[i] = new JButton();
+        setJb(new JButton[5]);
+        for (int i = 0; i < getJb().length; i++) {
+            getJb()[i] = new JButton();
         pos.gridy = i;
-        dataPanel.add(jb[i], pos);
+        dataPanel.add(getJb()[i], pos);
         }
         
     }
@@ -121,14 +145,14 @@ public class RecipePanel extends JPanel {
         {
             for (int i = 0; i < recipeList.size(); ++i)
             {
-            jb[i].setText(recipeList.get(i).getName()); 
+                getJb()[i].setText(recipeList.get(i).getName()); 
             }
         } else 
         {
                     
         for (int i = 0; i < 5 ; ++i)
         {
-            jb[i].setText(recipeList.get(displayLine).getName());
+                getJb()[i].setText(recipeList.get(displayLine).getName());
             ++displayLine;
         }
         }    

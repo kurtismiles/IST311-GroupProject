@@ -27,9 +27,9 @@ public class MenuPop extends JFrame
     private JLabel ingredientMenu;
     private JLabel tagsMenu;
   
-    public MenuPop()
+    public MenuPop(Recipe recipeInput)
     {
-        readRecipe = new Recipe();
+        this.readRecipe = recipeInput;
         
         
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
