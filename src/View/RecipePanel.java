@@ -66,7 +66,9 @@ public class RecipePanel extends JPanel {
         //---------------------------Final
         add(ip[0]);
         add(create);
+        
     }
+    
     /**
      * @return the back
      */

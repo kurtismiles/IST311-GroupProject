@@ -37,8 +37,6 @@ public class RecipePop extends JFrame
 
         setLayout(null);
 
-        //JLabel logo = new JLabel("Create a New Recipe");
-        //logo.setBounds(350,5,250,30);
         JLabel name_label = new JLabel("Recipe Name :");
         name_label.setBounds(90, 30, 250, 30);
 
