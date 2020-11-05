@@ -68,8 +68,7 @@ public class RecipeController {
             @Override
                     public void actionPerformed(ActionEvent ae)
                     {
-                        popup = new RecipePop(); 
-                        
+
                         popup.getCreateBtn().addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent ae)
