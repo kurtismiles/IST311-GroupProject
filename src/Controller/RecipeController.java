@@ -104,6 +104,7 @@ public class RecipeController {
                             }
                         });     
                     }
+
         });
             
         //Action Listener for JButtons in RecipePanel
@@ -199,6 +200,7 @@ public class RecipeController {
                 }
             }
         });
+
     }
     
 }

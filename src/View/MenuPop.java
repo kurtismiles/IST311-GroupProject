@@ -1,10 +1,15 @@
 package View;
 
 import Model.Recipe;
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.awt.Image;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.ImageIcon;
 
 
 /**
@@ -13,56 +18,22 @@ import javax.swing.JTextField;
  */
 public class MenuPop extends JFrame
 {
+    private Recipe readRecipe;
+    private MenuPopPanel popPanel;
     
-    private Recipe readRecipe;  
-    private JLabel logo;
-    
-    private JLabel descriptionMenu;
-    private JLabel ingredientMenu;
-    private JLabel tagsMenu;
-  
     public MenuPop()
     {}
-    
-    
+     
     public MenuPop(Recipe recipeInput)
     {
         this.readRecipe = recipeInput;
-        
+        popPanel = new MenuPopPanel(readRecipe);
         
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(250, 100, 800, 400);
-
-        setLayout(null);
+        setBackground(Color.BLUE);
         
-        JLabel logo = new JLabel(recipeInput.getName());
-        logo.setBounds(350,5,250,30);
-        
-        JLabel menuDescription_label = new JLabel("Description: ");
-        menuDescription_label.setBounds(90, 30, 250, 30);
-
-        JLabel menuIngredient_label = new JLabel("Ingredients: ");
-        menuIngredient_label.setBounds(90, 80, 250, 30);
-
-        JLabel menuTags_label = new JLabel("Tags: ");
-        menuTags_label.setBounds(90, 130, 250, 30);
-        
-        descriptionMenu = new JLabel(recipeInput.getDescription());
-        descriptionMenu.setBounds(220, 30, 490, 30);
-        
-        ingredientMenu = new JLabel(recipeInput.getIngredients());
-        ingredientMenu.setBounds(220, 80, 490, 30);
-        
-        tagsMenu = new JLabel(recipeInput.getTags());
-        tagsMenu.setBounds(220, 130, 490, 30);
-        
-        add(logo);
-        add(menuDescription_label);
-        add(menuIngredient_label);
-        add(menuTags_label);
-        add(descriptionMenu);
-        add(ingredientMenu);
-        add(tagsMenu);
+        add(popPanel);
         setVisible(true);
         
     }
@@ -75,53 +46,5 @@ public class MenuPop extends JFrame
     public void setReadRecipe(Recipe readRecipe)
     {
         this.readRecipe = readRecipe;
-    }
-
-    public JLabel getLogo()
-    {
-        return logo;
-    }
-
-    public void setLogo(JLabel logo)
-    {
-        this.logo = logo;
-    }
-
-    public JLabel getDescriptionMenu()
-    {
-        return descriptionMenu;
-    }
-
-    public void setDescriptionMenu(JLabel descriptionMenu)
-    {
-        this.descriptionMenu = descriptionMenu;
-    }
-
-    public JLabel getIngredientMenu()
-    {
-        return ingredientMenu;
-    }
-
-    public void setIngredientMenu(JLabel ingredientMenu)
-    {
-        this.ingredientMenu = ingredientMenu;
-    }
-
-    public JLabel getTagsMenu()
-    {
-        return tagsMenu;
-    }
-
-    public void setTagsMenu(JLabel tagsMenu)
-    {
-        this.tagsMenu = tagsMenu;
-    }
-    
-    
-    
-    
-    
-    
-    
-    
+    }    
 }
