@@ -14,6 +14,7 @@ import View.MenuPop;
 import View.RecipePop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.*;
 import javax.swing.JOptionPane;
 
 
@@ -95,15 +96,14 @@ public class RecipeController {
                         });     
                     }
         });
-        
-                
+                   
         for(int i = 0; i < view.getRecipePanel().getJb().length; ++i)
         {
             view.getRecipePanel().getJb(i).addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
                     
-                    menupop = new MenuPop();
+//                    menupop = new MenuPop();
                     
                     
                 }
@@ -111,10 +111,34 @@ public class RecipeController {
         }        
        
         
+        view.getRecipePanel().getSave().addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent ae)
+            {
+                
+            }
+        });
+        view.getRecipePanel().getDelete().addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent ae)
+            {
+                
+            }
+        });
+        view.getRecipePanel().addMouseWheelListener(new MouseWheelListener()
+        {
+            public void mouseWheelMoved(MouseWheelEvent we)
+            {
+                int scroll = we.getUnitsToScroll();
+                System.out.println(scroll);
+                view.getRecipePanel().setScrollpos(scroll);
                 
                 
- 
-          
+                
+                
+                view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine()+scroll, model.getRecipeData().getLastLine()+scroll);
+            }
+        });
     }
     
 }
