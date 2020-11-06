@@ -113,10 +113,47 @@ public class RecipeController {
         {
             public void mouseWheelMoved(MouseWheelEvent we)
             {
-                int scroll = we.getUnitsToScroll();
-                //System.out.println(scroll);
+                int scroll;
+                if(we.getUnitsToScroll() > 0)
+                {
+                    scroll = 1;
+                }
+                else
+                {
+                    scroll = -1;
+                }
+                
+                
+                
+                
+                
+                System.out.println(scroll);
                 view.getRecipePanel().setScrollpos(scroll);
-                view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine()+scroll, model.getRecipeData().getLastLine()+scroll);
+                if (model.getRecipeData().getFirstLine()+scroll < 0)
+                {
+                    System.out.println("Tooo far up");
+//                    firstLine = 0;
+//                    lastLine = firstLine + jb.length;
+                }
+                else if (model.getRecipeData().getLastLine()+scroll >= model.getRecipeData().getRecipeList().size())
+                {
+                    System.out.println("Tooo far down "+ model.getRecipeData().getLastLine());
+//                    lastLine = recipeList.size();
+//                    firstLine = lastLine - jb.length;
+                } else
+                {
+                    if(scroll > 0)
+                    {
+                        model.getRecipeData().setFirstLine(model.getRecipeData().getFirstLine()+1);
+                        model.getRecipeData().setLastLine(model.getRecipeData().getLastLine()+1);
+                    }
+                    else
+                    {
+                       model.getRecipeData().setFirstLine(model.getRecipeData().getFirstLine()-1);
+                        model.getRecipeData().setLastLine(model.getRecipeData().getLastLine()-1); 
+                    }
+                    view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine(), model.getRecipeData().getLastLine());
+                }
             }
         });
     }
