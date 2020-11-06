@@ -3,13 +3,16 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package View;
+package Model;
 
 /**
  *
- * @author jordan
+ * @author Kurtis
  */
-class panel
-{
+public class NavigationModel {
+    
+    public NavigationModel()
+    {
+    }
     
 }

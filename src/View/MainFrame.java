@@ -15,19 +15,21 @@ import javax.swing.*;
  */
 public class MainFrame extends JFrame
 {
-        private JPanel currentPanel;
-    
-        public MainFrame()
-        {   
+
+    private JPanel currentPanel;
+
+    public MainFrame()
+    {
         super("Recipe Application");
         setupLayoutForMacs();
         currentPanel = new JPanel();
         add(currentPanel);
         //------------------------------------------------------
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1280, 720);
+        setSize(1920, 1080);
+
         setVisible(true);
-        }
+    }
 
     private void setupLayoutForMacs()
     {
@@ -43,17 +45,16 @@ public class MainFrame extends JFrame
         //------------------------------------------------------
     }
 
-    
     public JPanel getCurrentPanel()
     {
         return currentPanel;
     }
-    
+
     public void setCurrentPanel(JPanel inputPanel)
     {
         this.currentPanel = inputPanel;
     }
-    
+
     public void updateFrame(JPanel updatePanel)
     {
         remove(currentPanel);
@@ -62,7 +63,4 @@ public class MainFrame extends JFrame
         repaint();
         validate();
     }
-    
-
-   
 }

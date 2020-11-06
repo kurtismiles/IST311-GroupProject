@@ -18,73 +18,44 @@ public class StarterControl
 {
     private StarterView view;
     private StarterModel model;
-    
-    private RecipeController recipeControl;
-    
-   
+
     public StarterControl()
     {
         //empty constructor
     }
-    
+
     public StarterControl(StarterModel model, StarterView view)
     {
         this.model = model;
         this.view = view;
 
-        view.updatePanel(view.getLoginPanel());
-        
-        addListeners();
     }
-    
-    void addListeners()
-    {
-        view.getLoginPanel().getSubmit().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae)
-            {
-                System.out.println();
-                authorize(view.getLoginPanel().getUser().getText(), view.getLoginPanel().getPass().getText());
-            }
-        });
-        
-        //MainPanel Recipe Button Listener
-        view.getMainPanel().getB1().addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                
-                //passes control to RecipeController
-                recipeControl = new RecipeController(view.getMainFrame());
-                
-                //back button listener in RecipePanel
-                recipeControl.getView().getRecipePanel().getBackButton().addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent ae) {
-                       view.getMainFrame().updateFrame(view.getMainPanel());
-                    }
-                });
-                
-            }
-        });
-        
-        
-        
-        
-        
-        
+
+    /**
+     * @return the view
+     */
+    public StarterView getView() {
+        return view;
     }
-    
-    void authorize(String username, String password)
-    {
-        boolean match = model.Authorize(username, password);
-        if (match)
-        {
-            view.updatePanel(view.getMainPanel());
-            System.out.println("Authoization Success. Taking you to new Panel");
-        }
-        else
-        {
-            System.out.println("Authorization Failed. Try Again");
-        }
+
+    /**
+     * @param view the view to set
+     */
+    public void setView(StarterView view) {
+        this.view = view;
+    }
+
+    /**
+     * @return the model
+     */
+    public StarterModel getModel() {
+        return model;
+    }
+
+    /**
+     * @param model the model to set
+     */
+    public void setModel(StarterModel model) {
+        this.model = model;
     }
 }
