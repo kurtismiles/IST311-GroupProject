@@ -20,8 +20,7 @@ import java.util.ArrayList;
 public class RecipeList
 {
     private ArrayList<Recipe> recipeList;
-    
-    
+   
     private int totalLines;
     private int firstLine;
     private int lastLine;
@@ -36,44 +35,6 @@ public class RecipeList
        firstLine = 0;
        lastLine = 4;
        
-    }
-    
-    void loadXMLList()
-    {          
-        try
-        {
-          XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("recipes.xml")));
-            setRecipeList((ArrayList<Recipe>) de.readObject());
-          de.close();
-                
-        } catch (Exception xx)
-        {
-            xx.printStackTrace();
-        }
-    }
-    
-    void saveXMLList()
-    {
-        try
-        {
-          XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("recipes.xml")));
-          xe.writeObject(getRecipeList());
-          xe.close();
-                
-        } catch (Exception xx)
-        {
-            xx.printStackTrace();
-        }
-    }
-
-    public void addRecipe(Recipe input)
-    {
-        getRecipeList().add(input);
-    }
-      
-    public void removeRecipe(Recipe input)
-    {
-        getRecipeList().remove(input);
     }
 
     /**
@@ -132,8 +93,47 @@ public class RecipeList
         this.lastLine = lastLine;
     }
     
+    //retreives recipeList ArrayList from recipes.xml
+    void loadXMLList()
+    {          
+        try
+        {
+          XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("recipes.xml")));
+            setRecipeList((ArrayList<Recipe>) de.readObject());
+          de.close();
+                
+        } catch (Exception xx)
+        {
+            xx.printStackTrace();
+        }
+    }
     
-    
-    
-    
+    //saves recipeList ArrayList to recipes.xml
+    void saveXMLList()
+    {
+        try
+        {
+          XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("recipes.xml")));
+          xe.writeObject(getRecipeList());
+          xe.close();
+                
+        } catch (Exception xx)
+        {
+            xx.printStackTrace();
+        }
+    }
+         
+    //adds a new recipe to RecipeList ArrayList
+    public void addRecipe(Recipe input)
+    {
+        getRecipeList().add(input);
+    }
+      
+    //removes a recipe from RecipeList ArrayList
+    public void removeRecipe(Recipe input)
+    {
+        getRecipeList().remove(input);
+    }
+
+
 }

@@ -28,6 +28,7 @@ public class StarterModel
 
     }
 
+    //tests the input to see if it matches any username&password combo in accounts map
     public boolean Authorize(String inputUsername, String inputPassword)
     {
         if (accounts.containsKey(inputUsername))

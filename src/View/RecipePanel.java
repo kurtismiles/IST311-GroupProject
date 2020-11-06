@@ -191,8 +191,7 @@ public class RecipePanel extends JPanel {
         g.drawImage(background, 0, 0, null);
     }
 
-    
-    
+    //initializes the jb JButton array
     public void initializeDataPanel() {
         dataPanel = new JPanel();
         dataPanel.setLayout(new GridBagLayout());
@@ -206,7 +205,9 @@ public class RecipePanel extends JPanel {
         }
 
     }
-
+    
+    
+    //updates the jb JButton array with data from recipeList starting on position firstLine
     public void updateDataPanel(ArrayList<Recipe> recipeList, int firstLine) {
 
         int displayLine = firstLine;
@@ -220,7 +221,7 @@ public class RecipePanel extends JPanel {
         } else 
         {
                     
-        for (int i = 0; i < 5 ; ++i)
+        for (int i = 0; i < jb.length ; ++i)
         {
             jb[i].setText(recipeList.get(displayLine).getName());
             ++displayLine;
