@@ -24,6 +24,7 @@ public class StarterModel
         accounts.put("Ben@yahoo.com", "Puppies");
         accounts.put("Meg@yahoo.com", "Puppies");
         accounts.put("Tim@yahoo.com", "Puppies");
+        accounts.put("test", "test");
 
     }
 

@@ -15,6 +15,7 @@ import View.RecipePop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.*;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 
@@ -33,7 +34,7 @@ public class RecipeController {
         this.view = view;
         addListeners();
         
-        view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine(), model.getRecipeData().getLastLine());
+        view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine());
     }
     
     /**
@@ -83,7 +84,7 @@ public class RecipeController {
                                     model.writeRecipe(new Recipe(popup.getNameText().getText(), popup.getDescriptionText().getText(), popup.getIngredientText().getText(), popup.getTagsText().getText()));      
                                     popup.dispose();
                                     
-                                    view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine(), model.getRecipeData().getLastLine());
+                                    view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine());
                                     
                                 }
                                 //error message if one of the fields are empty
@@ -99,17 +100,30 @@ public class RecipeController {
                    
         for(int i = 0; i < view.getRecipePanel().getJb().length; ++i)
         {
+            
+            
+            
+            
             view.getRecipePanel().getJb(i).addActionListener(new ActionListener() {
                 @Override
                 public void actionPerformed(ActionEvent ae) {
                     
-//                    menupop = new MenuPop();
+                    JButton currentButton = (JButton) ae.getSource();
                     
-                    
+                    int position = 0;
+                    for (int j = 0; j < view.getRecipePanel().getJb().length; ++j)
+                    {
+                        if (view.getRecipePanel().getJb(j).equals(currentButton))
+                        {
+                            position = j;
+                            break;
+                        }
+                    }
+
+                    menupop = new MenuPop(model.getRecipeData().getRecipeList().get(model.getRecipeData().getFirstLine() + position));   
                 }
             });
-        }        
-       
+        }   
         
         view.getRecipePanel().getSave().addActionListener(new ActionListener()
         {
@@ -129,14 +143,38 @@ public class RecipeController {
         {
             public void mouseWheelMoved(MouseWheelEvent we)
             {
-                int scroll = we.getUnitsToScroll();
-                System.out.println(scroll);
+                int scroll;
+                if(we.getUnitsToScroll() > 0)
+                {
+                    scroll = 1;
+                }
+                else
+                {
+                    scroll = -1;
+                }
+                
                 view.getRecipePanel().setScrollpos(scroll);
-                
-                
-                
-                
-                view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine()+scroll, model.getRecipeData().getLastLine()+scroll);
+                if (model.getRecipeData().getFirstLine()+scroll < 0)
+                {
+                    //Do not scroll
+                }
+                else if (model.getRecipeData().getLastLine()+scroll >= model.getRecipeData().getRecipeList().size())
+                {
+                    //Do not scroll
+                } else
+                {
+                    if (scroll > 0)
+                    {
+                        model.getRecipeData().setFirstLine(model.getRecipeData().getFirstLine()+1);
+                        model.getRecipeData().setLastLine(model.getRecipeData().getLastLine()+1);
+                    }
+                    else
+                    {
+                       model.getRecipeData().setFirstLine(model.getRecipeData().getFirstLine()-1);
+                       model.getRecipeData().setLastLine(model.getRecipeData().getLastLine()-1); 
+                    }
+                    view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine());
+                }
             }
         });
     }

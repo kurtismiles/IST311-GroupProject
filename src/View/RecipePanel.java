@@ -21,6 +21,7 @@ public class RecipePanel extends JPanel {
     private JButton create;
     private JButton delete, save;
     private JScrollBar scroll;
+    private Image background;
 
     private JPanel dataPanel;
     JButton[] jb;
@@ -28,6 +29,8 @@ public class RecipePanel extends JPanel {
 
     public RecipePanel() {
 
+        background = (new ImageIcon("Images/RecipePanelBackground.png")).getImage();
+        
         setLayout(new GridBagLayout());
         JPanel ip[] = new JPanel[4];
         GridBagConstraints gbc[] = new GridBagConstraints[2];
@@ -180,6 +183,15 @@ public class RecipePanel extends JPanel {
         this.scroll.setValue(this.scroll.getValue() + pos);
     }
     
+       
+    @Override
+    protected void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+        g.drawImage(background, 0, 0, null);
+    }
+
+    
     
     public void initializeDataPanel() {
         dataPanel = new JPanel();
@@ -195,40 +207,26 @@ public class RecipePanel extends JPanel {
 
     }
 
-    public void updateDataPanel(ArrayList<Recipe> recipeList, int firstLine, int lastLine) {
+    public void updateDataPanel(ArrayList<Recipe> recipeList, int firstLine) {
 
-//        if (recipeList.size() < 5) {
-//            for (int i = 0; i < recipeList.size(); ++i) {
-//                jb[i].setText(recipeList.get(i).getName());
-//            }
-//        } else {
-//
-//            for (int i = 0; i < 5; ++i) {
-//                jb[i].setText(recipeList.get(displayLine).getName());
-//                ++displayLine;
-//            }
-//        }
-
-
-        if (firstLine < 0) {
-            firstLine = 0;
-            lastLine = firstLine + jb.length;
-            for (int i = firstLine; i < lastLine; i++) {
-                jb[i].setText(recipeList.get(i).getName());
+        int displayLine = firstLine;
+        
+        if (recipeList.size() < 5)
+        {
+            for (int i = 0; i < recipeList.size(); ++i)
+            {
+                jb[i].setText(recipeList.get(i).getName()); 
             }
-        } else if (recipeList.size() < lastLine) {
-            lastLine = recipeList.size();
-            firstLine = lastLine - jb.length;
-            for (int i = firstLine; i < lastLine; i++) {
-                jb[i].setText(recipeList.get(i).getName());
-            }
-        } else {
-            for (int i = firstLine; i < lastLine + 1; i++) {
-
-                jb[i].setText(recipeList.get(i).getName());
-            }
+        } else 
+        {
+                    
+        for (int i = 0; i < 5 ; ++i)
+        {
+            jb[i].setText(recipeList.get(displayLine).getName());
+            ++displayLine;
         }
-        System.out.printf("a" + firstLine + " " + "b" + lastLine + "\n");   //Testing
+        }    
+
     }
 
 }

@@ -27,6 +27,10 @@ public class MenuPop extends JFrame
     private JLabel ingredientMenu;
     private JLabel tagsMenu;
   
+    public MenuPop()
+    {}
+    
+    
     public MenuPop(Recipe recipeInput)
     {
         this.readRecipe = recipeInput;
@@ -37,25 +41,25 @@ public class MenuPop extends JFrame
 
         setLayout(null);
         
-        JLabel logo = new JLabel("Recipe Name");
+        JLabel logo = new JLabel(recipeInput.getName());
         logo.setBounds(350,5,250,30);
         
-        JLabel menuDescription_label = new JLabel("Description");
+        JLabel menuDescription_label = new JLabel("Description: ");
         menuDescription_label.setBounds(90, 30, 250, 30);
 
-        JLabel menuIngredient_label = new JLabel("Ingredients");
+        JLabel menuIngredient_label = new JLabel("Ingredients: ");
         menuIngredient_label.setBounds(90, 80, 250, 30);
 
-        JLabel menuTags_label = new JLabel("Tags");
+        JLabel menuTags_label = new JLabel("Tags: ");
         menuTags_label.setBounds(90, 130, 250, 30);
         
-        descriptionMenu = new JLabel();
+        descriptionMenu = new JLabel(recipeInput.getDescription());
         descriptionMenu.setBounds(220, 30, 490, 30);
         
-        ingredientMenu = new JLabel();
+        ingredientMenu = new JLabel(recipeInput.getIngredients());
         ingredientMenu.setBounds(220, 80, 490, 30);
         
-        tagsMenu = new JLabel();
+        tagsMenu = new JLabel(recipeInput.getTags());
         tagsMenu.setBounds(220, 130, 490, 30);
         
         add(logo);
