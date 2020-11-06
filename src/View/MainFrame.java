@@ -26,7 +26,8 @@ public class MainFrame extends JFrame
         add(currentPanel);
         //------------------------------------------------------
         setDefaultCloseOperation(EXIT_ON_CLOSE);
-        setSize(1280, 720);
+        setSize(1920, 1080);
+
         setVisible(true);
     }
 
