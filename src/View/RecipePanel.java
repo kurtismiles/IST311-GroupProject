@@ -16,7 +16,6 @@ import javax.swing.*;
 
 public class RecipePanel extends JPanel {
 
-
     private JButton back;
     private JButton create;
     private JButton delete, save;
@@ -26,13 +25,12 @@ public class RecipePanel extends JPanel {
     private JPanel dataPanel;
     JButton[] jb;
 
-
     public RecipePanel() {
 
         background = (new ImageIcon("Images/RecipePanelBackground.png")).getImage();
-        
+
         setLayout(new GridBagLayout());
-        JPanel ip[] = new JPanel[4];
+        JPanel ip[] = new JPanel[6];
         GridBagConstraints gbc[] = new GridBagConstraints[2];
         for (int i = 0; i < ip.length; i++) {
             ip[i] = new JPanel();
@@ -42,15 +40,9 @@ public class RecipePanel extends JPanel {
         }
         //---------------------------Inner Panel Layouts
         ip[0].setLayout(new GridBagLayout());
-        //---------------------------Back Button
+        //---------------------------Initialize Back+Create Button
         back = new JButton("back");
         create = new JButton("Create");
-        gbc[0].gridx = 1;
-        gbc[0].gridy = 0;
-        gbc[0].ipadx = 20;
-        gbc[0].ipady = 20;
-        ip[0].add(back, gbc[0]);
-        gbc[0] = new GridBagConstraints();
         //---------------------------IP 2
         initializeDataPanel();
         dataPanel.setBackground(Color.orange);
@@ -62,14 +54,25 @@ public class RecipePanel extends JPanel {
         this.scroll = new JScrollBar();
         ip[1].add(this.scroll, "East");
         ip[1].add(dataPanel, "Center");
+        //---------------------------IP 5
+        gbc[0].gridx = 0;
+        gbc[1].gridx = 0;
+        ip[5].add(new JLabel("Recipes"), gbc[1]);
+        gbc[1].gridx = 1;
+        JLabel spacing5 = new JLabel();
+        spacing5.setPreferredSize(new Dimension(400, 40));
+        ip[5].add(spacing5, gbc[1]);
+        gbc[1].gridx = 2;
+        ip[5].add(back, gbc[1]);
+        ip[5].setBackground(Color.white);
+        ip[0].add(ip[5], gbc[0]);
         //---------------------------IP 0
         gbc[1].gridy = 2;
         gbc[1].ipadx = 40;
         gbc[1].ipady = 40;
         ip[1].setBackground(Color.pink);
         gbc[0].gridy = 1;
-        ip[0].add(new JLabel("Recipes"), gbc[0]);
-        ip[0].add(ip[1], gbc[1]);
+        ip[0].add(ip[1], gbc[0]);
         //---------------------------IP 3
         ip[3].setLayout(new GridBagLayout());
         gbc[1] = new GridBagConstraints();
@@ -94,11 +97,16 @@ public class RecipePanel extends JPanel {
         this.delete = new JButton("Delete");
         ip[3].add(this.delete, gbc[1]);
         gbc[0].gridy = 4;
+        ip[3].setBackground(Color.white);
         ip[0].add(ip[3], gbc[0]);
         //---------------------------Final
-        add(ip[0]);
-        add(create);
-      
+        gbc[0] = new GridBagConstraints();
+        gbc[0].ipadx = 20;
+        gbc[0].ipady = 20;
+        ip[0].setBackground(Color.white);
+        ip[0].setBorder(BorderFactory.createLineBorder(Color.black, 3));
+        add(ip[0], gbc[0]);
+        // Create was here
     }
 
     /**
@@ -122,14 +130,14 @@ public class RecipePanel extends JPanel {
     public void setCreateButton(JButton create) {
         this.create = create;
     }
-    
+
     /**
      * @return the jb
      */
     public JButton[] getJb() {
         return jb;
     }
-    
+
     /**
      * @return the jb in jb[] at input
      */
@@ -143,7 +151,7 @@ public class RecipePanel extends JPanel {
     public void setJb(JButton[] jb) {
         this.jb = jb;
     }
-   
+
     /**
      * @return the delete
      */
@@ -182,17 +190,13 @@ public class RecipePanel extends JPanel {
     public void setScrollpos(int pos) {
         this.scroll.setValue(this.scroll.getValue() + pos);
     }
-    
-       
+
     @Override
-    protected void paintComponent(Graphics g)
-    {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(background, 0, 0, null);
     }
 
-    
-    
     public void initializeDataPanel() {
         dataPanel = new JPanel();
         dataPanel.setLayout(new GridBagLayout());
@@ -210,23 +214,20 @@ public class RecipePanel extends JPanel {
     public void updateDataPanel(ArrayList<Recipe> recipeList, int firstLine) {
 
         int displayLine = firstLine;
-        
-        if (recipeList.size() < 5)
-        {
-            for (int i = 0; i < recipeList.size(); ++i)
-            {
-                jb[i].setText(recipeList.get(i).getName()); 
+
+        if (recipeList.size() < 5) {
+            for (int i = 0; i < recipeList.size(); ++i) {
+                jb[i].setText(recipeList.get(i).getName());
             }
-        } else 
-        {
-                    
-        for (int i = 0; i < 5 ; ++i)
-        {
-            jb[i].setText(recipeList.get(displayLine).getName());
-            ++displayLine;
+        } else {
+
+            for (int i = 0; i < 5; ++i) {
+                jb[i].setText(recipeList.get(displayLine).getName());
+                ++displayLine;
+            }
         }
-        }    
 
     }
+    
 
 }
