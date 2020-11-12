@@ -17,7 +17,7 @@ import java.util.ArrayList;
  *
  * @author Kurtis
  */
-public class RecipeList
+public class RecipeList implements Scrollable, XMLData
 {
     private ArrayList<Recipe> recipeList;
    
@@ -55,6 +55,7 @@ public class RecipeList
     /**
      * @return the totalLines
      */
+    @Override
     public int getTotalLines() {
         return totalLines;
     }
@@ -62,6 +63,7 @@ public class RecipeList
     /**
      * @param totalLines the totalLines to set
      */
+    @Override
     public void setTotalLines(int totalLines) {
         this.totalLines = totalLines;
     }
@@ -69,6 +71,7 @@ public class RecipeList
     /**
      * @return the firstLine
      */
+    @Override
     public int getFirstLine() {
         return firstLine;
     }
@@ -76,6 +79,7 @@ public class RecipeList
     /**
      * @param firstLine the firstLine to set
      */
+    @Override
     public void setFirstLine(int firstLine) {
         this.firstLine = firstLine;
     }
@@ -83,6 +87,7 @@ public class RecipeList
     /**
      * @return the lastLine
      */
+    @Override
     public int getLastLine() {
         return lastLine;
     }
@@ -90,12 +95,14 @@ public class RecipeList
     /**
      * @param lastLine the lastLine to set
      */
+    @Override
     public void setLastLine(int lastLine) {
         this.lastLine = lastLine;
     }
     
     //retreives recipeList ArrayList from recipes.xml
-    void loadXMLList()
+    @Override
+    public void loadXMLList()
     {          
         try
         {
@@ -110,7 +117,8 @@ public class RecipeList
     }
     
     //saves recipeList ArrayList to recipes.xml
-    void saveXMLList()
+    @Override
+    public void saveXMLList()
     {
         try
         {
