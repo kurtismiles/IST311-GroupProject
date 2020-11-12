@@ -134,7 +134,8 @@ public class RecipePanel extends JPanel {
     /**
      * @return the jb
      */
-    public JButton[] getJb() {
+    public JButton[] getJb() 
+    {
         return jb;
     }
 

@@ -79,7 +79,8 @@ public class RecipeList
     /**
      * @return the recipeList
      */
-    public ArrayList<Recipe> getRecipeList() {
+    public ArrayList<Recipe> getRecipeList() 
+    {
         return recipeList;
     }
 
