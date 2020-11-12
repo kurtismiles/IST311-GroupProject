@@ -33,7 +33,7 @@ public class IngredientPop extends JFrame {
         
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(250, 100, 800, 400);
-
+        
         setLayout(null);
 
         JLabel name_label = new JLabel("Ingredient :");

@@ -84,14 +84,14 @@ public class MenuPopPanel extends JPanel {
         menuDescription_label.setFont(new Font("Times New Roman", Font.BOLD, 16));
 
         JLabel menuTags_label = new JLabel("Tags: ");
-        menuTags_label.setBounds(150, 155, 250, 30);
+        menuTags_label.setBounds(150, 105, 250, 30);
         menuTags_label.setFont(new Font("Times New Roman", Font.BOLD, 16));
 
         descriptionMenu = new JLabel(ingredientInput.getDescription());
         descriptionMenu.setBounds(300, 55, 490, 30);
 
         tagsMenu = new JLabel(ingredientInput.getTags());
-        tagsMenu.setBounds(300, 155, 490, 30);
+        tagsMenu.setBounds(300, 105, 490, 30);
 
         add(logo);
         add(menuDescription_label);
