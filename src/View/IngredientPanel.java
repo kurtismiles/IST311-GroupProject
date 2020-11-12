@@ -3,7 +3,7 @@
 //@email lum776@psu.edu
 package View;
 
-import Model.Recipe;
+import Model.Ingredient;
 import java.awt.Container;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -14,7 +14,7 @@ import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
-public class RecipePanel extends JPanel {
+public class IngredientPanel extends JPanel {
 
     private JButton back;
     private JButton create;
@@ -25,7 +25,7 @@ public class RecipePanel extends JPanel {
     private JPanel dataPanel;
     JButton[] jb;
 
-    public RecipePanel() {
+    public IngredientPanel() {
 
         background = (new ImageIcon("Images/RecipePanelBackground.png")).getImage();
 
@@ -57,7 +57,7 @@ public class RecipePanel extends JPanel {
         //---------------------------IP 5
         gbc[0].gridx = 0;
         gbc[1].gridx = 0;
-        ip[5].add(new JLabel("Recipes"), gbc[1]);
+        ip[5].add(new JLabel("Ingredients"), gbc[1]);
         gbc[1].gridx = 1;
         JLabel spacing5 = new JLabel();
         spacing5.setPreferredSize(new Dimension(400, 40));
@@ -134,8 +134,7 @@ public class RecipePanel extends JPanel {
     /**
      * @return the jb
      */
-    public JButton[] getJb() 
-    {
+    public JButton[] getJb() {
         return jb;
     }
 
@@ -198,7 +197,6 @@ public class RecipePanel extends JPanel {
         g.drawImage(background, 0, 0, null);
     }
 
-    //initializes the jb JButton array
     public void initializeDataPanel() {
         dataPanel = new JPanel();
         dataPanel.setLayout(new GridBagLayout());
@@ -213,20 +211,23 @@ public class RecipePanel extends JPanel {
 
     }
 
-    //updates the jb JButton array with data from recipeList starting on position firstLine
-    public void updateDataPanel(ArrayList<Recipe> recipeList, int firstLine) {
+    public void updateDataPanel(ArrayList<Ingredient> ingredientList, int firstLine) {
 
         int displayLine = firstLine;
 
-        if (recipeList.size() < 5) {
-            for (int i = 0; i < recipeList.size(); ++i) {
-                jb[i].setText(recipeList.get(i).getName());
+        if (ingredientList.size() < 5) {
+            for (int i = 0; i < ingredientList.size(); ++i) {
+                jb[i].setText(ingredientList.get(i).getName());
             }
         } else {
-            for (int i = 0; i < jb.length; ++i) {
-                jb[i].setText(recipeList.get(displayLine).getName());
+
+            for (int i = 0; i < 5; ++i) {
+                jb[i].setText(ingredientList.get(displayLine).getName());
                 ++displayLine;
             }
         }
+
     }
+    
+
 }

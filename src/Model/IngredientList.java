@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.beans.XMLDecoder;
@@ -17,18 +12,19 @@ import java.util.ArrayList;
  *
  * @author Kurtis
  */
-public class RecipeList
-{
-    private ArrayList<Recipe> recipeList;
+public class IngredientList {
+    
+    
+    private ArrayList<Ingredient> ingredientList;
    
     private int totalLines;
     private int firstLine;
     private int lastLine;
     
     
-    public RecipeList()
+    public IngredientList()
     {
-       recipeList = new ArrayList<>();
+       ingredientList = new ArrayList<>();
        loadXMLList();
        
        totalLines = 5;
@@ -36,22 +32,22 @@ public class RecipeList
        lastLine = 4;
        
     }
-
-    /**
-     * @return the recipeList
-     */
-    public ArrayList<Recipe> getRecipeList() 
-    {
-        return recipeList;
-    }
-
-    /**
-     * @param recipeList the recipeList to set
-     */
-    public void setRecipeList(ArrayList<Recipe> recipeList) {
-        this.recipeList = recipeList;
-    }
     
+    
+    /**
+     * @return the ingredientList
+     */
+    public ArrayList<Ingredient> getIngredientList() {
+        return ingredientList;
+    }
+
+    /**
+     * @param ingredientList the ingredientList to set
+     */
+    public void setIngredientList(ArrayList<Ingredient> ingredientList) {
+        this.ingredientList = ingredientList;
+    }
+
     /**
      * @return the totalLines
      */
@@ -93,14 +89,15 @@ public class RecipeList
     public void setLastLine(int lastLine) {
         this.lastLine = lastLine;
     }
-    
+
+ 
     //retreives recipeList ArrayList from recipes.xml
     void loadXMLList()
     {          
         try
         {
-          XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("recipes.xml")));
-            setRecipeList((ArrayList<Recipe>) de.readObject());
+          XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("ingredients.xml")));
+            setIngredientList((ArrayList<Ingredient>) de.readObject());
           de.close();
                 
         } catch (Exception xx)
@@ -114,8 +111,8 @@ public class RecipeList
     {
         try
         {
-          XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("recipes.xml")));
-          xe.writeObject(getRecipeList());
+          XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("ingredients.xml")));
+          xe.writeObject(getIngredientList());
           xe.close();
                 
         } catch (Exception xx)
@@ -125,16 +122,16 @@ public class RecipeList
     }
          
     //adds a new recipe to RecipeList ArrayList
-    public void addRecipe(Recipe input)
+    public void addIngredient(Ingredient input)
     {
-        getRecipeList().add(input);
+        getIngredientList().add(input);
     }
       
     //removes a recipe from RecipeList ArrayList
-    public void removeRecipe(Recipe input)
+    public void removeIngredient(Ingredient input)
     {
-        getRecipeList().remove(input);
+        getIngredientList().remove(input);
     }
 
-
+    
 }
