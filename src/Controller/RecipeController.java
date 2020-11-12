@@ -65,7 +65,7 @@ public class RecipeController {
         this.view = view;
     }
 
-    void addListeners()
+    private void addListeners()
     {     
         
         //Action listener for Create Button in Recipe Panel

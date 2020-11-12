@@ -1,5 +1,6 @@
 package View;
 
+import Model.Ingredient;
 import Model.Recipe;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -23,8 +24,7 @@ public class MenuPopPanel extends JPanel {
 
     private Image image;
 
-    public MenuPopPanel() {
-    }
+    public MenuPopPanel(){}
 
     public MenuPopPanel(Recipe recipeInput) {
         super();
@@ -64,6 +64,11 @@ public class MenuPopPanel extends JPanel {
         add(descriptionMenu);
         add(ingredientMenu);
         add(tagsMenu);
+    }
+    
+    public MenuPopPanel(Ingredient ingredientInput)
+    {
+        super();
     }
 
     /**

@@ -1,5 +1,6 @@
 package View;
 
+import Model.Ingredient;
 import Model.Recipe;
 import java.awt.Color;
 import java.awt.Font;
@@ -19,6 +20,7 @@ import javax.swing.ImageIcon;
 public class MenuPop extends JFrame
 {
     private Recipe readRecipe;
+    private Ingredient readIngredient;
     private MenuPopPanel popPanel;
     
     public MenuPop()
@@ -37,6 +39,20 @@ public class MenuPop extends JFrame
         setVisible(true);
         
     }
+    
+    public MenuPop(Ingredient ingredientInput)
+    {
+        this.readIngredient = ingredientInput;
+        popPanel = new MenuPopPanel(readIngredient);
+        
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setBounds(250, 100, 800, 400);
+        setBackground(Color.BLUE);
+        
+        add(popPanel);
+        setVisible(true);
+    }
+    
 
     public Recipe getReadRecipe()
     {
