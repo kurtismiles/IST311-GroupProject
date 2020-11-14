@@ -86,7 +86,7 @@ public class RecipeController {
                                 if (!popup.getNameText().getText().isEmpty() && !popup.getDescriptionText().getText().isEmpty() && !popup.getIngredientText().getText().isEmpty() && !popup.getTagsText().getText().isEmpty())
                                 {
                                     //if non are empty, create a new recipe
-                                    model.writeRecipe(new Recipe(popup.getNameText().getText(), popup.getDescriptionText().getText(), popup.getIngredientText().getText(), popup.getTagsText().getText()));
+                                    model.writeRecipe(new Recipe(popup.getNameText().getText(), popup.getDescriptionText().getText(), popup.getIngredientData(), popup.getTagsText().getText()));
                                     
                                     //dispose popup frame
                                     popup.dispose();
@@ -102,7 +102,12 @@ public class RecipeController {
                                 }
                                 
                             }
-                        });     
+                        });
+                        popup.getAddBtn().addActionListener(new ActionListener(){
+                            public void actionPerformed(ActionEvent ae){
+                                popup.addIngredient();
+                            }
+                        });
                     }
 
         });
@@ -201,6 +206,7 @@ public class RecipeController {
             }
         });
 
+        
     }
     
 }

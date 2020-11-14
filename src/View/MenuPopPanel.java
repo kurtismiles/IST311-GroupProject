@@ -19,19 +19,20 @@ public class MenuPopPanel extends JPanel {
     private JLabel logo;
 
     private JLabel descriptionMenu;
-    private JLabel ingredientMenu;
+    private JLabel[] ingredientMenu;
     private JLabel tagsMenu;
 
     private Image image;
 
-    public MenuPopPanel(){}
+    public MenuPopPanel() {
+    }
 
     public MenuPopPanel(Recipe recipeInput) {
         super();
         setLayout(null);
-        
+
         image = (new ImageIcon("Images/ViewPopBackground.jpg")).getImage();
-        
+
         JLabel logo = new JLabel(recipeInput.getName());
         logo.setBounds(350, 5, 250, 30);
         logo.setFont(new Font("Times New Roman", Font.ROMAN_BASELINE, 18));
@@ -51,8 +52,23 @@ public class MenuPopPanel extends JPanel {
         descriptionMenu = new JLabel(recipeInput.getDescription());
         descriptionMenu.setBounds(300, 55, 490, 30);
 
-        ingredientMenu = new JLabel(recipeInput.getIngredients());
-        ingredientMenu.setBounds(300, 105, 490, 30);
+        ingredientMenu = new JLabel[3];
+        for (int i = 0; i < ingredientMenu.length; i++) {
+            ingredientMenu[i] = new JLabel();
+        }
+//        ingredientMenu[0] = new JLabel(String.format("%.2f", recipeInput.getIngredients().get(0).getNumber()));
+//        ingredientMenu[0].setBounds(300, 105, 25, 30);
+//        ingredientMenu[1] = new JLabel(recipeInput.getIngredients().get(0).getUnit());
+//        ingredientMenu[1].setBounds(325, 105, 80, 30);
+//        ingredientMenu[2] = new JLabel(recipeInput.getIngredients().get(0).getIngredient().getName());
+//        ingredientMenu[2].setBounds(400, 105, 385, 30);
+
+        ingredientMenu[0] = new JLabel("100");
+        ingredientMenu[0].setBounds(300, 105, 25, 30);
+        ingredientMenu[1] = new JLabel("tablespoons");
+        ingredientMenu[1].setBounds(325, 105, 80, 30);
+        ingredientMenu[2] = new JLabel("helpmeimdrowningincuteness");
+        ingredientMenu[2].setBounds(400, 105, 385, 30);
 
         tagsMenu = new JLabel(recipeInput.getTags());
         tagsMenu.setBounds(300, 155, 490, 30);
@@ -62,12 +78,13 @@ public class MenuPopPanel extends JPanel {
         add(menuIngredient_label);
         add(menuTags_label);
         add(descriptionMenu);
-        add(ingredientMenu);
+        for (int i = 0; i < ingredientMenu.length; i++) {
+            add(ingredientMenu[i]);
+        }
         add(tagsMenu);
     }
-    
-    public MenuPopPanel(Ingredient ingredientInput)
-    {
+
+    public MenuPopPanel(Ingredient ingredientInput) {
         super();
     }
 
@@ -114,20 +131,6 @@ public class MenuPopPanel extends JPanel {
     }
 
     /**
-     * @return the ingredientMenu
-     */
-    public JLabel getIngredientMenu() {
-        return ingredientMenu;
-    }
-
-    /**
-     * @param ingredientMenu the ingredientMenu to set
-     */
-    public void setIngredientMenu(JLabel ingredientMenu) {
-        this.ingredientMenu = ingredientMenu;
-    }
-
-    /**
      * @return the tagsMenu
      */
     public JLabel getTagsMenu() {
@@ -156,8 +159,7 @@ public class MenuPopPanel extends JPanel {
     }
 
     @Override
-    protected void paintComponent(Graphics g)
-    {
+    protected void paintComponent(Graphics g) {
         super.paintComponent(g);
         g.drawImage(image, 0, 0, null);
     }

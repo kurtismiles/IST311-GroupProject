@@ -6,8 +6,11 @@
 package View;
 
 import Model.Recipe;
+import Model.IngredientDescription;
 import java.awt.Container;
+import java.util.ArrayList;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
@@ -16,22 +19,30 @@ import javax.swing.JTextField;
  *
  * @author Jordan
  */
-public class RecipePop extends JFrame
-{
+public class RecipePop extends JFrame {
 
     private JTextField nameText;
     private JTextField descriptionText;
-    private JTextField ingredientText;
+    private JTextField[] ingredients;
     private JTextField tagsText;
-    
+    private JButton addBtn;
+    private ArrayList<JTextField[]> ingredientlist;
+
+    private int y = 130;
+    private int i = 0;
+
+    private ArrayList<JComboBox> unitmenu = new ArrayList<>();
+    private ArrayList<JComboBox> ingredientmenu = new ArrayList<>();
+    private ArrayList<JTextField> quantity = new ArrayList<>();
+    private String[] units;
+    private JLabel tags_label;
+
     private JButton createBtn;
     private Recipe writeRecipe;
-    
-        
-    public RecipePop()
-    {      
+
+    public RecipePop() {
         writeRecipe = new Recipe();
-        
+
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(250, 100, 800, 400);
 
@@ -46,8 +57,8 @@ public class RecipePop extends JFrame
         JLabel ingredients_label = new JLabel("Ingredients :");
         ingredients_label.setBounds(90, 130, 250, 30);
 
-        JLabel tags_label = new JLabel("Tags :");
-        tags_label.setBounds(90, 180, 250, 30);
+        this.tags_label = new JLabel("Tags :");
+        this.tags_label.setBounds(90, 180, 250, 30);
 
         nameText = new JTextField();
         nameText.setBounds(220, 30, 490, 30);
@@ -55,8 +66,11 @@ public class RecipePop extends JFrame
         descriptionText = new JTextField();
         descriptionText.setBounds(220, 80, 490, 30);
 
-        ingredientText = new JTextField();
-        ingredientText.setBounds(220, 130, 490, 30);
+        setupIngredients();
+
+        this.addBtn = new JButton("+");
+        this.addBtn.setBounds(220, 160, 60, 20);
+        add(addBtn);
 
         tagsText = new JTextField();
         tagsText.setBounds(220, 180, 490, 30);
@@ -70,7 +84,6 @@ public class RecipePop extends JFrame
         add(tags_label);
         add(nameText);
         add(descriptionText);
-        add(ingredientText);
         add(tagsText);
         add(createBtn);
         setVisible(true);
@@ -103,20 +116,6 @@ public class RecipePop extends JFrame
      */
     public void setDescriptionText(JTextField descriptionText) {
         this.descriptionText = descriptionText;
-    }
-
-    /**
-     * @return the ingredientText
-     */
-    public JTextField getIngredientText() {
-        return ingredientText;
-    }
-
-    /**
-     * @param ingredientText the ingredientText to set
-     */
-    public void setIngredientText(JTextField ingredientText) {
-        this.ingredientText = ingredientText;
     }
 
     /**
@@ -160,6 +159,61 @@ public class RecipePop extends JFrame
     public void setWriteRecipe(Recipe writeRecipe) {
         this.writeRecipe = writeRecipe;
     }
-    
-    
+
+    public ArrayList<IngredientDescription> getIngredientData() {
+//Add input checks
+        ArrayList<IngredientDescription> data = new ArrayList<>();
+//        data.add(this.quantity.get(0).getText(),this.unitmenu.get(0).getSelectedItem(), new Ingredient());
+        return data;
+    }
+
+    /**
+     * @return the addBtn
+     */
+    public JButton getAddBtn() {
+        return addBtn;
+    }
+
+    /**
+     * @param addBtn the addBtn to set
+     */
+    public void setAddBtn(JButton addBtn) {
+        this.addBtn = addBtn;
+    }
+
+    public void setupIngredients() {
+        this.units = new String[]{"oz", "cup", "lb", "tablespoon", "teaspoon", "g", "kg", "L"};
+
+        this.quantity.add(new JTextField());
+        this.quantity.get(this.i).setBounds(220, y, 60, 30);
+        add(this.quantity.get(this.i));
+
+        this.unitmenu.add(new JComboBox(this.units));
+        this.unitmenu.get(this.i).setBounds(220 + 60, y, 100, 30);
+        add(this.unitmenu.get(this.i));
+
+        this.ingredientmenu.add(new JComboBox());
+        this.ingredientmenu.get(this.i).setBounds(220 + (60 + 100), y, 100, 30);
+        add(this.ingredientmenu.get(this.i));
+    }
+
+    public void addIngredient() {
+        i = ++i;
+        this.quantity.add(new JTextField());
+        this.quantity.get(this.i).setBounds(220, y = y + 30, 60, 30);
+        add(this.quantity.get(this.i));
+
+        this.unitmenu.add(new JComboBox(this.units));
+        this.unitmenu.get(this.i).setBounds(220 + 60, y, 100, 30);
+        add(this.unitmenu.get(this.i));
+
+        this.ingredientmenu.add(new JComboBox());
+        this.ingredientmenu.get(this.i).setBounds(220 + (60 + 100), y, 100, 30);
+        add(this.ingredientmenu.get(this.i));
+
+        this.addBtn.setBounds(220, y + 30, 60, 20);
+
+        this.tags_label.setBounds(90, y + 50, 250, 30);
+        this.tagsText.setBounds(220, y + 50, 490, 30);
+    }
 }
