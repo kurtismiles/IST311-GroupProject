@@ -14,5 +14,18 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>yellow, crunchy, vegetable</string>
+    </void>
+    <void property="name">
+     <string>Corn</string>
+    </void>
+    <void property="tags">
+     <string>#healthy #corny</string>
+    </void>
+   </object>
+  </void>
  </object>
 </java>
