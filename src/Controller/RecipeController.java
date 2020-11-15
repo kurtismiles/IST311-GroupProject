@@ -83,7 +83,7 @@ public class RecipeController {
                             public void actionPerformed(ActionEvent ae)
                             {   
                                 //checks to see if any RecipePop fields are empty
-                                if (!popup.getNameText().getText().isEmpty() && !popup.getDescriptionText().getText().isEmpty() && !popup.getIngredientText().getText().isEmpty() && !popup.getTagsText().getText().isEmpty())
+                                if (!popup.getNameText().getText().isEmpty() && !popup.getDescriptionText().getText().isEmpty() && !popup.getIngredientData().isEmpty() && !popup.getTagsText().getText().isEmpty())
                                 {
                                     //if non are empty, create a new recipe
                                     model.writeRecipe(new Recipe(popup.getNameText().getText(), popup.getDescriptionText().getText(), popup.getIngredientData(), popup.getTagsText().getText()));
@@ -108,6 +108,12 @@ public class RecipeController {
                                 popup.addIngredient();
                             }
                         });
+                        
+//                        popup.getDelBtn().addActionListener(new ActionListener(){
+//                            public void actionPerformed(ActionEvent ae){
+//                                popup.removeIngredient();
+//                            }
+//                        });
                     }
 
         });
