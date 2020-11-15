@@ -52,8 +52,7 @@ public NavigationController(NavigationModel navigationModel, NavigationView navi
     
     recipeModel = new RecipeModel();
     recipeView = new RecipeView();
-    recipeControl = new RecipeController(recipeModel, recipeView, ingredientModel.getIngredientData().getIngredientList());
-    
+    recipeControl = new RecipeController(recipeModel, recipeView, ingredientModel);
     
     navigationView.getMainframe().updateFrame(starterControl.getView().getLoginPanel());
     AddListeners();

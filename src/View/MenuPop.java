@@ -30,10 +30,10 @@ public class MenuPop extends JFrame
     public MenuPop(Recipe recipeInput)
     {
         this.readRecipe = recipeInput;
-        popPanel = new MenuPopPanel(readRecipe);
+        popPanel = new MenuPopPanel(getReadRecipe());
         
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(250, 100, 800, 400);
+        setBounds(250, 100, 800, 500);
         setBackground(Color.BLUE);
         
         add(popPanel);
@@ -44,7 +44,7 @@ public class MenuPop extends JFrame
     public MenuPop(Ingredient ingredientInput)
     {
         this.readIngredient = ingredientInput;
-        popPanel = new MenuPopPanel(readIngredient);
+        popPanel = new MenuPopPanel(getReadIngredient());
         
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(250, 100, 800, 400);
@@ -64,4 +64,32 @@ public class MenuPop extends JFrame
     {
         this.readRecipe = readRecipe;
     }    
+
+    /**
+     * @return the readIngredient
+     */
+    public Ingredient getReadIngredient() {
+        return readIngredient;
+    }
+
+    /**
+     * @param readIngredient the readIngredient to set
+     */
+    public void setReadIngredient(Ingredient readIngredient) {
+        this.readIngredient = readIngredient;
+    }
+
+    /**
+     * @return the popPanel
+     */
+    public MenuPopPanel getPopPanel() {
+        return popPanel;
+    }
+
+    /**
+     * @param popPanel the popPanel to set
+     */
+    public void setPopPanel(MenuPopPanel popPanel) {
+        this.popPanel = popPanel;
+    }
 }

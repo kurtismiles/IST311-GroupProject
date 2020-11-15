@@ -69,15 +69,6 @@ public class MenuPopPanel extends JPanel {
             }
         }
 
-        for (int i = 0; i < this.readRecipe.getIngredients().size(); i++) {
-            ingredientMenu[0][i] = new JLabel(Float.toString(this.readRecipe.getIngredients().get(i).getNumber()));
-            ingredientMenu[0][i].setBounds(300, 105 + (25 * i), 25, 30);
-            ingredientMenu[1][i] = new JLabel(this.readRecipe.getIngredients().get(i).getUnit());
-            ingredientMenu[1][i].setBounds(325, 105 + (25 * i), 80, 30);
-            ingredientMenu[2][i] = new JLabel(this.readRecipe.getIngredients().get(i).getIngredient().getName());
-            ingredientMenu[2][i].setBounds(400, 105 + (25 * i), 385, 30);
-
-        }
 
         tagsMenu = new JLabel(this.readRecipe.getTags());
         tagsMenu.setBounds(300, 125 + (25 * this.readRecipe.getIngredients().size()), 490, 30); //25 dif
@@ -100,11 +91,11 @@ public class MenuPopPanel extends JPanel {
 
         for (int i = 0; i < this.readRecipe.getIngredients().size(); i++) {
             ingredientMenu[0][i] = new JLabel(Float.toString(this.readRecipe.getIngredients().get(i).getNumber()));
-            ingredientMenu[0][i].setBounds(300, 105 + (25 * i), 25, 30);
+            ingredientMenu[0][i].setBounds(300, 105 + (25 * i), 55, 30);
             ingredientMenu[1][i] = new JLabel(this.readRecipe.getIngredients().get(i).getUnit());
-            ingredientMenu[1][i].setBounds(325, 105 + (25 * i), 80, 30);
+            ingredientMenu[1][i].setBounds(355, 105 + (25 * i), 80, 30);
             ingredientMenu[2][i] = new JLabel(this.readRecipe.getIngredients().get(i).getIngredient().getName());
-            ingredientMenu[2][i].setBounds(400, 105 + (25 * i), 385, 30);
+            ingredientMenu[2][i].setBounds(430, 105 + (25 * i), 385, 30);
             for (int j = 0; j < 3; j++) {
                 add(ingredientMenu[j][i]);
             }

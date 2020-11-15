@@ -6,6 +6,8 @@
 package Controller;
 
 import Model.Ingredient;
+import Model.IngredientList;
+import Model.IngredientModel;
 import Model.Recipe;
 import Model.RecipeModel;
 import View.RecipeView;
@@ -28,16 +30,16 @@ public class RecipeController {
     private RecipePop popup;
     private MenuPop menupop;
     
-    private ArrayList<Ingredient> ingredientList;
+    private IngredientModel ingredientModel;
     
     public RecipeController(){}
     
-    public RecipeController(RecipeModel model, RecipeView view, ArrayList<Ingredient> ingredientList)
+    public RecipeController(RecipeModel model, RecipeView view, IngredientModel ingredientModel)
     {
         this.model = model;
         this.view = view;
         
-        this.ingredientList = ingredientList;
+        this.ingredientModel = ingredientModel;
         
         addListeners();
         
@@ -82,7 +84,8 @@ public class RecipeController {
                     public void actionPerformed(ActionEvent ae)
                     {   
                         //create a new recipepop
-                        popup = new RecipePop(ingredientList);
+                        ingredientModel.refreshIngredientList();
+                        popup = new RecipePop(ingredientModel.getIngredientData().getIngredientList());
                         
                         //add listener to create button in recipepop
                         popup.getCreateBtn().addActionListener(new ActionListener() {
@@ -148,25 +151,27 @@ public class RecipeController {
                     
                     //create a new menu popup with recipe data from button pressed
                     menupop = new MenuPop(model.getRecipeData().getRecipeList().get(model.getRecipeData().getFirstLine() + position));   
-                menupop.getX2.addActionListener(new ActionListener(){
+                    
+                    
+                    menupop.getPopPanel().getX2().addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent ae){
-                    menupop.setMultiplier(menupop.getMultiplier()*(float)2);
-                    menupop.update();
+                    menupop.getPopPanel().setMultiplier(menupop.getPopPanel().getMultiplier()*2);
+                    menupop.getPopPanel().update();
                     }
                 });
-                menupop.getReset.addActionListener(new ActionListener(){
+                menupop.getPopPanel().getReset().addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent ae){
-                    menupop.setMultiplier(1);
-                    menupop.update();
+                    menupop.getPopPanel().setMultiplier(1);
+                    menupop.getPopPanel().update();
                     }
                 });
-                menupop.getHalf.addActionListener(new ActionListener(){
+                menupop.getPopPanel().getHalf().addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent ae){
-                    menupop.setMultiplier(menupop.getMultiplier()/2);
-                    menupop.update();
+                    menupop.getPopPanel().setMultiplier(menupop.getPopPanel().getMultiplier()/2);
+                    menupop.getPopPanel().update();
                     }
                 });
                 }

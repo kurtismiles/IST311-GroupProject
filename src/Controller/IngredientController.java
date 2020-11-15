@@ -9,6 +9,8 @@ import View.MenuPop;
 import View.RecipePop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseWheelEvent;
+import java.awt.event.MouseWheelListener;
 import javax.swing.JButton;
 
 /**
@@ -148,6 +150,60 @@ public class IngredientController {
             {
                 
                  
+            }
+        });
+        
+        
+         
+        //Mouse scroll listener for Recipe Panel
+        view.getIngredientPanel().addMouseWheelListener(new MouseWheelListener()
+        {
+            public void mouseWheelMoved(MouseWheelEvent we)
+            {
+                int scroll;
+                
+                //reduce scroll units to 1
+                if(we.getUnitsToScroll() > 0)
+                {
+                    scroll = 1;
+                }
+                else
+                {
+                    scroll = -1;
+                }
+                
+                //update scroll wheel
+                view.getIngredientPanel().setScrollpos(scroll);
+                
+                //Check if out of bounds 
+                if (model.getIngredientData().getFirstLine()+scroll < 0)
+                {
+                    //Do not scroll
+                }
+                else if (model.getIngredientData().getLastLine()+scroll >= model.getIngredientData().getIngredientList().size())
+                {
+                    //Do not scroll
+                } 
+                //if not out of bounds
+                else
+                {
+                    //if scroll is positive increment recipedata lines
+                    if (scroll > 0)
+                    {
+                        model.getIngredientData().setFirstLine(model.getIngredientData().getFirstLine()+1);
+                        model.getIngredientData().setLastLine(model.getIngredientData().getLastLine()+1);
+                    }
+                    
+                    //else scroll is negative and deincrement recipedata lines
+                    else
+                    {
+                       model.getIngredientData().setFirstLine(model.getIngredientData().getFirstLine()-1);
+                       model.getIngredientData().setLastLine(model.getIngredientData().getLastLine()-1); 
+                    }
+                    
+                    //update views datapanel with new line information
+                    view.getIngredientPanel().updateDataPanel(model.getIngredientData().getIngredientList(), model.getIngredientData().getFirstLine());
+                }
             }
         });
         
