@@ -109,11 +109,11 @@ public class RecipeController {
                             }
                         });
                         
-//                        popup.getDelBtn().addActionListener(new ActionListener(){
-//                            public void actionPerformed(ActionEvent ae){
-//                                popup.removeIngredient();
-//                            }
-//                        });
+                        popup.getDelBtn().addActionListener(new ActionListener(){
+                            public void actionPerformed(ActionEvent ae){
+                                popup.removeIngredient();
+                            }
+                        });
                     }
 
         });

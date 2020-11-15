@@ -26,7 +26,7 @@ public class RecipePop extends JFrame {
     private JTextField[] ingredients;
     private JTextField tagsText;
     private JButton addBtn;
-//    private JButton delBtn;
+    private JButton delBtn;
     private ArrayList<JTextField[]> ingredientlist;
 
     private int y = 130;
@@ -72,10 +72,10 @@ public class RecipePop extends JFrame {
         this.addBtn = new JButton("+");
         this.addBtn.setBounds(220, 160, 60, 20);
         add(addBtn);
-        
-//        this.delBtn = new JButton("-");
-//        this.delBtn.setBounds(280, 160, 60, 20);
-//        add(delBtn);
+
+        this.delBtn = new JButton("-");
+        this.delBtn.setBounds(280, 160, 60, 20);
+        add(delBtn);
 
         tagsText = new JTextField();
         tagsText.setBounds(220, 180, 490, 30);
@@ -186,19 +186,19 @@ public class RecipePop extends JFrame {
         this.addBtn = addBtn;
     }
 
-//    /**
-//     * @return the delBtn
-//     */
-//    public JButton getDelBtn() {
-//        return delBtn;
-//    }
-//
-//    /**
-//     * @param delBtn the delBtn to set
-//     */
-//    public void setDelBtn(JButton delBtn) {
-//        this.delBtn = delBtn;
-//    }
+    /**
+     * @return the delBtn
+     */
+    public JButton getDelBtn() {
+        return delBtn;
+    }
+
+    /**
+     * @param delBtn the delBtn to set
+     */
+    public void setDelBtn(JButton delBtn) {
+        this.delBtn = delBtn;
+    }
 
     public void setupIngredients() {
         this.units = new String[]{"oz", "cup", "lb", "tablespoon", "teaspoon", "g", "kg", "L"};
@@ -232,7 +232,7 @@ public class RecipePop extends JFrame {
             add(this.ingredientmenu.get(this.i));
 
             this.getAddBtn().setBounds(220, y + 30, 60, 20);
-//            this.getDelBtn().setBounds(280, y + 30, 60, 20);
+            this.getDelBtn().setBounds(280, y + 30, 60, 20);
 
             this.tags_label.setBounds(90, y + 50, 250, 30);
             this.tagsText.setBounds(220, y + 50, 490, 30);
@@ -240,24 +240,25 @@ public class RecipePop extends JFrame {
             createBtn.setBounds(350, y + 150, 100, 30);
         }
     }
-//
-//    public void removeIngredient() {
-//        if (i - 1 >= 0) {
-//            i = --i;
-//            y = y - 30;
-//            remove(this.quantity.get(this.i));
-//
-//            remove(this.unitmenu.get(this.i));
-//
-//            remove(this.ingredientmenu.get(this.i));
-//
-//            this.getAddBtn().setBounds(220, y + 30, 60, 20);
-//            this.getDelBtn().setBounds(280, y + 30, 60, 20);
-//            this.tags_label.setBounds(90, y + 50, 250, 30);
-//            this.tagsText.setBounds(220, y + 50, 490, 30);
-//
-//            createBtn.setBounds(350, y + 150, 100, 30);
-//        }
-//    }
+
+    public void removeIngredient() {
+        if (i - 1 >= 0) {
+            y = y - 30;
+            remove(this.quantity.get(this.i));
+
+            remove(this.unitmenu.get(this.i));
+
+            remove(this.ingredientmenu.get(this.i));
+
+            this.getAddBtn().setBounds(220, y + 30, 60, 20);
+            this.getDelBtn().setBounds(280, y + 30, 60, 20);
+            this.tags_label.setBounds(90, y + 50, 250, 30);
+            this.tagsText.setBounds(220, y + 50, 490, 30);
+
+            createBtn.setBounds(350, y + 150, 100, 30);
+            
+            i = --i;
+        }
+    }
 
 }
