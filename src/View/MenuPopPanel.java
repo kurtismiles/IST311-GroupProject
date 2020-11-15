@@ -2,10 +2,12 @@ package View;
 
 import Model.Ingredient;
 import Model.Recipe;
+import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
@@ -86,6 +88,34 @@ public class MenuPopPanel extends JPanel {
 
     public MenuPopPanel(Ingredient ingredientInput) {
         super();
+        setLayout(null);
+        
+        image = (new ImageIcon("Images/ViewPopBackground.jpg")).getImage();
+        
+        JLabel logo = new JLabel(ingredientInput.getName());
+        logo.setBounds(350, 5, 250, 30);
+        logo.setFont(new Font("Times New Roman", Font.ROMAN_BASELINE, 18));
+
+        JLabel menuDescription_label = new JLabel("Description: ");
+        menuDescription_label.setBounds(150, 55, 250, 30);
+        menuDescription_label.setFont(new Font("Times New Roman", Font.BOLD, 16));
+
+        JLabel menuTags_label = new JLabel("Tags: ");
+        menuTags_label.setBounds(150, 105, 250, 30);
+        menuTags_label.setFont(new Font("Times New Roman", Font.BOLD, 16));
+
+        descriptionMenu = new JLabel(ingredientInput.getDescription());
+        descriptionMenu.setBounds(300, 55, 490, 30);
+
+        tagsMenu = new JLabel(ingredientInput.getTags());
+        tagsMenu.setBounds(300, 105, 490, 30);
+
+        add(logo);
+        add(menuDescription_label);
+        add(menuTags_label);
+        add(descriptionMenu);
+        add(tagsMenu);
+        
     }
 
     /**

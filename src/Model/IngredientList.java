@@ -12,7 +12,7 @@ import java.util.ArrayList;
  *
  * @author Kurtis
  */
-public class IngredientList {
+public class IngredientList implements Scrollable, XMLData {
     
     
     private ArrayList<Ingredient> ingredientList;
@@ -47,10 +47,14 @@ public class IngredientList {
     public void setIngredientList(ArrayList<Ingredient> ingredientList) {
         this.ingredientList = ingredientList;
     }
-
+    
+    
+    //=========Methods Implemented from Scrollable Interface===========
+    
     /**
      * @return the totalLines
      */
+    @Override
     public int getTotalLines() {
         return totalLines;
     }
@@ -58,6 +62,7 @@ public class IngredientList {
     /**
      * @param totalLines the totalLines to set
      */
+    @Override
     public void setTotalLines(int totalLines) {
         this.totalLines = totalLines;
     }
@@ -65,6 +70,7 @@ public class IngredientList {
     /**
      * @return the firstLine
      */
+    @Override
     public int getFirstLine() {
         return firstLine;
     }
@@ -72,6 +78,7 @@ public class IngredientList {
     /**
      * @param firstLine the firstLine to set
      */
+    @Override
     public void setFirstLine(int firstLine) {
         this.firstLine = firstLine;
     }
@@ -79,6 +86,7 @@ public class IngredientList {
     /**
      * @return the lastLine
      */
+    @Override
     public int getLastLine() {
         return lastLine;
     }
@@ -86,13 +94,15 @@ public class IngredientList {
     /**
      * @param lastLine the lastLine to set
      */
+    @Override
     public void setLastLine(int lastLine) {
         this.lastLine = lastLine;
     }
 
  
     //retreives recipeList ArrayList from recipes.xml
-    void loadXMLList()
+    @Override
+    public void loadXMLList()
     {          
         try
         {
@@ -107,7 +117,8 @@ public class IngredientList {
     }
     
     //saves recipeList ArrayList to recipes.xml
-    void saveXMLList()
+    @Override
+    public void saveXMLList()
     {
         try
         {
@@ -132,6 +143,5 @@ public class IngredientList {
     {
         getIngredientList().remove(input);
     }
-
     
 }

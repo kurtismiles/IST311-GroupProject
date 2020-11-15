@@ -20,6 +20,7 @@ import javax.swing.ImageIcon;
 public class MenuPop extends JFrame
 {
     private Recipe readRecipe;
+
     private Ingredient readIngredient;
     private MenuPopPanel popPanel;
     

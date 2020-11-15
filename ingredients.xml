@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="14.0.1" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>green, crunchy, vegetable</string>
+    </void>
+    <void property="name">
+     <string>Broccoli</string>
+    </void>
+    <void property="tags">
+     <string>#healthy #veggies</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>yellow, crunchy, vegetable</string>
+    </void>
+    <void property="name">
+     <string>Corn</string>
+    </void>
+    <void property="tags">
+     <string>#healthy #corny</string>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
