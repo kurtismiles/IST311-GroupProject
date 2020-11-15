@@ -17,7 +17,7 @@ public class Recipe {
     private String name;
     private String description;
     private String tags;
-//    private String ingredients;
+//  private String ingredients;
     private ArrayList<IngredientDescription> ingredients;
 
     public Recipe() {
@@ -73,7 +73,6 @@ public class Recipe {
     }
 
     
-
     /**
      * @return the ingredients
      */

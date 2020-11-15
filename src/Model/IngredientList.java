@@ -14,7 +14,6 @@ import java.util.ArrayList;
  */
 public class IngredientList implements Scrollable, XMLData {
     
-    
     private ArrayList<Ingredient> ingredientList;
    
     private int totalLines;

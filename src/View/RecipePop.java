@@ -5,6 +5,7 @@
  */
 package View;
 
+import Model.Ingredient;
 import Model.Recipe;
 import Model.IngredientDescription;
 import java.awt.Container;
@@ -23,11 +24,9 @@ public class RecipePop extends JFrame {
 
     private JTextField nameText;
     private JTextField descriptionText;
-    private JTextField[] ingredients;
     private JTextField tagsText;
     private JButton addBtn;
     private JButton delBtn;
-    private ArrayList<JTextField[]> ingredientlist;
 
     private int y = 130;
     private int i = 0;
@@ -40,9 +39,16 @@ public class RecipePop extends JFrame {
 
     private JButton createBtn;
     private Recipe writeRecipe;
+    
+    private ArrayList<Ingredient> ingredientList;
+    private ArrayList<String> ingredientNames;
 
-    public RecipePop() {
+    public RecipePop() {}
+    
+    public RecipePop(ArrayList<Ingredient> ingredientList) {
         writeRecipe = new Recipe();
+        this.ingredientList = ingredientList;
+        ingredientNames = new ArrayList<>();
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(250, 100, 800, 400);
@@ -168,7 +174,27 @@ public class RecipePop extends JFrame {
     public ArrayList<IngredientDescription> getIngredientData() {
 //Add input checks
         ArrayList<IngredientDescription> data = new ArrayList<>();
-//        data.add(this.quantity.get(0).getText(),this.unitmenu.get(0).getSelectedItem(), new Ingredient());
+        
+        for (int i = 0; i < quantity.size(); i++)
+        {
+            int index = 0;
+            
+            for (int j = 0; j < ingredientList.size(); j++)
+            {
+                if (ingredientList.get(j).getName() == this.ingredientmenu.get(i).getSelectedItem())
+                {
+                    index = j;
+                    break;
+                }
+                             
+            }
+
+            IngredientDescription descript = new IngredientDescription(Float.parseFloat(this.quantity.get(i).getText()),this.unitmenu.get(i).getSelectedItem().toString(), this.ingredientList.get(index)); 
+            
+            data.add(descript);
+            
+        }
+
         return data;
     }
 
@@ -202,7 +228,12 @@ public class RecipePop extends JFrame {
 
     public void setupIngredients() {
         this.units = new String[]{"oz", "cup", "lb", "tablespoon", "teaspoon", "g", "kg", "L"};
-
+        
+        for (int i = 0; i < ingredientList.size(); ++i)
+        {
+            ingredientNames.add(ingredientList.get(i).getName());
+        }
+ 
         this.quantity.add(new JTextField());
         this.quantity.get(this.i).setBounds(220, y, 60, 30);
         add(this.quantity.get(this.i));
@@ -211,7 +242,7 @@ public class RecipePop extends JFrame {
         this.unitmenu.get(this.i).setBounds(220 + 60, y, 100, 30);
         add(this.unitmenu.get(this.i));
 
-        this.ingredientmenu.add(new JComboBox());
+        this.ingredientmenu.add(new JComboBox(ingredientNames.toArray()));
         this.ingredientmenu.get(this.i).setBounds(220 + (60 + 100), y, 100, 30);
         add(this.ingredientmenu.get(this.i));
     }
@@ -227,7 +258,7 @@ public class RecipePop extends JFrame {
             this.unitmenu.get(this.i).setBounds(220 + 60, y, 100, 30);
             add(this.unitmenu.get(this.i));
 
-            this.ingredientmenu.add(new JComboBox());
+            this.ingredientmenu.add(new JComboBox(ingredientNames.toArray()));
             this.ingredientmenu.get(this.i).setBounds(220 + (60 + 100), y, 100, 30);
             add(this.ingredientmenu.get(this.i));
 

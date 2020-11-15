@@ -65,11 +65,12 @@ public class MenuPopPanel extends JPanel {
 //        ingredientMenu[2] = new JLabel(recipeInput.getIngredients().get(0).getIngredient().getName());
 //        ingredientMenu[2].setBounds(400, 105, 385, 30);
 
-        ingredientMenu[0] = new JLabel("100");
+
+        ingredientMenu[0] = new JLabel(Float.toString(recipeInput.getIngredients().get(1).getNumber()));
         ingredientMenu[0].setBounds(300, 105, 25, 30);
-        ingredientMenu[1] = new JLabel("tablespoons");
+        ingredientMenu[1] = new JLabel(recipeInput.getIngredients().get(1).getUnit());
         ingredientMenu[1].setBounds(325, 105, 80, 30);
-        ingredientMenu[2] = new JLabel("helpmeimdrowningincuteness");
+        ingredientMenu[2] = new JLabel(recipeInput.getIngredients().get(1).getIngredient().getName());
         ingredientMenu[2].setBounds(400, 105, 385, 30);
 
         tagsMenu = new JLabel(recipeInput.getTags());
@@ -80,9 +81,18 @@ public class MenuPopPanel extends JPanel {
         add(menuIngredient_label);
         add(menuTags_label);
         add(descriptionMenu);
-        for (int i = 0; i < ingredientMenu.length; i++) {
+        
+        for (int j = 0; j < recipeInput.getIngredients().size(); ++j)
+        {
+            for (int i = 0; i < ingredientMenu.length; i++) {
+            
             add(ingredientMenu[i]);
         }
+        }
+
+        
+        
+        
         add(tagsMenu);
     }
 

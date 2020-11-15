@@ -45,14 +45,14 @@ public NavigationController(NavigationModel navigationModel, NavigationView navi
     starterModel = new StarterModel();
     starterView = new StarterView();
     starterControl = new StarterControl(starterModel, starterView);
-    
-    recipeModel = new RecipeModel();
-    recipeView = new RecipeView();
-    recipeControl = new RecipeController(recipeModel, recipeView);
-    
+        
     ingredientModel = new IngredientModel();
     ingredientView = new IngredientView();
     ingredientControl = new IngredientController(ingredientModel, ingredientView);
+    
+    recipeModel = new RecipeModel();
+    recipeView = new RecipeView();
+    recipeControl = new RecipeController(recipeModel, recipeView, ingredientModel.getIngredientData().getIngredientList());
     
     
     navigationView.getMainframe().updateFrame(starterControl.getView().getLoginPanel());

@@ -5,6 +5,7 @@
  */
 package Controller;
 
+import Model.Ingredient;
 import Model.Recipe;
 import Model.RecipeModel;
 import View.RecipeView;
@@ -15,6 +16,7 @@ import View.RecipePop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.*;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -26,12 +28,17 @@ public class RecipeController {
     private RecipePop popup;
     private MenuPop menupop;
     
+    private ArrayList<Ingredient> ingredientList;
+    
     public RecipeController(){}
     
-    public RecipeController(RecipeModel model, RecipeView view)
+    public RecipeController(RecipeModel model, RecipeView view, ArrayList<Ingredient> ingredientList)
     {
         this.model = model;
         this.view = view;
+        
+        this.ingredientList = ingredientList;
+        
         addListeners();
         
         view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine());
@@ -75,7 +82,7 @@ public class RecipeController {
                     public void actionPerformed(ActionEvent ae)
                     {   
                         //create a new recipepop
-                        popup = new RecipePop();
+                        popup = new RecipePop(ingredientList);
                         
                         //add listener to create button in recipepop
                         popup.getCreateBtn().addActionListener(new ActionListener() {

@@ -6,9 +6,6 @@
     <void property="description">
      <string>This recipe makes apple pie</string>
     </void>
-    <void property="ingredients">
-     <string>Apples, Sugar, Butter, Pie Crust</string>
-    </void>
     <void property="name">
      <string>Apple Pie</string>
     </void>
@@ -21,9 +18,6 @@
    <object class="Model.Recipe">
     <void property="description">
      <string>This recipe makes Pumpkin Pie</string>
-    </void>
-    <void property="ingredients">
-     <string>Pumpkin, Butter, Sugar, Pie Crust</string>
     </void>
     <void property="name">
      <string>Pumpkin Pie</string>
@@ -38,9 +32,6 @@
     <void property="description">
      <string>This is just apples</string>
     </void>
-    <void property="ingredients">
-     <string>apples</string>
-    </void>
     <void property="name">
      <string>More Apples</string>
     </void>
@@ -54,9 +45,6 @@
     <void property="description">
      <string>test</string>
     </void>
-    <void property="ingredients">
-     <string>test</string>
-    </void>
     <void property="name">
      <string>Testing</string>
     </void>
@@ -69,9 +57,6 @@
    <object class="Model.Recipe">
     <void property="description">
      <string>Testing</string>
-    </void>
-    <void property="ingredients">
-     <string>testing</string>
     </void>
     <void property="name">
      <string>Testing2</string>
@@ -86,9 +71,6 @@
     <void property="description">
      <string>lemon piie</string>
     </void>
-    <void property="ingredients">
-     <string>lemon</string>
-    </void>
     <void property="name">
      <string>lemon pie</string>
     </void>
@@ -102,14 +84,180 @@
     <void property="description">
      <string>This pie is a big fat phony</string>
     </void>
-    <void property="ingredients">
-     <string>clickbait</string>
-    </void>
     <void property="name">
      <string>Phony Pie</string>
     </void>
     <void property="tags">
      <string>#phony</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>It`s just Broccoli and Corn, Sorry</string>
+    </void>
+    <void property="ingredients">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient" id="Ingredient0">
+          <void property="description">
+           <string>green, crunchy, vegetable</string>
+          </void>
+          <void property="name">
+           <string>Broccoli</string>
+          </void>
+          <void property="tags">
+           <string>#healthy #veggies</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>2.0</float>
+        </void>
+        <void property="unit">
+         <string>cup</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient0"/>
+        </void>
+        <void property="number">
+         <float>2.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="name">
+     <string>Broc&amp;Corn</string>
+    </void>
+    <void property="tags">
+     <string>#veggies</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>More Corn and Broccoli.</string>
+    </void>
+    <void property="ingredients">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient" id="Ingredient1">
+          <void property="description">
+           <string>green, crunchy, vegetable</string>
+          </void>
+          <void property="name">
+           <string>Broccoli</string>
+          </void>
+          <void property="tags">
+           <string>#healthy #veggies</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>3.0</float>
+        </void>
+        <void property="unit">
+         <string>cup</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient1"/>
+        </void>
+        <void property="number">
+         <float>2.0</float>
+        </void>
+        <void property="unit">
+         <string>lb</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="name">
+     <string>More Corn&amp;Broc</string>
+    </void>
+    <void property="tags">
+     <string>#veggies</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>Yikes</string>
+    </void>
+    <void property="ingredients">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient">
+          <void property="description">
+           <string>green, crunchy, vegetable</string>
+          </void>
+          <void property="name">
+           <string>Broccoli</string>
+          </void>
+          <void property="tags">
+           <string>#healthy #veggies</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>5.0</float>
+        </void>
+        <void property="unit">
+         <string>L</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient">
+          <void property="description">
+           <string>yellow, crunchy, vegetable</string>
+          </void>
+          <void property="name">
+           <string>Corn</string>
+          </void>
+          <void property="tags">
+           <string>#healthy #corny</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>25.0</float>
+        </void>
+        <void property="unit">
+         <string>g</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="name">
+     <string>Even More Corn &amp; Broc</string>
+    </void>
+    <void property="tags">
+     <string>#veggies</string>
     </void>
    </object>
   </void>
