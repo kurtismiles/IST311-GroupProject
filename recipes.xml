@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.8.0_111" class="java.beans.XMLDecoder">
+<java version="15.0.1" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
    <object class="Model.Recipe">
@@ -359,6 +359,46 @@
     </void>
     <void property="tags">
      <string>#cake #delicious</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>A perfect topping and breakfast option</string>
+    </void>
+    <void property="ingredients">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient">
+          <void property="description">
+           <string>Egg from a chicken</string>
+          </void>
+          <void property="name">
+           <string>Eggs</string>
+          </void>
+          <void property="tags">
+           <string>#baking</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>2.0</float>
+        </void>
+        <void property="unit">
+         <string>cup</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="name">
+     <string>Boiled Eggs</string>
+    </void>
+    <void property="tags">
+     <string>#protein</string>
     </void>
    </object>
   </void>

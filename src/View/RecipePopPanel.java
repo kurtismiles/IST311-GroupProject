@@ -40,21 +40,21 @@ public class RecipePopPanel extends JPanel {
 
     private JButton createBtn;
     private Recipe writeRecipe;
-    
+
     private ArrayList<Ingredient> ingredientList;
     private ArrayList<String> ingredientNames;
 
-    public RecipePopPanel() {}
-    
+    public RecipePopPanel() {
+    }
+
     public RecipePopPanel(ArrayList<Ingredient> ingredientList) {
-        
+
         super();
         setLayout(null);
-        
+
         writeRecipe = new Recipe();
         this.ingredientList = ingredientList;
         ingredientNames = new ArrayList<>();
-
 
         JLabel name_label = new JLabel("Recipe Name :");
         name_label.setBounds(90, 30, 250, 30);
@@ -175,25 +175,22 @@ public class RecipePopPanel extends JPanel {
     public ArrayList<IngredientDescription> getIngredientData() {
 //Add input checks
         ArrayList<IngredientDescription> data = new ArrayList<>();
-        
-        for (int i = 0; i < quantity.size(); i++)
-        {
+
+        for (int i = 0; i < quantity.size(); i++) {
             int index = 0;
-            
-            for (int j = 0; j < ingredientList.size(); j++)
-            {
-                if (ingredientList.get(j).getName() == this.ingredientmenu.get(i).getSelectedItem())
-                {
+
+            for (int j = 0; j < ingredientList.size(); j++) {
+                if (ingredientList.get(j).getName() == this.ingredientmenu.get(i).getSelectedItem()) {
                     index = j;
                     break;
                 }
-                             
+
             }
 
-            IngredientDescription descript = new IngredientDescription(Float.parseFloat(this.quantity.get(i).getText()),this.unitmenu.get(i).getSelectedItem().toString(), this.ingredientList.get(index)); 
-            
+            IngredientDescription descript = new IngredientDescription(Float.parseFloat(this.quantity.get(i).getText()), this.unitmenu.get(i).getSelectedItem().toString(), this.ingredientList.get(index));
+
             data.add(descript);
-            
+
         }
 
         return data;
@@ -229,12 +226,11 @@ public class RecipePopPanel extends JPanel {
 
     public void setupIngredients() {
         this.units = new String[]{"oz", "cup", "lb", "tablespoon", "teaspoon", "g", "kg", "L"};
-        
-        for (int i = 0; i < ingredientList.size(); ++i)
-        {
+
+        for (int i = 0; i < ingredientList.size(); ++i) {
             ingredientNames.add(ingredientList.get(i).getName());
         }
- 
+
         this.quantity.add(new JTextField());
         this.quantity.get(this.i).setBounds(220, y, 60, 30);
         add(this.quantity.get(this.i));
@@ -276,11 +272,15 @@ public class RecipePopPanel extends JPanel {
     public void removeIngredient() {
         if (i - 1 >= 0) {
             y = y - 30;
+
             remove(this.quantity.get(this.i));
+            this.quantity.remove(this.i);
 
             remove(this.unitmenu.get(this.i));
+            this.unitmenu.remove(this.i);
 
             remove(this.ingredientmenu.get(this.i));
+            this.ingredientmenu.remove(this.i);
 
             this.getAddBtn().setBounds(220, y + 30, 60, 20);
             this.getDelBtn().setBounds(280, y + 30, 60, 20);
@@ -288,7 +288,7 @@ public class RecipePopPanel extends JPanel {
             this.tagsText.setBounds(220, y + 50, 490, 30);
 
             createBtn.setBounds(350, y + 150, 100, 30);
-            
+
             i = --i;
         }
     }
