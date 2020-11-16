@@ -6,7 +6,7 @@ import Model.Recipe;
 import View.IngredientPop;
 import View.IngredientView;
 import View.MenuPop;
-import View.RecipePop;
+import View.RecipePopPanel;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseWheelEvent;
