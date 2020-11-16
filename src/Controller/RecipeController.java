@@ -148,6 +148,27 @@ public class RecipeController {
                     
                     //create a new menu popup with recipe data from button pressed
                     menupop = new MenuPop(model.getRecipeData().getRecipeList().get(model.getRecipeData().getFirstLine() + position));   
+                menupop.getX2.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent ae){
+                    menupop.setMultiplier(menupop.getMultiplier()*(float)2);
+                    menupop.update();
+                    }
+                });
+                menupop.getReset.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent ae){
+                    menupop.setMultiplier(1);
+                    menupop.update();
+                    }
+                });
+                menupop.getHalf.addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent ae){
+                    menupop.setMultiplier(menupop.getMultiplier()/2);
+                    menupop.update();
+                    }
+                });
                 }
             });
         }   

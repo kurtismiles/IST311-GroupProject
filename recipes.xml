@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="1.8.0_111" class="java.beans.XMLDecoder">
+<java version="15.0.1" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
    <object class="Model.Recipe">
@@ -258,6 +258,147 @@
     </void>
     <void property="tags">
      <string>#veggies</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>delicious</string>
+    </void>
+    <void property="ingredients">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient" id="Ingredient2">
+          <void property="description">
+           <string>yellow, crunchy, vegetable</string>
+          </void>
+          <void property="name">
+           <string>Corn</string>
+          </void>
+          <void property="tags">
+           <string>#healthy #corny</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient" id="Ingredient3">
+          <void property="description">
+           <string>green, crunchy, vegetable</string>
+          </void>
+          <void property="name">
+           <string>Broccoli</string>
+          </void>
+          <void property="tags">
+           <string>#healthy #veggies</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>2.0</float>
+        </void>
+        <void property="unit">
+         <string>cup</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient2"/>
+        </void>
+        <void property="number">
+         <float>3.0</float>
+        </void>
+        <void property="unit">
+         <string>lb</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient3"/>
+        </void>
+        <void property="number">
+         <float>4.0</float>
+        </void>
+        <void property="unit">
+         <string>tablespoon</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient2"/>
+        </void>
+        <void property="number">
+         <float>5.0</float>
+        </void>
+        <void property="unit">
+         <string>teaspoon</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient3"/>
+        </void>
+        <void property="number">
+         <float>6.0</float>
+        </void>
+        <void property="unit">
+         <string>g</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient2"/>
+        </void>
+        <void property="number">
+         <float>7.0</float>
+        </void>
+        <void property="unit">
+         <string>kg</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient3"/>
+        </void>
+        <void property="number">
+         <float>8.0</float>
+        </void>
+        <void property="unit">
+         <string>L</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="name">
+     <string>Cake</string>
+    </void>
+    <void property="tags">
+     <string>#delicious#yucky#healthynot</string>
     </void>
    </object>
   </void>
