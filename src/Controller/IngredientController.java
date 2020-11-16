@@ -10,6 +10,8 @@ import View.RecipePop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -115,24 +117,39 @@ public class IngredientController {
                 public void actionPerformed(ActionEvent ae) {
                     
                     JButton currentButton = (JButton) ae.getSource();
-                    
+                   
                     int position = 0;
                     
+                    int positions = 0;
+                    
                     //find what position current button is in array
-                    for (int j = 0; j < view.getIngredientPanel().getJb().length; ++j)
+                    for (int j = 0; j < view.getIngredientPanel().getJb().length; j++)
                     {
                         if (view.getIngredientPanel().getJb(j).equals(currentButton))
                         {
                             position = j;
+                            
+                            //create a new menu popup with recipe data from button pressed
+                            menupop = new MenuPop(model.getIngredientData().getIngredientList().get(model.getIngredientData().getFirstLine() + position));    
                             break;
                         }
+                        
+                        // create a new pop up error for empty buttons in ingredients 
+                        
+                        else
+                        {    
+                            JOptionPane.showMessageDialog(view.getIngredientPanel(),"No ingredients found","Error", JOptionPane.ERROR_MESSAGE); 
+                            break;  
+                        } 
+
                     }
-                    
-                    //create a new menu popup with recipe data from button pressed
-                    menupop = new MenuPop(model.getIngredientData().getIngredientList().get(model.getIngredientData().getFirstLine() + position));   
+              
                 }
+                
             });
         }  
+        
+        
         
         view.getIngredientPanel().getSave().addActionListener(new ActionListener()
         {
