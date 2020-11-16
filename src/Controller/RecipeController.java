@@ -154,7 +154,7 @@ public class RecipeController {
                     //create a new menu popup with recipe data from button pressed
                     menupop = new MenuPop(model.getRecipeData().getRecipeList().get(model.getRecipeData().getFirstLine() + position));   
                     
-                    
+                    //Recipe pop panel double recipe portion button
                     menupop.getPopPanel().getX2().addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent ae){
@@ -162,6 +162,7 @@ public class RecipeController {
                     menupop.getPopPanel().update();
                     }
                 });
+                //Recipe pop panel reset recipe portion button
                 menupop.getPopPanel().getReset().addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent ae){
@@ -169,6 +170,7 @@ public class RecipeController {
                     menupop.getPopPanel().update();
                     }
                 });
+                //Recipe pop panel halve recipe portion button
                 menupop.getPopPanel().getHalf().addActionListener(new ActionListener(){
                     @Override
                     public void actionPerformed(ActionEvent ae){
@@ -178,8 +180,8 @@ public class RecipeController {
                 });
                 }
             });
-        }   
-        
+        }
+        //Recipe panel save recipe button
         view.getRecipePanel().getSave().addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent ae)
@@ -187,6 +189,7 @@ public class RecipeController {
                 
             }
         });
+        //Recipe panel delete recipe button
         view.getRecipePanel().getDelete().addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent ae)

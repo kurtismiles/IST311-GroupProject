@@ -224,8 +224,9 @@ public class RecipePopPanel extends JPanel {
         this.delBtn = delBtn;
     }
 
+    //setup ingredient entry display
     public void setupIngredients() {
-        this.units = new String[]{"oz", "cup", "lb", "tablespoon", "teaspoon", "g", "kg", "L"};
+        this.units = new String[]{"oz", "cup", "lb", "tablespoon", "teaspoon", "g", "kg", "L", "mL"};
 
         for (int i = 0; i < ingredientList.size(); ++i) {
             ingredientNames.add(ingredientList.get(i).getName());
@@ -244,6 +245,7 @@ public class RecipePopPanel extends JPanel {
         add(this.ingredientmenu.get(this.i));
     }
 
+    //add ingredient button function
     public void addIngredient() {
         if (i + 1 < 8) {
             i = ++i;
@@ -269,6 +271,7 @@ public class RecipePopPanel extends JPanel {
         }
     }
 
+    //remove ingredient button function
     public void removeIngredient() {
         if (i - 1 >= 0) {
             y = y - 30;
