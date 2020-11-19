@@ -1,33 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
-
-import java.util.ArrayList;
-import java.util.LinkedList;
 
 /**
  *
  * @author Kurtis
  */
-public class Recipe {
-
+public class Ingredient
+{
     private String name;
     private String description;
     private String tags;
-//  private String ingredients;
-    private ArrayList<IngredientDescription> ingredients;
-
-    public Recipe() {
-    }
-
-    public Recipe(String name, String description, ArrayList<IngredientDescription> ingredients, String tags) {
+    
+    public Ingredient(){}
+    
+    public Ingredient(String name, String description, String tags)
+    {
         this.name = name;
         this.description = description;
         this.tags = tags;
-        this.ingredients = ingredients;
     }
 
     /**
@@ -71,20 +60,7 @@ public class Recipe {
     public void setTags(String tags) {
         this.tags = tags;
     }
-
     
-    /**
-     * @return the ingredients
-     */
-    public ArrayList<IngredientDescription> getIngredients() {
-        return ingredients;
-    }
-
-    /**
-     * @param ingredients the ingredients to set
-     */
-    public void setIngredients(ArrayList<IngredientDescription> ingredients) {
-        this.ingredients = ingredients;
-    }
-
+    
+    
 }

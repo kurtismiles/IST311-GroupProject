@@ -5,6 +5,9 @@
  */
 package Controller;
 
+import Model.Ingredient;
+import Model.IngredientList;
+import Model.IngredientModel;
 import Model.Recipe;
 import Model.RecipeModel;
 import View.RecipeView;
@@ -15,6 +18,7 @@ import View.RecipePop;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.*;
+import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
@@ -26,12 +30,17 @@ public class RecipeController {
     private RecipePop popup;
     private MenuPop menupop;
     
+    private IngredientModel ingredientModel;
+    
     public RecipeController(){}
     
-    public RecipeController(RecipeModel model, RecipeView view)
+    public RecipeController(RecipeModel model, RecipeView view, IngredientModel ingredientModel)
     {
         this.model = model;
         this.view = view;
+        
+        this.ingredientModel = ingredientModel;
+        
         addListeners();
         
         view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine());
@@ -65,7 +74,7 @@ public class RecipeController {
         this.view = view;
     }
 
-    void addListeners()
+    private void addListeners()
     {     
         
         //Action listener for Create Button in Recipe Panel
@@ -75,18 +84,21 @@ public class RecipeController {
                     public void actionPerformed(ActionEvent ae)
                     {   
                         //create a new recipepop
-                        popup = new RecipePop();
+                        ingredientModel.refreshIngredientList();
+                        popup = new RecipePop(ingredientModel.getIngredientData().getIngredientList());
                         
                         //add listener to create button in recipepop
-                        popup.getCreateBtn().addActionListener(new ActionListener() {
+                        popup.getRecipePanel().getCreateBtn().addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent ae)
                             {   
                                 //checks to see if any RecipePop fields are empty
-                                if (!popup.getNameText().getText().isEmpty() && !popup.getDescriptionText().getText().isEmpty() && !popup.getIngredientText().getText().isEmpty() && !popup.getTagsText().getText().isEmpty())
+                                if (!popup.getRecipePanel().getNameText().getText().isEmpty() && !popup.getRecipePanel().getDescriptionText().getText().isEmpty()
+                                        && !popup.getRecipePanel().getIngredientData().isEmpty() && !popup.getRecipePanel().getTagsText().getText().isEmpty())
                                 {
                                     //if non are empty, create a new recipe
-                                    model.writeRecipe(new Recipe(popup.getNameText().getText(), popup.getDescriptionText().getText(), popup.getIngredientText().getText(), popup.getTagsText().getText()));
+                                    model.writeRecipe(new Recipe(popup.getRecipePanel().getNameText().getText(), popup.getRecipePanel().getDescriptionText().getText(),
+                                            popup.getRecipePanel().getIngredientData(), popup.getRecipePanel().getTagsText().getText()));
                                     
                                     //dispose popup frame
                                     popup.dispose();
@@ -102,7 +114,18 @@ public class RecipeController {
                                 }
                                 
                             }
-                        });     
+                        });
+                        popup.getRecipePanel().getAddBtn().addActionListener(new ActionListener(){
+                            public void actionPerformed(ActionEvent ae){
+                                popup.getRecipePanel().addIngredient();
+                            }
+                        });
+                        
+                        popup.getRecipePanel().getDelBtn().addActionListener(new ActionListener(){
+                            public void actionPerformed(ActionEvent ae){
+                                popup.getRecipePanel().removeIngredient();
+                            }
+                        });
                     }
 
         });
@@ -130,10 +153,35 @@ public class RecipeController {
                     
                     //create a new menu popup with recipe data from button pressed
                     menupop = new MenuPop(model.getRecipeData().getRecipeList().get(model.getRecipeData().getFirstLine() + position));   
+                    
+                    //Recipe pop panel double recipe portion button
+                    menupop.getPopPanel().getX2().addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent ae){
+                    menupop.getPopPanel().setMultiplier(menupop.getPopPanel().getMultiplier()*2);
+                    menupop.getPopPanel().update();
+                    }
+                });
+                //Recipe pop panel reset recipe portion button
+                menupop.getPopPanel().getReset().addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent ae){
+                    menupop.getPopPanel().setMultiplier(1);
+                    menupop.getPopPanel().update();
+                    }
+                });
+                //Recipe pop panel halve recipe portion button
+                menupop.getPopPanel().getHalf().addActionListener(new ActionListener(){
+                    @Override
+                    public void actionPerformed(ActionEvent ae){
+                    menupop.getPopPanel().setMultiplier(menupop.getPopPanel().getMultiplier()/2);
+                    menupop.getPopPanel().update();
+                    }
+                });
                 }
             });
-        }   
-        
+        }
+        //Recipe panel save recipe button
         view.getRecipePanel().getSave().addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent ae)
@@ -141,6 +189,7 @@ public class RecipeController {
                 
             }
         });
+        //Recipe panel delete recipe button
         view.getRecipePanel().getDelete().addActionListener(new ActionListener()
         {
             public void actionPerformed(ActionEvent ae)
@@ -201,6 +250,7 @@ public class RecipeController {
             }
         });
 
+        
     }
     
 }

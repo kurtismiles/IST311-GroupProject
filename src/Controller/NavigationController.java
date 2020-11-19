@@ -1,8 +1,10 @@
 package Controller;
 
+import Model.IngredientModel;
 import Model.NavigationModel;
 import Model.RecipeModel;
 import Model.StarterModel;
+import View.IngredientView;
 import View.MainFrame;
 import View.NavigationView;
 import View.RecipeView;
@@ -27,6 +29,11 @@ public class NavigationController {
         private RecipeModel recipeModel;
         private RecipeView recipeView;
         
+        private IngredientController ingredientControl;
+        private IngredientModel ingredientModel;
+        private IngredientView ingredientView;
+        
+        
 public NavigationController(){}        
         
         
@@ -38,10 +45,14 @@ public NavigationController(NavigationModel navigationModel, NavigationView navi
     starterModel = new StarterModel();
     starterView = new StarterView();
     starterControl = new StarterControl(starterModel, starterView);
+        
+    ingredientModel = new IngredientModel();
+    ingredientView = new IngredientView();
+    ingredientControl = new IngredientController(ingredientModel, ingredientView);
     
     recipeModel = new RecipeModel();
     recipeView = new RecipeView();
-    recipeControl = new RecipeController(recipeModel, recipeView);
+    recipeControl = new RecipeController(recipeModel, recipeView, ingredientModel);
     
     navigationView.getMainframe().updateFrame(starterControl.getView().getLoginPanel());
     AddListeners();
@@ -93,6 +104,31 @@ public void AddListeners(){
                 });
             }
         });
+        
+        //MainPanel Ingredient Button Listener
+        starterControl.getView().getMainPanel().getB2().addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent ae)
+            {
+
+                //pass control to RecipeController by updating mainframe displayed panel
+                navigationView.getMainframe().updateFrame(ingredientControl.getView().getIngredientPanel());
+
+                //back button listener in RecipePanel
+                ingredientControl.getView().getIngredientPanel().getBackButton().addActionListener(new ActionListener()
+                {
+                    //pass control back to mainPanel
+                    @Override
+                    public void actionPerformed(ActionEvent ae)
+                    {
+                        //pass control back to mainPanel
+                        navigationView.getMainframe().updateFrame(starterControl.getView().getMainPanel());
+                    }
+                });
+            }
+        });
+        
         
         
 }
