@@ -120,8 +120,6 @@ public class IngredientController {
                    
                     int position = 0;
                     
-                    int positions = 0;
-                    
                     //find what position current button is in array
                     for (int j = 0; j < view.getIngredientPanel().getJb().length; j++)
                     {
@@ -134,16 +132,25 @@ public class IngredientController {
                             break;
                         }
                         
-                        // create a new pop up error for empty buttons in ingredients 
-                        
-                        else
-                        {    
-                            JOptionPane.showMessageDialog(view.getIngredientPanel(),"No ingredients found","Error", JOptionPane.ERROR_MESSAGE); 
-                            break;  
-                        } 
+//                        else 
+//                        {
+//                            JOptionPane.showMessageDialog(view.getIngredientPanel(),"No ingredients found","Error", JOptionPane.ERROR_MESSAGE); 
+//                            break;
+// 
+//                        }
 
                     }
-              
+                    
+                    // create a new pop up error for empty buttons in ingredients 
+//                    for (int k = 2; k < view.getIngredientPanel().getJb().length; k++)
+//                    {
+//                        if (view.getIngredientPanel().getJb(k).equals(currentButton))
+//                        {
+//                            position = k;
+//                            
+//                            JOptionPane.showMessageDialog(view.getIngredientPanel(),"No ingredients found","Error", JOptionPane.ERROR_MESSAGE); 
+//                        }  
+//                    }
                 }
                 
             });
