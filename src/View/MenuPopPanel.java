@@ -2,6 +2,7 @@ package View;
 
 import Model.Ingredient;
 import Model.Recipe;
+import Model.ShoppingList;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -136,6 +137,15 @@ public class MenuPopPanel extends JPanel {
         add(tagsMenu);
 
     }
+    
+    public MenuPopPanel(ShoppingList shoppingListInput) {
+    
+        super();
+        setLayout(null);
+        //Menu pop panel for shopping list object
+        
+    }
+    
 
     /**
      * @return the readRecipe
