@@ -3,11 +3,13 @@ package Controller;
 import Model.IngredientModel;
 import Model.NavigationModel;
 import Model.RecipeModel;
+import Model.ShoppingListModel;
 import Model.StarterModel;
 import View.IngredientView;
 import View.MainFrame;
 import View.NavigationView;
 import View.RecipeView;
+import View.ShoppingListView;
 import View.StarterView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -33,6 +35,11 @@ public class NavigationController {
         private IngredientModel ingredientModel;
         private IngredientView ingredientView;
         
+        private ShoppingListController shoppingControl;
+        private ShoppingListModel shoppingModel;
+        private ShoppingListView shoppingView;
+        
+        
         
 public NavigationController(){}        
         
@@ -53,6 +60,10 @@ public NavigationController(NavigationModel navigationModel, NavigationView navi
     recipeModel = new RecipeModel();
     recipeView = new RecipeView();
     recipeControl = new RecipeController(recipeModel, recipeView, ingredientModel);
+    
+    shoppingModel = new ShoppingListModel();
+    shoppingView = new ShoppingListView();
+    shoppingControl = new ShoppingListController(shoppingModel, shoppingView);
     
     navigationView.getMainframe().updateFrame(starterControl.getView().getLoginPanel());
     AddListeners();
@@ -117,6 +128,29 @@ public void AddListeners(){
 
                 //back button listener in RecipePanel
                 ingredientControl.getView().getIngredientPanel().getBackButton().addActionListener(new ActionListener()
+                {
+                    //pass control back to mainPanel
+                    @Override
+                    public void actionPerformed(ActionEvent ae)
+                    {
+                        //pass control back to mainPanel
+                        navigationView.getMainframe().updateFrame(starterControl.getView().getMainPanel());
+                    }
+                });
+            }
+        });
+        
+        //MainPanel ShoppingList Button Listener
+        starterControl.getView().getMainPanel().getB3().addActionListener(new ActionListener()
+        {
+            @Override
+            public void actionPerformed(ActionEvent ae)
+            {
+                //pass control to RecipeController by updating mainframe displayed panel
+                navigationView.getMainframe().updateFrame(shoppingControl.getView().getShoppingPanel());
+
+                //back button listener in RecipePanel
+                shoppingControl.getView().getShoppingPanel().getBackButton().addActionListener(new ActionListener()
                 {
                     //pass control back to mainPanel
                     @Override

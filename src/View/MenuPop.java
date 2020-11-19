@@ -2,6 +2,7 @@ package View;
 
 import Model.Ingredient;
 import Model.Recipe;
+import Model.ShoppingList;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
@@ -20,8 +21,9 @@ import javax.swing.ImageIcon;
 public class MenuPop extends JFrame
 {
     private Recipe readRecipe;
-
     private Ingredient readIngredient;
+    private ShoppingList readShoppingList;
+    
     private MenuPopPanel popPanel;
     
     public MenuPop()
@@ -54,7 +56,19 @@ public class MenuPop extends JFrame
         setVisible(true);
     }
     
-
+    public MenuPop(ShoppingList shoppingListInput)
+    {
+        this.readShoppingList = shoppingListInput;
+        popPanel = new MenuPopPanel(getReadShoppingList());
+        
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setBounds(250, 100, 800, 400);
+        setBackground(Color.BLUE);
+        
+        add(popPanel);
+        setVisible(true);
+    }
+    
     public Recipe getReadRecipe()
     {
         return readRecipe;
@@ -91,5 +105,19 @@ public class MenuPop extends JFrame
      */
     public void setPopPanel(MenuPopPanel popPanel) {
         this.popPanel = popPanel;
+    }
+
+    /**
+     * @return the readShoppingList
+     */
+    public ShoppingList getReadShoppingList() {
+        return readShoppingList;
+    }
+
+    /**
+     * @param readShoppingList the readShoppingList to set
+     */
+    public void setReadShoppingList(ShoppingList readShoppingList) {
+        this.readShoppingList = readShoppingList;
     }
 }
