@@ -21,7 +21,6 @@ public class IngredientPanel extends JPanel {
     private JButton delete, save;
     private JScrollBar scroll;
     private Image background;
-
     private JPanel dataPanel;
     JButton[] jb;
 
@@ -228,6 +227,7 @@ public class IngredientPanel extends JPanel {
         }
 
     }
+
     
 
 }

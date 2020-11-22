@@ -107,6 +107,7 @@ public class MenuPopPanel extends JPanel {
     }
 
     public MenuPopPanel(Ingredient ingredientInput) {
+        
         super();
         setLayout(null);
 
@@ -142,8 +143,33 @@ public class MenuPopPanel extends JPanel {
     
         super();
         setLayout(null);
-        //Menu pop panel for shopping list object
         
+        image = (new ImageIcon("Images/ViewPopBackground.jpg")).getImage();
+        
+        JLabel logo = new JLabel(this.readRecipe.getName());
+        logo.setBounds(350, 5, 250, 30);
+        logo.setFont(new Font("Times New Roman", Font.ROMAN_BASELINE, 18));
+        
+        JLabel menuDescription_label = new JLabel("Description: ");
+        menuDescription_label.setBounds(150, 55, 250, 30);
+        menuDescription_label.setFont(new Font("Times New Roman", Font.BOLD, 16));
+
+        JLabel menuTags_label = new JLabel("Tags: ");
+        menuTags_label.setBounds(150, 105, 250, 30);
+        menuTags_label.setFont(new Font("Times New Roman", Font.BOLD, 16));
+        
+        descriptionMenu = new JLabel();
+        descriptionMenu.setBounds(300, 55, 490, 30);
+
+        tagsMenu = new JLabel();
+        tagsMenu.setBounds(300, 105, 490, 30);
+        
+        add(logo);
+        add(menuDescription_label);
+        add(menuTags_label);
+        add(descriptionMenu);
+        add(tagsMenu);
+ 
     }
     
 

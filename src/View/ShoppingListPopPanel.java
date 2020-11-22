@@ -19,6 +19,7 @@ public class ShoppingListPopPanel extends JPanel {
     public ShoppingListPopPanel()
     {
         
+        
     }
 
     /**

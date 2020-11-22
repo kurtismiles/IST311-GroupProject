@@ -112,7 +112,7 @@ public class RecipeList implements Scrollable, XMLData
                 
         } catch (Exception xx)
         {
-            xx.printStackTrace();
+            System.out.println("Unable to load XML file");
         }
     }
     
@@ -128,7 +128,7 @@ public class RecipeList implements Scrollable, XMLData
                 
         } catch (Exception xx)
         {
-            xx.printStackTrace();
+            System.out.println("Unable to save XML file");
         }
     }
          

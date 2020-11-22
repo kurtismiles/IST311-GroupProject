@@ -93,25 +93,25 @@ public class ShoppingListController
                             public void actionPerformed(ActionEvent ae)
                             {   
                                 //checks to see if any RecipePop fields are empty
-                                if (!popup.getShoppingPanel().getNameText().getText().isEmpty() && !popup.getShoppingPanel().getDescriptionText().getText().isEmpty()
-                                        && !popup.getShoppingPanel().getIngredientData().isEmpty() && !popup.getShoppingPanel().getTagsText().getText().isEmpty())
-                                {
-                                    //if non are empty, create a new recipe
-                                    model.writeShoppingList(new ShoppingList(popup.getShoppingPanel().getNameText().getText(), popup.getShoppingPanel().getDescriptionText().getText(),
-                                            popup.getShoppingPanel().getIngredientData(), popup.getShoppingPanel().getTagsText().getText()));
-                                    
-                                    //dispose popup frame
-                                    popup.dispose();
-                                    
-                                    //refresh data in view recipe panel
-                                    view.getShoppingPanel().updateDataPanel(model.getShoppingListData().getShoppingListList(), model.getShoppingListData().getFirstLine());
-                                    
-                                }
+//                                if (!popup.getShoppingPanel().getNameText().getText().isEmpty() && !popup.getShoppingPanel().getDescriptionText().getText().isEmpty()
+//                                       && !popup.getShoppingPanel().getIngredientData().isEmpty() && !popup.getShoppingPanel().getTagsText().getText().isEmpty())
+//                                {
+//                                    //if non are empty, create a new recipe
+//                                    model.writeShoppingList(new ShoppingList(popup.getShoppingPanel().getNameText().getText(), popup.getShoppingPanel().getDescriptionText().getText(),
+//                                            popup.getShoppingPanel().getIngredientData(), popup.getShoppingPanel().getTagsText().getText()));
+//                                    
+//                                    //dispose popup frame
+//                                    popup.dispose();
+//                                    
+//                                    //refresh data in view recipe panel
+//                                    view.getShoppingPanel().updateDataPanel(model.getShoppingListData().getShoppingListList(), model.getShoppingListData().getFirstLine());
+//                                    
+//                                }
                                 //error message if one of the fields are empty
-                                else
-                                {
-                                    System.out.println("Error: placeholder error message");
-                                }
+//                                else
+//                                {
+//                                    System.out.println("Error: placeholder error message");
+//                                }
                                 
                             }
                         });
@@ -159,6 +159,7 @@ public class ShoppingListController
         {
             public void actionPerformed(ActionEvent ae)
             {
+                
                 
             }
         });

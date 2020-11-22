@@ -18,6 +18,8 @@ public class ShoppingListPop extends JFrame {
     
     private ShoppingListPopPanel shoppingPanel;
     
+    //public ShoppingListPop(){}
+    
     public ShoppingListPop()
     {
         shoppingPanel = new ShoppingListPopPanel();
