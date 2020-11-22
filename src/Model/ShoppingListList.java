@@ -115,7 +115,7 @@ public class ShoppingListList implements XMLData, Scrollable {
                 
         } catch (Exception xx)
         {
-            xx.printStackTrace();
+            System.out.println("Unable to load XML file");
         }
     }
     
@@ -131,7 +131,7 @@ public class ShoppingListList implements XMLData, Scrollable {
                 
         } catch (Exception xx)
         {
-            xx.printStackTrace();
+            System.out.println("Unable to save XML file");
         }
     }
          

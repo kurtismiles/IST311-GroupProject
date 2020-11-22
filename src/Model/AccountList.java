@@ -35,19 +35,53 @@ public class AccountList
        lastLine = 4;
        
     }
-    
-    /**
-     * @param recipeList the recipeList to set
-     */
-    public void setAccountList(ArrayList<Account> AccountList) {
+
+    public ArrayList<Account> getAccountList()
+    {
+        return AccountList;
+    }
+
+    public void setAccountList(ArrayList<Account> AccountList)
+    {
         this.AccountList = AccountList;
     }
+
+    public int getTotalLines()
+    {
+        return totalLines;
+    }
+
+    public void setTotalLines(int totalLines)
+    {
+        this.totalLines = totalLines;
+    }
+
+    public int getFirstLine()
+    {
+        return firstLine;
+    }
+
+    public void setFirstLine(int firstLine)
+    {
+        this.firstLine = firstLine;
+    }
+
+    public int getLastLine()
+    {
+        return lastLine;
+    }
+
+    public void setLastLine(int lastLine)
+    {
+        this.lastLine = lastLine;
+    }
     
+    //@Override
     public void loadXMLList()
     {          
         try
         {
-          XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("recipes.xml")));
+          XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("accounts.xml")));
           setAccountList((ArrayList<Account>) de.readObject());
           de.close();
                 
@@ -56,9 +90,32 @@ public class AccountList
             xx.printStackTrace();
         }
     }
-
     
+    //@Override
+    public void saveXMLList()
+    {
+        try
+        {
+          XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("accounts.xml")));
+          xe.writeObject(getAccountList());
+          xe.close();
+                
+        } catch (Exception xx)
+        {
+            xx.printStackTrace();
+        }
+    }
     
-    
+    //adds a new recipe to RecipeList ArrayList
+    public void addAccount(Account input)
+    {
+        getAccountList().add(input);
+    }
+      
+    //removes a recipe from RecipeList ArrayList
+    public void removeAccount(Account input)
+    {
+        getAccountList().remove(input);
+    }
     
 }

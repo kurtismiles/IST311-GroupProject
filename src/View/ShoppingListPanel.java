@@ -69,7 +69,7 @@ public class ShoppingListPanel extends JPanel {
         //---------------------------IP 5
         gbc[0].gridx = 0;
         gbc[1].gridx = 0;
-        ip[5].add(new JLabel("Recipes"), gbc[1]);
+        ip[5].add(new JLabel("ShoppingList"), gbc[1]);
         gbc[1].gridx = 1;
         JLabel spacing5 = new JLabel();
         spacing5.setPreferredSize(new Dimension(400, 40));

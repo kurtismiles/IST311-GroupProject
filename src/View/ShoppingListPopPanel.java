@@ -56,6 +56,7 @@ public class ShoppingListPopPanel extends JPanel {
 
         add(this.shoppingName);
         checkMenu();
+
     }
 
     /**
