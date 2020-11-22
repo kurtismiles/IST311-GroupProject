@@ -1,3 +1,8 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Model;
 
 import java.beans.XMLDecoder;
@@ -12,39 +17,38 @@ import java.util.ArrayList;
  *
  * @author Kurtis
  */
-public class IngredientList implements Scrollable, XMLData {
-    
-    private ArrayList<Ingredient> ingredientList;
+public class ShoppingListList implements XMLData, Scrollable {
+
+ private ArrayList<ShoppingList> shoppingListList;
    
     private int totalLines;
     private int firstLine;
     private int lastLine;
     
     
-    public IngredientList()
+    public ShoppingListList()
     {
-       ingredientList = new ArrayList<>();
+       shoppingListList = new ArrayList<>();
        loadXMLList();
        
        totalLines = 5;
        firstLine = 0;
-       lastLine = 4;
-       
+       lastLine = 4;    
     }
     
     
     /**
-     * @return the ingredientList
+     * @return the shoppingListList
      */
-    public ArrayList<Ingredient> getIngredientList() {
-        return ingredientList;
+    public ArrayList<ShoppingList> getShoppingListList() {
+        return shoppingListList;
     }
 
     /**
-     * @param ingredientList the ingredientList to set
+     * @param shoppingListList the shoppingListList to set
      */
-    public void setIngredientList(ArrayList<Ingredient> ingredientList) {
-        this.ingredientList = ingredientList;
+    public void setShoppingListList(ArrayList<ShoppingList> shoppingListList) {
+        this.shoppingListList = shoppingListList;
     }
     
     
@@ -105,8 +109,8 @@ public class IngredientList implements Scrollable, XMLData {
     {          
         try
         {
-          XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("ingredients.xml")));
-            setIngredientList((ArrayList<Ingredient>) de.readObject());
+          XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("shopping.xml")));
+            setShoppingListList((ArrayList<ShoppingList>) de.readObject());
           de.close();
                 
         } catch (Exception xx)
@@ -121,8 +125,8 @@ public class IngredientList implements Scrollable, XMLData {
     {
         try
         {
-          XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("ingredients.xml")));
-          xe.writeObject(getIngredientList());
+          XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("shopping.xml")));
+          xe.writeObject(getShoppingListList());
           xe.close();
                 
         } catch (Exception xx)
@@ -132,15 +136,15 @@ public class IngredientList implements Scrollable, XMLData {
     }
          
     //adds a new recipe to RecipeList ArrayList
-    public void addIngredient(Ingredient input)
+    public void addShoppingList(ShoppingList input)
     {
-        getIngredientList().add(input);
+        getShoppingListList().add(input);
     }
       
     //removes a recipe from RecipeList ArrayList
-    public void removeIngredient(Ingredient input)
+    public void removeShoppingList(ShoppingList input)
     {
-        getIngredientList().remove(input);
+        getShoppingListList().remove(input);
     }
     
 }

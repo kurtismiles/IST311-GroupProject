@@ -5,21 +5,25 @@
  */
 package Model;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 /**
  *
  * @author Kurtis
  */
-public class Recipe
-{
+public class Recipe {
+
     private String name;
     private String description;
     private String tags;
-    private String ingredients;
-    
-    public Recipe(){}
-    
-    public Recipe(String name, String description, String ingredients, String tags)
-    {
+//  private String ingredients;
+    private ArrayList<IngredientDescription> ingredients;
+
+    public Recipe() {
+    }
+
+    public Recipe(String name, String description, ArrayList<IngredientDescription> ingredients, String tags) {
         this.name = name;
         this.description = description;
         this.tags = tags;
@@ -68,17 +72,19 @@ public class Recipe
         this.tags = tags;
     }
 
+    
     /**
      * @return the ingredients
      */
-    public String getIngredients() {
+    public ArrayList<IngredientDescription> getIngredients() {
         return ingredients;
     }
 
     /**
      * @param ingredients the ingredients to set
      */
-    public void setIngredients(String ingredients) {
+    public void setIngredients(ArrayList<IngredientDescription> ingredients) {
         this.ingredients = ingredients;
     }
+
 }

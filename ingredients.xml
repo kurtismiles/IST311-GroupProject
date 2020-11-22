@@ -1,29 +1,172 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="14.0.1" class="java.beans.XMLDecoder">
+<java version="1.8.0_111" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
    <object class="Model.Ingredient">
     <void property="description">
-     <string>green, crunchy, vegetable</string>
+     <string>Ground wheat for baking</string>
     </void>
     <void property="name">
-     <string>Broccoli</string>
+     <string>Flour</string>
     </void>
     <void property="tags">
-     <string>#healthy #veggies</string>
+     <string>#baking</string>
     </void>
    </object>
   </void>
   <void method="add">
    <object class="Model.Ingredient">
     <void property="description">
-     <string>yellow, crunchy, vegetable</string>
+     <string>Cow`s milk</string>
     </void>
     <void property="name">
-     <string>Corn</string>
+     <string>Milk</string>
     </void>
     <void property="tags">
-     <string>#healthy #corny</string>
+     <string>#moo</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>Egg from a chicken</string>
+    </void>
+    <void property="name">
+     <string>Eggs</string>
+    </void>
+    <void property="tags">
+     <string>#baking</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>Cane Sugar</string>
+    </void>
+    <void property="name">
+     <string>Sugar</string>
+    </void>
+    <void property="tags">
+     <string>#sweet</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>Salt for flavor</string>
+    </void>
+    <void property="name">
+     <string>Salt</string>
+    </void>
+    <void property="tags">
+     <string>#salty</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>Pepper for flavor</string>
+    </void>
+    <void property="name">
+     <string>Pepper</string>
+    </void>
+    <void property="tags">
+     <string>#spicy</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>Crispy Bacon</string>
+    </void>
+    <void property="name">
+     <string>Bacon</string>
+    </void>
+    <void property="tags">
+     <string>#salty</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>Sweet maple syrup</string>
+    </void>
+    <void property="name">
+     <string>Syrup</string>
+    </void>
+    <void property="tags">
+     <string>#sweet</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>Grape Jelly</string>
+    </void>
+    <void property="name">
+     <string>Jelly</string>
+    </void>
+    <void property="tags">
+     <string>#sweet</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>Mashed up peanuts</string>
+    </void>
+    <void property="name">
+     <string>Peanut Butter</string>
+    </void>
+    <void property="tags">
+     <string>#peanuts</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>Bread made from wheat</string>
+    </void>
+    <void property="name">
+     <string>Bread</string>
+    </void>
+    <void property="tags">
+     <string>#bread #gluten</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>Churned from Cow`s Milk</string>
+    </void>
+    <void property="name">
+     <string>Butter</string>
+    </void>
+    <void property="tags">
+     <string>#dairy #fats</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Ingredient">
+    <void property="description">
+     <string>An orange fruit</string>
+    </void>
+    <void property="name">
+     <string>Orange</string>
+    </void>
+    <void property="tags">
+     <string>#fruit #sweet</string>
     </void>
    </object>
   </void>

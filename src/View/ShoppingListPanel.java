@@ -1,30 +1,43 @@
-//COPYRIGHT (C) 2020 Avina Lin Yuki (Registered as Leslin Mathews). All Rights Reserved.
-//@authors Avina (Leslin) referred as Avina, Kurtis
-//@email lum776@psu.edu
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package View;
 
-import Model.Ingredient;
-import java.awt.Container;
+import Model.Recipe;
+import Model.ShoppingList;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Graphics;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Image;
+import java.util.ArrayList;
+import javax.swing.BorderFactory;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
-import java.awt.*;
-import java.util.ArrayList;
-import javax.swing.*;
+import javax.swing.JScrollBar;
 
-public class IngredientPanel extends JPanel {
-
+/**
+ *
+ * @author Kurtis
+ */
+public class ShoppingListPanel extends JPanel {
+    
     private JButton back;
     private JButton create;
     private JButton delete, save;
     private JScrollBar scroll;
     private Image background;
+
     private JPanel dataPanel;
     JButton[] jb;
 
-    public IngredientPanel() {
+    public ShoppingListPanel() {
 
         background = (new ImageIcon("Images/RecipePanelBackground.png")).getImage();
 
@@ -56,7 +69,7 @@ public class IngredientPanel extends JPanel {
         //---------------------------IP 5
         gbc[0].gridx = 0;
         gbc[1].gridx = 0;
-        ip[5].add(new JLabel("Ingredients"), gbc[1]);
+        ip[5].add(new JLabel("ShoppingList"), gbc[1]);
         gbc[1].gridx = 1;
         JLabel spacing5 = new JLabel();
         spacing5.setPreferredSize(new Dimension(400, 40));
@@ -133,7 +146,8 @@ public class IngredientPanel extends JPanel {
     /**
      * @return the jb
      */
-    public JButton[] getJb() {
+    public JButton[] getJb() 
+    {
         return jb;
     }
 
@@ -196,6 +210,7 @@ public class IngredientPanel extends JPanel {
         g.drawImage(background, 0, 0, null);
     }
 
+    //initializes the jb JButton array
     public void initializeDataPanel() {
         dataPanel = new JPanel();
         dataPanel.setLayout(new GridBagLayout());
@@ -210,24 +225,21 @@ public class IngredientPanel extends JPanel {
 
     }
 
-    public void updateDataPanel(ArrayList<Ingredient> ingredientList, int firstLine) {
+    //updates the jb JButton array with data from recipeList starting on position firstLine
+    public void updateDataPanel(ArrayList<ShoppingList> shoppingList, int firstLine) {
 
         int displayLine = firstLine;
 
-        if (ingredientList.size() < 5) {
-            for (int i = 0; i < ingredientList.size(); ++i) {
-                jb[i].setText(ingredientList.get(i).getName());
+        if (shoppingList.size() < 5) {
+            for (int i = 0; i < shoppingList.size(); ++i) {
+                jb[i].setText(shoppingList.get(i).getName());
             }
         } else {
-
-            for (int i = 0; i < 5; ++i) {
-                jb[i].setText(ingredientList.get(displayLine).getName());
+            for (int i = 0; i < jb.length; ++i) {
+                jb[i].setText(shoppingList.get(displayLine).getName());
                 ++displayLine;
             }
         }
-
     }
-
     
-
 }
