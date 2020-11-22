@@ -19,7 +19,7 @@ import javax.swing.JTextField;
 
 /**
  *
- * @author Jordan
+ * @author Jordan, Avina (Leslin)
  */
 public class RecipePopPanel extends JPanel {
 

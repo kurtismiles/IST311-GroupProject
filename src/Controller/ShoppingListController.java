@@ -29,6 +29,7 @@ public class ShoppingListController
 {
     private ShoppingListModel model;
     private ShoppingListView view;
+    private RecipeModel recipeModel;
     
     private ShoppingListPop popup;
     private MenuPop menupop;
@@ -36,10 +37,11 @@ public class ShoppingListController
 
     public ShoppingListController(){}
     
-    public ShoppingListController(ShoppingListModel model, ShoppingListView view)
+    public ShoppingListController(ShoppingListModel model, ShoppingListView view, RecipeModel recipeModel)
     {
         this.model = model;
         this.view = view;
+        this.recipeModel = recipeModel;
         
         addListeners();
         
@@ -77,7 +79,7 @@ public class ShoppingListController
     private void addListeners()
     {     
         
-        //Action listener for Create Button in Recipe Panel
+        //Action listener for Create Button in ShoppingList Panel
         view.getShoppingPanel().getCreateButton().addActionListener(new ActionListener()
         {
                     @Override
@@ -85,7 +87,7 @@ public class ShoppingListController
                     {   
                         //create a new recipepop
                         //ingredientModel.refreshIngredientList();
-                        popup = new ShoppingListPop();
+                        popup = new ShoppingListPop(recipeModel.getRecipeData().getRecipeList());
                         
                         //add listener to create button in recipepop
                         popup.getShoppingPanel().getCreateBtn().addActionListener(new ActionListener() {
@@ -93,20 +95,21 @@ public class ShoppingListController
                             public void actionPerformed(ActionEvent ae)
                             {   
                                 //checks to see if any RecipePop fields are empty
-//                                if (!popup.getShoppingPanel().getNameText().getText().isEmpty() && !popup.getShoppingPanel().getDescriptionText().getText().isEmpty()
-//                                       && !popup.getShoppingPanel().getIngredientData().isEmpty() && !popup.getShoppingPanel().getTagsText().getText().isEmpty())
-//                                {
-//                                    //if non are empty, create a new recipe
-//                                    model.writeShoppingList(new ShoppingList(popup.getShoppingPanel().getNameText().getText(), popup.getShoppingPanel().getDescriptionText().getText(),
-//                                            popup.getShoppingPanel().getIngredientData(), popup.getShoppingPanel().getTagsText().getText()));
-//                                    
-//                                    //dispose popup frame
-//                                    popup.dispose();
-//                                    
-//                                    //refresh data in view recipe panel
-//                                    view.getShoppingPanel().updateDataPanel(model.getShoppingListData().getShoppingListList(), model.getShoppingListData().getFirstLine());
-//                                    
-//                                }
+                                if (!popup.getShoppingPanel().getShoppingName().getText().isEmpty())
+                                {
+//                                    System.out.println(popup.getShoppingPanel().getShoppingName().getText());
+//                                    System.out.println(popup.getShoppingPanel().returnSelected().get(0).getName());
+                                    //if non are empty, create a new recipe
+                                    model.writeShoppingList(new ShoppingList(popup.getShoppingPanel().getShoppingName().getText(),popup.getShoppingPanel().returnSelected(),model.buildShoppingList(popup.getShoppingPanel().returnSelected())));
+                                    
+                                    //dispose popup frame
+                                    popup.dispose();
+                                    
+                                    //refresh data in view recipe panel
+                                    view.getShoppingPanel().updateDataPanel(model.getShoppingListData().getShoppingListList(), model.getShoppingListData().getFirstLine());
+                                    
+                                }
+
                                 //error message if one of the fields are empty
 //                                else
 //                                {
@@ -115,8 +118,24 @@ public class ShoppingListController
                                 
                             }
                         });
+                        
+                        //Action listener for Add Recipe Button in ShoppingList Pop Panel
+                        popup.getShoppingPanel().getAddBtn().addActionListener(new ActionListener() {
+                            public void actionPerformed(ActionEvent ae)
+                            {
+                                popup.getShoppingPanel().addIngredient();
+                            }
+                        });
+                        
+                        //Action listener for Delete Recipe Button in ShoppingList Pop Panel
+                        popup.getShoppingPanel().getDelBtn().addActionListener(new ActionListener() {
+                            public void actionPerformed(ActionEvent ae)
+                            {
+                                popup.getShoppingPanel().delIngredient();
+                            }
+                        });
                     }
-
+        
         });
             
         //Action Listener for JButtons in RecipePanel

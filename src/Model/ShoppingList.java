@@ -17,11 +17,13 @@ public class ShoppingList
     private ArrayList<Recipe> recipeList;
     private ArrayList<IngredientDescription> ingredientList;
     
-    ShoppingList(){}
+    public ShoppingList(){}
     
-    ShoppingList(String name)
+    public ShoppingList(String name, ArrayList<Recipe> recipeList, ArrayList<IngredientDescription> ingredientList)
     {
         this.name = name;
+        this.recipeList = recipeList;
+        this.ingredientList = ingredientList;
     }
 
     /**

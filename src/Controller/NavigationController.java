@@ -63,7 +63,7 @@ public NavigationController(NavigationModel navigationModel, NavigationView navi
     
     shoppingModel = new ShoppingListModel();
     shoppingView = new ShoppingListView();
-    shoppingControl = new ShoppingListController(shoppingModel, shoppingView);
+    shoppingControl = new ShoppingListController(shoppingModel, shoppingView, recipeModel);
     
     navigationView.getMainframe().updateFrame(starterControl.getView().getLoginPanel());
     AddListeners();
