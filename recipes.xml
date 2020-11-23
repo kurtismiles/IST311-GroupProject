@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="15.0.1" class="java.beans.XMLDecoder">
+<java version="14.0.1" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
    <object class="Model.Recipe">
@@ -399,6 +399,46 @@
     </void>
     <void property="tags">
      <string>#protein</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="description">
+     <string>Another Test</string>
+    </void>
+    <void property="ingredients">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient">
+          <void property="description">
+           <string>letters</string>
+          </void>
+          <void property="name">
+           <string>EFWOINNWOEFNWOIEFNOWENFIOWENFIWNEIOFNWOEFNWEOIFNWIOEFNWIOEFNOWNEFOINWEIFONWEIFONWEOFINWEIOFNWEOIFNWEFIOWNEFOIWENFOIWEFNOWIENFOWNEFIOWENFOIWENFOIWENFIOWENFOWENFWIEOFNIWEFNOWEIFNWEOIFNWOEIFNWIOEFNWIOFNWEOIFNWOIEFNWEFIOWEFNWEOIFNWEOIFNWEOIFNWEOFNWEIOFNWEOIFNWIOENFIWEOFNIOWEFNOWEIFNWEIOFNEOWIFNWEIOFNWEIOFNWEOIFNWEOFWENOFWENFOIWENFOWEFNIOEWNFIOWENFOIWENFIOWENFIOWEFNWOIFNWOEFNWOEFNIWEFNWEIFNWEOFIWINEOOINNOFWENOWNOFINOEFNOIFENOWEFNONOEWFONFWEEFWIWIEINOFENIOFNENOIFWENOINOIFWENOIWEFOINEFNWOINOIFWENONOINOINIINWENFWEINFOWNFKWENFIOWRENOVIRNVJFVSDNVINERWUIVNEIRNVEIRUV</string>
+          </void>
+          <void property="tags">
+           <string>#wow</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="name">
+     <string>Test</string>
+    </void>
+    <void property="tags">
+     <string>#uh no</string>
     </void>
    </object>
   </void>

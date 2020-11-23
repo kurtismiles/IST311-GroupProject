@@ -47,6 +47,7 @@ public class IngredientPop extends JFrame {
 
         nameText = new JTextField();
         nameText.setBounds(220, 30, 490, 30);
+        
 
         descriptionText = new JTextField();
         descriptionText.setBounds(220, 80, 490, 30);

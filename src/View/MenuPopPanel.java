@@ -12,6 +12,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 
 /**
  *
@@ -146,30 +149,51 @@ public class MenuPopPanel extends JPanel {
         
         image = (new ImageIcon("Images/ViewPopBackground.jpg")).getImage();
         
-        JLabel logo = new JLabel(this.readRecipe.getName());
+        JLabel logo = new JLabel(shoppingListInput.getName());
         logo.setBounds(350, 5, 250, 30);
         logo.setFont(new Font("Times New Roman", Font.ROMAN_BASELINE, 18));
         
-        JLabel menuDescription_label = new JLabel("Description: ");
+        JLabel menuDescription_label = new JLabel("Ingredients: ");
         menuDescription_label.setBounds(150, 55, 250, 30);
         menuDescription_label.setFont(new Font("Times New Roman", Font.BOLD, 16));
-
-        JLabel menuTags_label = new JLabel("Tags: ");
-        menuTags_label.setBounds(150, 105, 250, 30);
-        menuTags_label.setFont(new Font("Times New Roman", Font.BOLD, 16));
         
+        JTextArea Scroll = new JTextArea();
+      
+        for (int i = 0; i < shoppingListInput.getIngredientList().size(); i++)
+        {
+            String builder = new String(Float.toString(shoppingListInput.getIngredientList().get(i).getNumber()) +
+                    " " + shoppingListInput.getIngredientList().get(i).getUnit() +
+                    " " + shoppingListInput.getIngredientList().get(i).getIngredient().getName() + "\n");
+
+            try
+            {
+               
+                Scroll.append(builder);
+            }
+            catch(Exception E)
+            {
+                System.out.println("couldnt find row");
+                
+            }
+            
+        }
+        
+        JScrollPane scrollpane = new JScrollPane(Scroll);
+        
+        scrollpane.setBounds(150, 105, 200, 200);
+        
+        //Scroll.setBounds(150, 105, 200, 500);
+        Scroll.setEditable(false);
+
         descriptionMenu = new JLabel();
         descriptionMenu.setBounds(300, 55, 490, 30);
-
-        tagsMenu = new JLabel();
-        tagsMenu.setBounds(300, 105, 490, 30);
         
         add(logo);
         add(menuDescription_label);
-        add(menuTags_label);
+        add(scrollpane);
         add(descriptionMenu);
-        add(tagsMenu);
- 
+        
+
     }
     
 
