@@ -295,7 +295,7 @@ public class IngredientController {
                 }
                 
                 //update scroll wheel
-                view.getIngredientPanel().setScrollpos(scroll);
+                view.getIngredientPanel().setScrollpos(scroll, model.getIngredientData().getIngredientList().size());
                 
                 //Check if out of bounds 
                 if (model.getIngredientData().getFirstLine()+scroll < 0)

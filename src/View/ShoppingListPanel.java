@@ -69,7 +69,9 @@ public class ShoppingListPanel extends JPanel {
         //---------------------------IP 5
         gbc[0].gridx = 0;
         gbc[1].gridx = 0;
-        ip[5].add(new JLabel("ShoppingList"), gbc[1]);
+
+        ip[5].add(new JLabel("Shopping Lists"), gbc[1]);
+        
         gbc[1].gridx = 1;
         JLabel spacing5 = new JLabel();
         spacing5.setPreferredSize(new Dimension(400, 40));
@@ -200,8 +202,8 @@ public class ShoppingListPanel extends JPanel {
         return scroll;
     }
 
-    public void setScrollpos(int pos) {
-        this.scroll.setValue(this.scroll.getValue() + pos);
+    public void setScrollpos(int pos, int modifier) {
+        this.scroll.setValue(this.scroll.getValue() + pos * (this.scroll.getMaximum() / ((this.scroll.getMaximum() % (modifier - jb.length))+1)));
     }
 
     @Override

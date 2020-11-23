@@ -211,7 +211,7 @@ public class ShoppingListController
                 }
                 
                 //update scroll wheel
-                view.getShoppingPanel().setScrollpos(scroll);
+                view.getShoppingPanel().setScrollpos(scroll, model.getShoppingListData().getShoppingListList().size());
                 
                 //Check if out of bounds 
                 if (model.getShoppingListData().getFirstLine()+scroll < 0)
