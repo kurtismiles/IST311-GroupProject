@@ -174,7 +174,7 @@ public class ShoppingListPopPanel extends JPanel {
     //setup recipe entry display
     public void setupRecipeList() {
         for (int i = 0; i < this.recipeList.size(); ++i) {
-            this.recipeNames.add(new String(this.recipeList.get(i).getName()));
+            this.recipeNames.add(this.recipeList.get(i).getName());
         }
         this.recipeMenu.add(new JComboBox(this.recipeNames.toArray()));
 
@@ -186,13 +186,18 @@ public class ShoppingListPopPanel extends JPanel {
         for (int i = 0; i < this.recipeMenu.size(); i++) {
             int index = 0;
 
-            for (int j = 0; j < recipeList.size(); j++) {
-                if (recipeList.get(j).getName() == this.recipeMenu.get(i).getSelectedItem()) {
+            for (int j = 0; j < recipeList.size(); j++) 
+            {
+
+                if (recipeList.get(j).getName() == this.recipeMenu.get(i).getSelectedItem().toString())
+                {
                     index = j;
                     break;
+                    
                 }
 
             }
+            
             food.add(this.recipeList.get(index));
 
         }
