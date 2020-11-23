@@ -109,11 +109,12 @@ public class ShoppingListController
                                     view.getShoppingPanel().updateDataPanel(model.getShoppingListData().getShoppingListList(), model.getShoppingListData().getFirstLine());
                                     
                                 }
+
                                 //error message if one of the fields are empty
-                                else
-                                {
-                                    System.out.println("Error: placeholder error message");
-                                }
+//                                else
+//                                {
+//                                    System.out.println("Error: placeholder error message");
+//                                }
                                 
                             }
                         });
@@ -177,6 +178,7 @@ public class ShoppingListController
         {
             public void actionPerformed(ActionEvent ae)
             {
+                
                 
             }
         });

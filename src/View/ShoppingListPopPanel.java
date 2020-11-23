@@ -64,6 +64,7 @@ public class ShoppingListPopPanel extends JPanel {
         add(this.shoppingName);
         add(recipeLabel);
         checkMenu();
+
     }
 
     /**
