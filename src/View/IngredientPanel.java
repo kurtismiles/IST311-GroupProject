@@ -187,7 +187,9 @@ public class IngredientPanel extends JPanel {
         return scroll;
     }
 
-    public void setScrollpos(int pos) {
+    public void setScrollpos(int pos, int modifier) {
+//        System.out.println((this.scroll.getMaximum() % (modifier - jb.length)) + 1);
+//        this.scroll.setValue(this.scroll.getValue() + pos * (this.scroll.getMaximum() / ((this.scroll.getMaximum() % (modifier - jb.length)) + 1)));
         this.scroll.setValue(this.scroll.getValue() + pos);
     }
 
@@ -228,6 +230,5 @@ public class IngredientPanel extends JPanel {
         }
 
     }
-    
 
 }

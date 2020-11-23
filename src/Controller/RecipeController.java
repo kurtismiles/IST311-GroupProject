@@ -216,7 +216,7 @@ public class RecipeController {
                 }
                 
                 //update scroll wheel
-                view.getRecipePanel().setScrollpos(scroll);
+                view.getRecipePanel().setScrollpos(scroll, model.getRecipeData().getRecipeList().size());
                 
                 //Check if out of bounds 
                 if (model.getRecipeData().getFirstLine()+scroll < 0)
