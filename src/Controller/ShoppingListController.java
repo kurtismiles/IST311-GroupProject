@@ -45,7 +45,7 @@ public class ShoppingListController
         
         addListeners();
         
-        //view.getShoppingPanel().updateDataPanel(model.getShoppingListData().getShoppingListList(), model.getShoppingListData().getFirstLine());
+        view.getShoppingPanel().updateDataPanel(model.getShoppingListData().getShoppingListList(), model.getShoppingListData().getFirstLine());
     }
     
     /**
@@ -100,6 +100,11 @@ public class ShoppingListController
 //                                    System.out.println(popup.getShoppingPanel().getShoppingName().getText());
 //                                    System.out.println(popup.getShoppingPanel().returnSelected().get(0).getName());
                                     //if non are empty, create a new recipe
+                                    for (int i = 0; i < popup.getShoppingPanel().returnSelected().size(); i++)
+                                    {
+                                        System.out.println(popup.getShoppingPanel().returnSelected().get(i).getName());
+                                    
+                                    }
                                     model.writeShoppingList(new ShoppingList(popup.getShoppingPanel().getShoppingName().getText(),popup.getShoppingPanel().returnSelected(),model.buildShoppingList(popup.getShoppingPanel().returnSelected())));
                                     
                                     //dispose popup frame
@@ -160,8 +165,13 @@ public class ShoppingListController
                         }
                     }
                     
-                    //create a new menu popup with recipe data from button pressed
-                    menupop = new MenuPop(model.getShoppingListData().getShoppingListList().get(model.getShoppingListData().getFirstLine() + position));   
+                    
+                    try{menupop = new MenuPop(model.getShoppingListData().getShoppingListList().get(model.getShoppingListData().getFirstLine() + position));}
+                                catch(Exception error)
+                                {
+                                System.out.println("Sorry I cant click that button");
+                                }
+                    //create a new menu popup with recipe data from button pressed  
                     
                 }
             });

@@ -140,8 +140,10 @@ public class IngredientController {
 //                                model.refreshIngredientList();
 //                                
 //                                view.getIngredientPanel().updateDataPanel(model.getIngredientData().getIngredientList(), model.getIngredientData().getFirstLine());
+                                
 
                             }
+                            
                             
                             else
                             {
