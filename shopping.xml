@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<java version="14" class="java.beans.XMLDecoder">
+ <object class="java.util.ArrayList">
+  <void method="add">
+   <object class="Model.ShoppingList">
+    <void property="ingredientList">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Model.IngredientDescription" id="IngredientDescription0">
+        <void property="ingredient">
+         <object class="Model.Ingredient">
+          <void property="description">
+           <string>Egg from a chicken</string>
+          </void>
+          <void property="name">
+           <string>Eggs</string>
+          </void>
+          <void property="tags">
+           <string>#baking</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>5.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription" id="IngredientDescription1">
+        <void property="ingredient">
+         <object class="Model.Ingredient">
+          <void property="description">
+           <string>Crispy Bacon</string>
+          </void>
+          <void property="name">
+           <string>Bacon</string>
+          </void>
+          <void property="tags">
+           <string>#salty</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>0.5</float>
+        </void>
+        <void property="unit">
+         <string>lb</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="name">
+     <string>just eggs</string>
+    </void>
+    <void property="recipeList">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Model.Recipe">
+        <void property="description">
+         <string>A delicious breakfast</string>
+        </void>
+        <void property="ingredients">
+         <object class="java.util.ArrayList">
+          <void method="add">
+           <object idref="IngredientDescription0"/>
+          </void>
+          <void method="add">
+           <object idref="IngredientDescription1"/>
+          </void>
+         </object>
+        </void>
+        <void property="name">
+         <string>Egg &amp; Bacon</string>
+        </void>
+        <void property="tags">
+         <string>#delicious</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+   </object>
+  </void>
+ </object>
+</java>
