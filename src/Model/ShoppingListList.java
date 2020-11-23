@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.beans.XMLDecoder;
@@ -19,24 +14,22 @@ import java.util.ArrayList;
  */
 public class ShoppingListList implements XMLData, Scrollable {
 
- private ArrayList<ShoppingList> shoppingListList;
-   
+    private ArrayList<ShoppingList> shoppingListList;
+
     private int totalLines;
     private int firstLine;
     private int lastLine;
-    
-    
-    public ShoppingListList()
-    {
-       shoppingListList = new ArrayList<>();
-       loadXMLList();
-       
-       totalLines = 5;
-       firstLine = 0;
-       lastLine = 4;    
+
+    public ShoppingListList() {
+        shoppingListList = new ArrayList<>();
+        totalLines = 5;
+        firstLine = 0;
+        lastLine = 4;
+
+        loadXMLList();
+
     }
-    
-    
+
     /**
      * @return the shoppingListList
      */
@@ -50,10 +43,10 @@ public class ShoppingListList implements XMLData, Scrollable {
     public void setShoppingListList(ArrayList<ShoppingList> shoppingListList) {
         this.shoppingListList = shoppingListList;
     }
-    
-    
-    //=========Methods Implemented from Scrollable Interface===========
-    
+
+    //===================================================================
+    //========= Methods Implemented from Scrollable Interface ===========
+    //===================================================================
     /**
      * @return the totalLines
      */
@@ -102,49 +95,48 @@ public class ShoppingListList implements XMLData, Scrollable {
         this.lastLine = lastLine;
     }
 
- 
-    //retreives recipeList ArrayList from recipes.xml
+    //================================================================
+    //========= Methods Implemented from XMLData Interface ===========
+    //================================================================
+    
+    //retreives shoppingListList ArrayList from shopping.xml
     @Override
-    public void loadXMLList()
-    {          
-        try
-        {
-          XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("shopping.xml")));
+    public void loadXMLList() {
+        try {
+            XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("shopping.xml")));
             setShoppingListList((ArrayList<ShoppingList>) de.readObject());
-          de.close();
-                
-        } catch (Exception xx)
-        {
+            de.close();
+
+        } catch (Exception xx) {
             System.out.println("Unable to load XML file");
         }
     }
-    
-    //saves recipeList ArrayList to recipes.xml
+
+    //saves shoppingListList ArrayList to shopping.xml
     @Override
-    public void saveXMLList()
-    {
-        try
-        {
-          XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("shopping.xml")));
-          xe.writeObject(getShoppingListList());
-          xe.close();
-                
-        } catch (Exception xx)
-        {
+    public void saveXMLList() {
+        try {
+            XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("shopping.xml")));
+            xe.writeObject(getShoppingListList());
+            xe.close();
+
+        } catch (Exception xx) {
             System.out.println("Unable to save XML file");
         }
     }
-         
-    //adds a new recipe to RecipeList ArrayList
-    public void addShoppingList(ShoppingList input)
-    {
+
+    //===================================
+    //========= Class Methods ===========
+    //===================================
+    
+    //adds a new Shooping List to shoppingListList ArrayList
+    public void addShoppingList(ShoppingList input) {
         getShoppingListList().add(input);
     }
-      
-    //removes a recipe from RecipeList ArrayList
-    public void removeShoppingList(ShoppingList input)
-    {
+
+    //removes a Shopping List from shoppingListList ArrayList
+    public void removeShoppingList(ShoppingList input) {
         getShoppingListList().remove(input);
     }
-    
+
 }

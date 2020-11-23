@@ -4,12 +4,9 @@
 package View;
 
 import Model.Recipe;
-import java.awt.Container;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -188,7 +185,7 @@ public class RecipePanel extends JPanel {
     }
 
     public void setScrollpos(int pos, int modifier) {
-        this.scroll.setValue(this.scroll.getValue() + pos * (this.scroll.getMaximum() / ((this.scroll.getMaximum() % (modifier - jb.length))+1)));
+        this.scroll.setValue(this.scroll.getValue() + pos * (this.scroll.getMaximum() / ((this.scroll.getMaximum() % (modifier - jb.length)) + 1)));
     }
 
     @Override

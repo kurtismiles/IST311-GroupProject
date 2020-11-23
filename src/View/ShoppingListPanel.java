@@ -1,11 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
-import Model.Recipe;
 import Model.ShoppingList;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -27,7 +21,7 @@ import javax.swing.JScrollBar;
  * @author Kurtis
  */
 public class ShoppingListPanel extends JPanel {
-    
+
     private JButton back;
     private JButton create;
     private JButton delete, save;
@@ -71,7 +65,7 @@ public class ShoppingListPanel extends JPanel {
         gbc[1].gridx = 0;
 
         ip[5].add(new JLabel("Shopping Lists"), gbc[1]);
-        
+
         gbc[1].gridx = 1;
         JLabel spacing5 = new JLabel();
         spacing5.setPreferredSize(new Dimension(400, 40));
@@ -148,8 +142,7 @@ public class ShoppingListPanel extends JPanel {
     /**
      * @return the jb
      */
-    public JButton[] getJb() 
-    {
+    public JButton[] getJb() {
         return jb;
     }
 
@@ -203,7 +196,7 @@ public class ShoppingListPanel extends JPanel {
     }
 
     public void setScrollpos(int pos, int modifier) {
-        this.scroll.setValue(this.scroll.getValue() + pos * (this.scroll.getMaximum() / ((this.scroll.getMaximum() % (modifier - jb.length))+1)));
+        this.scroll.setValue(this.scroll.getValue() + pos * (this.scroll.getMaximum() / ((this.scroll.getMaximum() % (modifier - jb.length)) + 1)));
     }
 
     @Override
@@ -243,5 +236,5 @@ public class ShoppingListPanel extends JPanel {
             }
         }
     }
-    
+
 }

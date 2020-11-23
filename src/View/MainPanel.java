@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import java.awt.BorderLayout;
@@ -112,14 +107,7 @@ public class MainPanel extends JPanel
     {
         this.b4 = b4;
     }
-
-    @Override
-    protected void paintComponent(Graphics g)
-    {
-        super.paintComponent(g);
-        g.drawImage(image1, 0, 0, null);
-    }
-
+    
     public Image getImage1()
     {
         return image1;
@@ -130,4 +118,11 @@ public class MainPanel extends JPanel
         this.image1 = image1;
     }
 
+    //Paints a background image
+    @Override
+    protected void paintComponent(Graphics g)
+    {
+        super.paintComponent(g);
+        g.drawImage(image1, 0, 0, null);
+    }
 }

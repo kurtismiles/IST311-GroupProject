@@ -4,12 +4,9 @@
 package View;
 
 import Model.Ingredient;
-import java.awt.Container;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -227,6 +224,5 @@ public class IngredientPanel extends JPanel {
                 ++displayLine;
             }
         }
-
     }
 }

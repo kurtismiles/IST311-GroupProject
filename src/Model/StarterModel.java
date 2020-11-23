@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.util.HashMap;
@@ -11,13 +6,11 @@ import java.util.HashMap;
  *
  * @author Kurtis
  */
-public class StarterModel
-{
+public class StarterModel {
 
     private HashMap accounts;
 
-    public StarterModel()
-    {
+    public StarterModel() {
         accounts = new HashMap();
 
         accounts.put("Sam@yahoo.com", "Puppies");
@@ -29,23 +22,16 @@ public class StarterModel
     }
 
     //tests the input to see if it matches any username&password combo in accounts map
-    public boolean Authorize(String inputUsername, String inputPassword)
-    {
-        if (accounts.containsKey(inputUsername))
-        {
-            System.out.println("Correct Username");
+    public boolean Authorize(String inputUsername, String inputPassword) {
+        if (accounts.containsKey(inputUsername)) {
 
-            if ((accounts.get(inputUsername)).equals(inputPassword))
-            {
-                System.out.println("Correct Password");
+            if ((accounts.get(inputUsername)).equals(inputPassword)) {
                 return true;
-            } else
-            {
+            } else {
                 System.out.println("Incorrect Password");
                 return false;
             }
-        } else
-        {
+        } else {
             System.out.println("Incorrect Username");
             return false;
         }

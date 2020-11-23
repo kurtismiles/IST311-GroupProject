@@ -4,12 +4,11 @@ package View;
  *
  * @author Kurtis
  */
-public class NavigationView
-{
+public class NavigationView {
+
     private MainFrame mainframe;
-    
-    public NavigationView()
-    {
+
+    public NavigationView() {
         mainframe = new MainFrame();
     }
 
@@ -26,7 +25,5 @@ public class NavigationView
     public void setMainframe(MainFrame mainframe) {
         this.mainframe = mainframe;
     }
-    
-    
-    
+
 }

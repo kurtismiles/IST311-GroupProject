@@ -1,12 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 /**
  *
@@ -17,7 +11,6 @@ public class Recipe {
     private String name;
     private String description;
     private String tags;
-//  private String ingredients;
     private ArrayList<IngredientDescription> ingredients;
 
     public Recipe() {
@@ -72,7 +65,6 @@ public class Recipe {
         this.tags = tags;
     }
 
-    
     /**
      * @return the ingredients
      */

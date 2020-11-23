@@ -3,18 +3,15 @@ package View;
 import Model.Ingredient;
 import Model.Recipe;
 import Model.ShoppingList;
-import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
-import javax.swing.JTextField;
 
 /**
  *
@@ -73,7 +70,6 @@ public class MenuPopPanel extends JPanel {
             }
         }
 
-
         tagsMenu = new JLabel(this.readRecipe.getTags());
         tagsMenu.setBounds(300, 125 + (25 * this.readRecipe.getIngredients().size()), 490, 30); //25 dif
 
@@ -110,7 +106,7 @@ public class MenuPopPanel extends JPanel {
     }
 
     public MenuPopPanel(Ingredient ingredientInput) {
-        
+
         super();
         setLayout(null);
 
@@ -141,61 +137,55 @@ public class MenuPopPanel extends JPanel {
         add(tagsMenu);
 
     }
-    
+
     public MenuPopPanel(ShoppingList shoppingListInput) {
-    
+
         super();
         setLayout(null);
-        
+
         image = (new ImageIcon("Images/ViewPopBackground.jpg")).getImage();
-        
+
         JLabel logo = new JLabel(shoppingListInput.getName());
         logo.setBounds(350, 5, 250, 30);
         logo.setFont(new Font("Times New Roman", Font.ROMAN_BASELINE, 18));
-        
+
         JLabel menuDescription_label = new JLabel("Ingredients: ");
         menuDescription_label.setBounds(150, 55, 250, 30);
         menuDescription_label.setFont(new Font("Times New Roman", Font.BOLD, 16));
-        
-        JTextArea Scroll = new JTextArea();
-      
-        for (int i = 0; i < shoppingListInput.getIngredientList().size(); i++)
-        {
-            String builder = new String(Float.toString(shoppingListInput.getIngredientList().get(i).getNumber()) +
-                    " " + shoppingListInput.getIngredientList().get(i).getUnit() +
-                    " " + shoppingListInput.getIngredientList().get(i).getIngredient().getName() + "\n");
 
-            try
-            {
-               
+        JTextArea Scroll = new JTextArea();
+
+        for (int i = 0; i < shoppingListInput.getIngredientList().size(); i++) {
+            String builder = new String(Float.toString(shoppingListInput.getIngredientList().get(i).getNumber())
+                    + " " + shoppingListInput.getIngredientList().get(i).getUnit()
+                    + " " + shoppingListInput.getIngredientList().get(i).getIngredient().getName() + "\n");
+
+            try {
+
                 Scroll.append(builder);
-            }
-            catch(Exception E)
-            {
+            } catch (Exception E) {
                 System.out.println("couldnt find row");
-                
+
             }
-            
+
         }
-        
+
         JScrollPane scrollpane = new JScrollPane(Scroll);
-        
+
         scrollpane.setBounds(150, 105, 200, 200);
-        
+
         //Scroll.setBounds(150, 105, 200, 500);
         Scroll.setEditable(false);
 
         descriptionMenu = new JLabel();
         descriptionMenu.setBounds(300, 55, 490, 30);
-        
+
         add(logo);
         add(menuDescription_label);
         add(scrollpane);
         add(descriptionMenu);
-        
 
     }
-    
 
     /**
      * @return the readRecipe
@@ -331,7 +321,7 @@ public class MenuPopPanel extends JPanel {
 
     public void update() {
         for (int i = 0; i < this.readRecipe.getIngredients().size(); i++) {
-            ingredientMenu[0][i].setText(Float.toString(this.readRecipe.getIngredients().get(i).getNumber()*this.multiplier));
+            ingredientMenu[0][i].setText(Float.toString(this.readRecipe.getIngredients().get(i).getNumber() * this.multiplier));
         }
         repaint();
         revalidate();
