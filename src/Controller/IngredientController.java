@@ -16,6 +16,7 @@ import javax.swing.JLabel;
 /**
  *
  * @author Kurtis
+ * @editor Leslin (Avina)
  */
 public class IngredientController {
 
@@ -87,6 +88,7 @@ public class IngredientController {
 
                             //refresh data in view recipe panel
                             view.getIngredientPanel().updateDataPanel(model.getIngredientData().getIngredientList(), model.getIngredientData().getFirstLine());
+                            scrollMod();
 
                         } //error message if one of the fields are empty
                         else {

@@ -14,6 +14,7 @@ import javax.swing.JButton;
 /**
  *
  * @author Kurtis
+ * @editor Leslin (Avina)
  */
 public class RecipeController {
 
@@ -93,6 +94,7 @@ public class RecipeController {
 
                             //refresh data in view recipe panel
                             view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine());
+                            scrollMod();
 
                         } //error message if one of the fields are empty
                         else {

@@ -15,6 +15,7 @@ import javax.swing.JButton;
 /**
  *
  * @author Kurtis
+ * @editor Leslin (Avina)
  */
 public class ShoppingListController {
 
