@@ -33,6 +33,7 @@ public class RecipeController {
 
         this.ingredientModel = ingredientModel;
 
+        scrollMod();
         addListeners();
 
         view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine());
@@ -194,7 +195,7 @@ public class RecipeController {
                 }
 
                 //update scroll wheel
-                view.getRecipePanel().setScrollpos(scroll, model.getRecipeData().getRecipeList().size());
+                view.getRecipePanel().setScrollpos(scroll);
 
                 //Check if out of bounds 
                 if (model.getRecipeData().getFirstLine() + scroll < 0) {
@@ -221,4 +222,12 @@ public class RecipeController {
 
     }
 
+    private void scrollMod() {
+        //Modify Scroll Limits
+        if (this.view.getRecipePanel().getJb().length < this.model.getRecipeData().getRecipeList().size()) {   //Negative numbers cause scroll max bug
+            this.view.getRecipePanel().getScroll().setMaximum(10 + Math.abs(this.view.getRecipePanel().getJb().length - this.model.getRecipeData().getRecipeList().size()));
+        } else {
+            this.view.getRecipePanel().getScroll().setMaximum(10);   //Blank scroll
+        }
+    }
 }

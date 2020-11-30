@@ -33,6 +33,7 @@ public class ShoppingListController {
         this.view = view;
         this.recipeModel = recipeModel;
 
+        scrollMod();
         addListeners();
 
         view.getShoppingPanel().updateDataPanel(model.getShoppingListData().getShoppingListList(), model.getShoppingListData().getFirstLine());
@@ -90,6 +91,7 @@ public class ShoppingListController {
 
                             //refresh data in view recipe panel
                             view.getShoppingPanel().updateDataPanel(model.getShoppingListData().getShoppingListList(), model.getShoppingListData().getFirstLine());
+                            scrollMod();
 
                         }//error message if one of the fields are empty
                         else {
@@ -193,6 +195,15 @@ public class ShoppingListController {
             }
         });
 
+    }
+
+    private void scrollMod() {
+        //Modify Scroll Limits
+        if (this.view.getShoppingPanel().getJb().length < this.model.getShoppingListData().getShoppingListList().size()) {   //Negative numbers cause scroll max bug
+            this.view.getShoppingPanel().getScroll().setMaximum(10 + Math.abs(this.view.getShoppingPanel().getJb().length - this.model.getShoppingListData().getShoppingListList().size()));
+        } else {
+            this.view.getShoppingPanel().getScroll().setMaximum(10);   //Blank scroll
+        }
     }
 
 }

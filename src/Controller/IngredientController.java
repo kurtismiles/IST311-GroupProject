@@ -31,6 +31,7 @@ public class IngredientController {
         this.model = model;
         this.view = view;
 
+        scrollMod();
         addListeners();
 
         view.getIngredientPanel().updateDataPanel(model.getIngredientData().getIngredientList(), model.getIngredientData().getFirstLine());
@@ -172,7 +173,7 @@ public class IngredientController {
                 }
 
                 //update scroll wheel
-                view.getIngredientPanel().setScrollpos(scroll, model.getIngredientData().getIngredientList().size());
+                view.getIngredientPanel().setScrollpos(scroll);
 
                 //Check if out of bounds 
                 if (model.getIngredientData().getFirstLine() + scroll < 0) {
@@ -196,5 +197,14 @@ public class IngredientController {
                 }
             }
         });
+    }
+
+    private void scrollMod() {
+        //Modify Scroll Limits
+        if (view.getIngredientPanel().getJb().length < model.getIngredientData().getIngredientList().size()) {   //Negative numbers cause scroll max bug
+            view.getIngredientPanel().getScroll().setMaximum(10 + Math.abs(view.getIngredientPanel().getJb().length - model.getIngredientData().getIngredientList().size()));
+        } else {
+            this.view.getIngredientPanel().getScroll().setMaximum(10);   //Blank scroll
+        }
     }
 }
