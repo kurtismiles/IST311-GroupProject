@@ -8,6 +8,8 @@ import View.ShoppingListPop;
 import View.ShoppingListView;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import javax.swing.JButton;
@@ -25,6 +27,8 @@ public class ShoppingListController {
 
     private ShoppingListPop popup;
     private MenuPop menupop;
+
+    private int sTrack = 0;
 
     public ShoppingListController() {
     }
@@ -158,7 +162,7 @@ public class ShoppingListController {
             }
         });
 
-        //Mouse scroll listener for ShoppingPanel
+        //Mouse scroll listener for Recipe Panel
         view.getShoppingPanel().addMouseWheelListener(new MouseWheelListener() {
             public void mouseWheelMoved(MouseWheelEvent we) {
                 int scroll;
@@ -170,9 +174,6 @@ public class ShoppingListController {
                     scroll = -1;
                 }
 
-                //update scroll wheel
-                view.getShoppingPanel().setScrollpos(scroll, model.getShoppingListData().getShoppingListList().size());
-
                 //Check if out of bounds 
                 if (model.getShoppingListData().getFirstLine() + scroll < 0) {
                     //Do not scroll
@@ -180,18 +181,67 @@ public class ShoppingListController {
                     //Do not scroll
                 } //if not out of bounds
                 else {
-                    //if scroll is positive increment data lines
+                    //if scroll is positive increment recipedata lines
                     if (scroll > 0) {
                         model.getShoppingListData().setFirstLine(model.getShoppingListData().getFirstLine() + 1);
                         model.getShoppingListData().setLastLine(model.getShoppingListData().getLastLine() + 1);
-                    } //else scroll is negative and deincrement data lines
+                    } //else scroll is negative and deincrement recipedata lines
                     else {
                         model.getShoppingListData().setFirstLine(model.getShoppingListData().getFirstLine() - 1);
                         model.getShoppingListData().setLastLine(model.getShoppingListData().getLastLine() - 1);
                     }
 
+                    //update scroll wheel
+                    view.getShoppingPanel().setScrollpos(scroll);
+
                     //update views datapanel with new line information
                     view.getShoppingPanel().updateDataPanel(model.getShoppingListData().getShoppingListList(), model.getShoppingListData().getFirstLine());
+                }
+            }
+        });
+        
+        
+        //Scroll adjustment listener for Recipe Panel
+        view.getShoppingPanel().getScroll().addAdjustmentListener(new AdjustmentListener() {
+            public void adjustmentValueChanged(AdjustmentEvent ae) {
+                int scroll;
+
+//                System.out.println(view.getRecipePanel().getScroll().getValueIsAdjusting());
+//                System.out.println(ae.getValue() + " sTrack =" + sTrack);
+//                System.out.println("Unit:" + view.getRecipePanel().getScroll().getUnitIncrement());
+                if (view.getShoppingPanel().getScroll().getValueIsAdjusting() == Boolean.TRUE || view.getShoppingPanel().getScroll().getUnitIncrement() != 0) {
+
+                    //Scroll units to current/final position
+                    if (ae.getValue() > sTrack) {
+                        scroll = ae.getValue() - sTrack;
+                        sTrack = ae.getValue();
+//                        System.out.println("Adjustment Scroll DOWN: " + scroll);
+                    } else {
+                        scroll = ae.getValue() - sTrack;
+                        sTrack = ae.getValue();
+//                        System.out.println("Adjustment Scroll UP: " + scroll);
+                    }
+
+                    //Check if out of bounds 
+                    if (model.getShoppingListData().getFirstLine() + scroll < 0) {
+                        //Do not scroll
+                    } else if (model.getShoppingListData().getLastLine() + scroll >= model.getShoppingListData().getShoppingListList().size()) {
+                        //Do not scroll
+                    } //if not out of bounds
+                    else {
+                        //if scroll is positive increment recipedata lines
+                        if (scroll > 0) {
+                            model.getShoppingListData().setFirstLine(model.getShoppingListData().getFirstLine() + scroll);
+                            model.getShoppingListData().setLastLine(model.getShoppingListData().getLastLine() + scroll);
+                        } //else scroll is negative and deincrement recipedata lines
+                        else {
+                            model.getShoppingListData().setFirstLine(model.getShoppingListData().getFirstLine() + scroll);
+                            model.getShoppingListData().setLastLine(model.getShoppingListData().getLastLine() + scroll);
+                        }
+
+                        //update views datapanel with new line information
+                        view.getShoppingPanel().updateDataPanel(model.getShoppingListData().getShoppingListList(), model.getShoppingListData().getFirstLine());
+                    }
                 }
             }
         });

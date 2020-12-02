@@ -25,6 +25,8 @@ public class RecipeController {
 
     private IngredientModel ingredientModel;
 
+    private int sTrack = 0;
+
     public RecipeController() {
     }
 
@@ -184,7 +186,7 @@ public class RecipeController {
             }
         });
 
-        //Mouse scroll listener for Recipe Panel
+        //Mouse scroll listener for Ingredient Panel
         view.getRecipePanel().addMouseWheelListener(new MouseWheelListener() {
             public void mouseWheelMoved(MouseWheelEvent we) {
                 int scroll;
@@ -196,9 +198,6 @@ public class RecipeController {
                     scroll = -1;
                 }
 
-                //update scroll wheel
-                view.getRecipePanel().setScrollpos(scroll);
-
                 //Check if out of bounds 
                 if (model.getRecipeData().getFirstLine() + scroll < 0) {
                     //Do not scroll
@@ -208,13 +207,19 @@ public class RecipeController {
                 else {
                     //if scroll is positive increment recipedata lines
                     if (scroll > 0) {
+//                        System.out.println("Mouse Scroll DOWN: " + scroll);
                         model.getRecipeData().setFirstLine(model.getRecipeData().getFirstLine() + 1);
                         model.getRecipeData().setLastLine(model.getRecipeData().getLastLine() + 1);
+                        sTrack = sTrack + 1;
                     } //else scroll is negative and deincrement recipedata lines
                     else {
                         model.getRecipeData().setFirstLine(model.getRecipeData().getFirstLine() - 1);
                         model.getRecipeData().setLastLine(model.getRecipeData().getLastLine() - 1);
+                        sTrack = sTrack - 1;
                     }
+
+                    //update scroll wheel
+                    view.getRecipePanel().setScrollpos(scroll);
 
                     //update views datapanel with new line information
                     view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine());
@@ -222,6 +227,50 @@ public class RecipeController {
             }
         });
 
+        //Scrollbar adjustment listener for Ingredient Panel
+        view.getRecipePanel().getScroll().addAdjustmentListener(new AdjustmentListener() {
+            public void adjustmentValueChanged(AdjustmentEvent ae) {
+                int scroll;
+
+//                System.out.println(view.getIngredientPanel().getScroll().getValueIsAdjusting());
+//                System.out.println(ae.getValue() + " sTrack =" + sTrack);
+//                System.out.println("Unit:" + view.getIngredientPanel().getScroll().getUnitIncrement());
+                if (view.getRecipePanel().getScroll().getValueIsAdjusting() == Boolean.TRUE || view.getRecipePanel().getScroll().getUnitIncrement() != 0) {
+
+                    //Scroll units to current/final position
+                    if (ae.getValue() > sTrack) {
+                        scroll = ae.getValue() - sTrack;
+                        sTrack = ae.getValue();
+//                        System.out.println("Adjustment Scroll DOWN: " + scroll);
+                    } else {
+                        scroll = ae.getValue() - sTrack;
+                        sTrack = ae.getValue();
+//                        System.out.println("Adjustment Scroll UP: " + scroll);
+                    }
+
+                    //Check if out of bounds 
+                    if (model.getRecipeData().getFirstLine() + scroll < 0) {
+                        //Do not scroll
+                    } else if (model.getRecipeData().getLastLine() + scroll >= model.getRecipeData().getRecipeList().size()) {
+                        //Do not scroll
+                    } //if not out of bounds
+                    else {
+                        //if scroll is positive increment recipedata lines
+                        if (scroll > 0) {
+                            model.getRecipeData().setFirstLine(model.getRecipeData().getFirstLine() + scroll);
+                            model.getRecipeData().setLastLine(model.getRecipeData().getLastLine() + scroll);
+                        } //else scroll is negative and deincrement recipedata lines
+                        else {
+                            model.getRecipeData().setFirstLine(model.getRecipeData().getFirstLine() + scroll);
+                            model.getRecipeData().setLastLine(model.getRecipeData().getLastLine() + scroll);
+                        }
+
+                        //update views datapanel with new line information
+                        view.getRecipePanel().updateDataPanel(model.getRecipeData().getRecipeList(), model.getRecipeData().getFirstLine());
+                    }
+                }
+            }
+        });
     }
 
     private void scrollMod() {

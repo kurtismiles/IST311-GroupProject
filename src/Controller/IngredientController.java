@@ -8,6 +8,8 @@ import View.MenuPop;
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.AdjustmentEvent;
+import java.awt.event.AdjustmentListener;
 import java.awt.event.MouseWheelEvent;
 import java.awt.event.MouseWheelListener;
 import javax.swing.JButton;
@@ -24,6 +26,8 @@ public class IngredientController {
     private IngredientView view;
     private IngredientPop popup;
     private MenuPop menupop;
+
+    private int sTrack = 0;
 
     public IngredientController() {
     }
@@ -162,7 +166,7 @@ public class IngredientController {
             }
         });
 
-        //Mouse scroll listener for Recipe Panel
+        //Mouse scroll listener for Ingredient Panel
         view.getIngredientPanel().addMouseWheelListener(new MouseWheelListener() {
             public void mouseWheelMoved(MouseWheelEvent we) {
                 int scroll;
@@ -174,9 +178,6 @@ public class IngredientController {
                     scroll = -1;
                 }
 
-                //update scroll wheel
-                view.getIngredientPanel().setScrollpos(scroll);
-
                 //Check if out of bounds 
                 if (model.getIngredientData().getFirstLine() + scroll < 0) {
                     //Do not scroll
@@ -186,16 +187,67 @@ public class IngredientController {
                 else {
                     //if scroll is positive increment recipedata lines
                     if (scroll > 0) {
+//                        System.out.println("Mouse Scroll DOWN: " + scroll);
                         model.getIngredientData().setFirstLine(model.getIngredientData().getFirstLine() + 1);
                         model.getIngredientData().setLastLine(model.getIngredientData().getLastLine() + 1);
+                        sTrack = sTrack + 1;
                     } //else scroll is negative and deincrement recipedata lines
                     else {
                         model.getIngredientData().setFirstLine(model.getIngredientData().getFirstLine() - 1);
                         model.getIngredientData().setLastLine(model.getIngredientData().getLastLine() - 1);
+                        sTrack = sTrack - 1;
                     }
+
+                    //update scroll wheel
+                    view.getIngredientPanel().setScrollpos(scroll);
 
                     //update views datapanel with new line information
                     view.getIngredientPanel().updateDataPanel(model.getIngredientData().getIngredientList(), model.getIngredientData().getFirstLine());
+                }
+            }
+        });
+
+        //Scrollbar adjustment listener for Ingredient Panel
+        view.getIngredientPanel().getScroll().addAdjustmentListener(new AdjustmentListener() {
+            public void adjustmentValueChanged(AdjustmentEvent ae) {
+                int scroll;
+
+//                System.out.println(view.getIngredientPanel().getScroll().getValueIsAdjusting());
+//                System.out.println(ae.getValue() + " sTrack =" + sTrack);
+//                System.out.println("Unit:" + view.getIngredientPanel().getScroll().getUnitIncrement());
+                if (view.getIngredientPanel().getScroll().getValueIsAdjusting() == Boolean.TRUE || view.getIngredientPanel().getScroll().getUnitIncrement() != 0) {
+
+                    //Scroll units to current/final position
+                    if (ae.getValue() > sTrack) {
+                        scroll = ae.getValue() - sTrack;
+                        sTrack = ae.getValue();
+//                        System.out.println("Adjustment Scroll DOWN: " + scroll);
+                    } else {
+                        scroll = ae.getValue() - sTrack;
+                        sTrack = ae.getValue();
+//                        System.out.println("Adjustment Scroll UP: " + scroll);
+                    }
+
+                    //Check if out of bounds 
+                    if (model.getIngredientData().getFirstLine() + scroll < 0) {
+                        //Do not scroll
+                    } else if (model.getIngredientData().getLastLine() + scroll >= model.getIngredientData().getIngredientList().size()) {
+                        //Do not scroll
+                    } //if not out of bounds
+                    else {
+                        //if scroll is positive increment recipedata lines
+                        if (scroll > 0) {
+                            model.getIngredientData().setFirstLine(model.getIngredientData().getFirstLine() + scroll);
+                            model.getIngredientData().setLastLine(model.getIngredientData().getLastLine() + scroll);
+                        } //else scroll is negative and deincrement recipedata lines
+                        else {
+                            model.getIngredientData().setFirstLine(model.getIngredientData().getFirstLine() + scroll);
+                            model.getIngredientData().setLastLine(model.getIngredientData().getLastLine() + scroll);
+                        }
+
+                        //update views datapanel with new line information
+                        view.getIngredientPanel().updateDataPanel(model.getIngredientData().getIngredientList(), model.getIngredientData().getFirstLine());
+                    }
                 }
             }
         });

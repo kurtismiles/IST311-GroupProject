@@ -195,8 +195,8 @@ public class ShoppingListPanel extends JPanel {
         return scroll;
     }
 
-    public void setScrollpos(int pos, int modifier) {
-        this.scroll.setValue(this.scroll.getValue() + pos * (this.scroll.getMaximum() / ((this.scroll.getMaximum() % (modifier - jb.length)) + 1)));
+    public void setScrollpos(int pos) {
+        this.scroll.setValue(this.scroll.getValue() + pos);
     }
 
     @Override
@@ -236,5 +236,4 @@ public class ShoppingListPanel extends JPanel {
             }
         }
     }
-
 }
