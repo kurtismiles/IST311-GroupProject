@@ -261,6 +261,8 @@ public class RecipePopPanel extends JPanel {
             this.tagsText.setBounds(220, y + 50, 490, 30);
 
             createBtn.setBounds(350, y + 150, 100, 30);
+            repaint();
+            validate();
         }
     }
 
@@ -286,6 +288,8 @@ public class RecipePopPanel extends JPanel {
             createBtn.setBounds(350, y + 150, 100, 30);
 
             i = --i;
+            repaint();
+            validate();
         }
     }
 

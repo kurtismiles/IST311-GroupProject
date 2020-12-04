@@ -35,8 +35,11 @@ public class MenuPopPanel extends JPanel {
     private JButton favorite;
 
     private Image image;
-    ImageIcon star = new ImageIcon("Images/star.png");
-    ImageIcon starfill = new ImageIcon("Images/starfill.png");
+    
+    ImageIcon star = new ImageIcon((new ImageIcon("Images/star.png")).getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH));
+    ImageIcon starfill = new ImageIcon((new ImageIcon("Images/starfill.png")).getImage().getScaledInstance(50, 50, java.awt.Image.SCALE_SMOOTH));
+    
+    
 
     public MenuPopPanel() {
     }
@@ -375,14 +378,27 @@ public class MenuPopPanel extends JPanel {
 //        ImageIcon icona = createImageIcon("Images/star.png");
         if (readRecipe.getFavorite()) {
             this.favorite = (new JButton(starfill));
+            this.favorite.setToolTipText("Click here to unfavorite");
         } else {
             this.favorite = (new JButton(star));
+            this.favorite.setToolTipText("Click here to favorite");
         }
+        
+        this.favorite.setBorderPainted(false);
+        this.favorite.setContentAreaFilled(false);
+        this.favorite.setFocusPainted(false);
+        this.favorite.setOpaque(false);    
         this.favorite.setBounds(700, 10, 50, 50);
+        
         this.ratings = (new JButton[5]);
         for (int i = 0; i < this.ratings.length; i++) {
-            this.ratings[i] = new JButton("testing", starfill);
+            this.ratings[i] = new JButton(starfill);
             this.ratings[i].setBounds(10 + (52 * i), 400, 50, 50);
+            this.ratings[i].setToolTipText("Click here to rate this recipe!");
+            this.ratings[i].setBorderPainted(false);
+            this.ratings[i].setContentAreaFilled(false);
+            this.ratings[i].setFocusPainted(false);
+            this.ratings[i].setOpaque(false);
 //            ImageIcon imageIcon = new ImageIcon(new ImageIcon("icon.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
 //            label.setIcon(imageIcon);
         }
@@ -392,8 +408,10 @@ public class MenuPopPanel extends JPanel {
     public void favoriteRefresh() {
         if (readRecipe.getFavorite()) {
             this.favorite.setIcon(this.starfill);
+            this.favorite.setToolTipText("Click here to unfavorite");
         } else {
             this.favorite.setIcon(this.star);
+            this.favorite.setToolTipText("Click here to favorite");
         }
         repaint();
         revalidate();
