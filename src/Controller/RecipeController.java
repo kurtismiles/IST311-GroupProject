@@ -14,7 +14,7 @@ import javax.swing.JButton;
 /**
  *
  * @author Kurtis
- * @editor Leslin (Avina)
+ * @editors Leslin (Avina)
  */
 public class RecipeController {
 
@@ -166,8 +166,35 @@ public class RecipeController {
                                 menupop.getPopPanel().update();
                             }
                         });
+                        menupop.getPopPanel().getFavorite().addActionListener(new ActionListener() {
+                            @Override
+                            public void actionPerformed(ActionEvent ae) {
+                                if (!menupop.getPopPanel().getReadRecipe().getFavorite()) {
+                                    menupop.getPopPanel().getReadRecipe().setFavorite(true);
+                                } else {
+                                    menupop.getPopPanel().getReadRecipe().setFavorite(false);
+                                }
+                                System.out.println(menupop.getPopPanel().getReadRecipe().getFavorite());
+                                model.getRecipeData().saveXMLList();
+                                menupop.getPopPanel().favoriteRefresh();
+                            }
+
+                        });
+
+                        for (int i = 0; i < menupop.getPopPanel().getRatings().length; i++) {
+                            int pos = i;
+                            menupop.getPopPanel().getRatings()[i].addActionListener(new ActionListener() {
+                                @Override
+                                public void actionPerformed(ActionEvent ae) {
+                                    menupop.getPopPanel().getReadRecipe().setRating(pos);
+                                    menupop.getPopPanel().rateRefresh();
+                                    model.getRecipeData().saveXMLList();
+                                }
+                            });
+                        }
                     } catch (Exception error) {
                         System.out.println("Sorry I cant click that button");
+                        System.out.println(error);
                     }
 
                 }

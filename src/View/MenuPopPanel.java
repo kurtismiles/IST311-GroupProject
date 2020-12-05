@@ -31,7 +31,12 @@ public class MenuPopPanel extends JPanel {
     private JButton half;
     private float multiplier;
 
+    private JButton[] ratings;
+    private JButton favorite;
+
     private Image image;
+    ImageIcon star = new ImageIcon("Images/star.png");
+    ImageIcon starfill = new ImageIcon("Images/starfill.png");
 
     public MenuPopPanel() {
     }
@@ -39,11 +44,11 @@ public class MenuPopPanel extends JPanel {
     public MenuPopPanel(Recipe recipeInput) {
         super();
         setLayout(null);
-
         image = (new ImageIcon("Images/ViewPopBackground.jpg")).getImage();
+
         this.multiplier = 1;
         this.readRecipe = recipeInput;
-
+        starInitializer();
         JLabel logo = new JLabel(this.readRecipe.getName());
         logo.setBounds(350, 5, 250, 30);
         logo.setFont(new Font("Times New Roman", Font.ROMAN_BASELINE, 18));
@@ -88,6 +93,11 @@ public class MenuPopPanel extends JPanel {
         add(menuIngredient_label);
         add(menuTags_label);
         add(descriptionMenu);
+
+        add(this.favorite);
+        for (int i = 0; i < this.ratings.length; i++) {
+            add(this.ratings[i]);
+        }
 
         for (int i = 0; i < this.readRecipe.getIngredients().size(); i++) {
             ingredientMenu[0][i] = new JLabel(Float.toString(this.readRecipe.getIngredients().get(i).getNumber()));
@@ -135,6 +145,10 @@ public class MenuPopPanel extends JPanel {
         add(menuTags_label);
         add(descriptionMenu);
         add(tagsMenu);
+        add(this.favorite);
+        for (int i = 0; i < this.ratings.length; i++) {
+            add(this.ratings[i]);
+        }
 
     }
 
@@ -313,6 +327,34 @@ public class MenuPopPanel extends JPanel {
         this.multiplier = multiplier;
     }
 
+    /**
+     * @return the ratings
+     */
+    public JButton[] getRatings() {
+        return ratings;
+    }
+
+    /**
+     * @param ratings the ratings to set
+     */
+    public void setRatings(JButton[] ratings) {
+        this.ratings = ratings;
+    }
+
+    /**
+     * @return the favorite
+     */
+    public JButton getFavorite() {
+        return favorite;
+    }
+
+    /**
+     * @param favorite the favorite to set
+     */
+    public void setFavorite(JButton favorite) {
+        this.favorite = favorite;
+    }
+
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -327,4 +369,44 @@ public class MenuPopPanel extends JPanel {
         revalidate();
     }
 
+    public void starInitializer() {
+
+//        this.getClass().getResource("Images/star.png");
+//        ImageIcon icona = createImageIcon("Images/star.png");
+        if (readRecipe.getFavorite()) {
+            this.favorite = (new JButton(starfill));
+        } else {
+            this.favorite = (new JButton(star));
+        }
+        this.favorite.setBounds(700, 10, 50, 50);
+        this.ratings = (new JButton[5]);
+        for (int i = 0; i < this.ratings.length; i++) {
+            this.ratings[i] = new JButton("testing", starfill);
+            this.ratings[i].setBounds(10 + (52 * i), 400, 50, 50);
+//            ImageIcon imageIcon = new ImageIcon(new ImageIcon("icon.png").getImage().getScaledInstance(20, 20, Image.SCALE_DEFAULT));
+//            label.setIcon(imageIcon);
+        }
+        rateRefresh();
+    }
+
+    public void favoriteRefresh() {
+        if (readRecipe.getFavorite()) {
+            this.favorite.setIcon(this.starfill);
+        } else {
+            this.favorite.setIcon(this.star);
+        }
+        repaint();
+        revalidate();
+    }
+
+    public void rateRefresh() {
+        for (int j = 0; j < 5; j++) {
+            this.ratings[j].setIcon(star);
+        }
+        for (int i = 0; i <= readRecipe.getRating(); i++) {
+            this.ratings[i].setIcon(starfill);
+        }
+        repaint();
+        revalidate();
+    }
 }

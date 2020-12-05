@@ -1,6 +1,7 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 
 /**
  *
@@ -12,6 +13,9 @@ public class Recipe {
     private String description;
     private String tags;
     private ArrayList<IngredientDescription> ingredients;
+    private int rating;
+    private boolean favorite;
+    private HashMap categories;
 
     public Recipe() {
     }
@@ -21,6 +25,18 @@ public class Recipe {
         this.description = description;
         this.tags = tags;
         this.ingredients = ingredients;
+        this.rating = -1;
+        this.favorite = false;
+        categories = new HashMap();
+        categories.put("Sweet", false);
+        categories.put("Spicy", false);
+        categories.put("Salty", false);
+        categories.put("Sour", false);
+        categories.put("Bitter", false);
+        categories.put("Breakfast", false);
+        categories.put("Lunch", false);
+        categories.put("Dinner", false);
+
     }
 
     /**
@@ -77,6 +93,48 @@ public class Recipe {
      */
     public void setIngredients(ArrayList<IngredientDescription> ingredients) {
         this.ingredients = ingredients;
+    }
+
+    /**
+     * @return the rating
+     */
+    public int getRating() {
+        return rating;
+    }
+
+    /**
+     * @param rating the rating to set
+     */
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    /**
+     * @return the favorite
+     */
+    public boolean getFavorite() {
+        return favorite;
+    }
+
+    /**
+     * @param favorite the favorite to set
+     */
+    public void setFavorite(boolean favorite) {
+        this.favorite = favorite;
+    }
+
+    /**
+     * @return the categories
+     */
+    public HashMap getCategories() {
+        return categories;
+    }
+
+    /**
+     * @param categories the categories to set
+     */
+    public void setCategories(HashMap categories) {
+        this.categories = categories;
     }
 
 }
