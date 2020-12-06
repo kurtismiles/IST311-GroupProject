@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import Model.Ingredient;
@@ -16,24 +11,23 @@ import javax.swing.JTextField;
  * @author Kurtis
  */
 public class IngredientPop extends JFrame {
-    
+
     private JTextField nameText;
     private JTextField descriptionText;
 
     private JTextField tagsText;
-    
+
     private JButton createBtn;
     private Ingredient writeIngredient;
-    
-    public IngredientPop()
-    {
+
+    public IngredientPop() {
         super();
-        
+
         writeIngredient = new Ingredient();
-        
+
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(250, 100, 800, 400);
-        
+
         setLayout(null);
 
         JLabel name_label = new JLabel("Ingredient :");
@@ -47,7 +41,6 @@ public class IngredientPop extends JFrame {
 
         nameText = new JTextField();
         nameText.setBounds(220, 30, 490, 30);
-        
 
         descriptionText = new JTextField();
         descriptionText.setBounds(220, 80, 490, 30);
@@ -68,55 +61,44 @@ public class IngredientPop extends JFrame {
         setVisible(true);
     }
 
-    public JTextField getNameText()
-    {
+    public JTextField getNameText() {
         return nameText;
     }
 
-    public void setNameText(JTextField nameText)
-    {
+    public void setNameText(JTextField nameText) {
         this.nameText = nameText;
     }
 
-    public JTextField getDescriptionText()
-    {
+    public JTextField getDescriptionText() {
         return descriptionText;
     }
 
-    public void setDescriptionText(JTextField descriptionText)
-    {
+    public void setDescriptionText(JTextField descriptionText) {
         this.descriptionText = descriptionText;
     }
 
-    public JTextField getTagsText()
-    {
+    public JTextField getTagsText() {
         return tagsText;
     }
 
-    public void setTagsText(JTextField tagsText)
-    {
+    public void setTagsText(JTextField tagsText) {
         this.tagsText = tagsText;
     }
 
-    public JButton getCreateBtn()
-    {
+    public JButton getCreateBtn() {
         return createBtn;
     }
 
-    public void setCreateBtn(JButton createBtn)
-    {
+    public void setCreateBtn(JButton createBtn) {
         this.createBtn = createBtn;
     }
 
-    public Ingredient getWriteIngredient()
-    {
+    public Ingredient getWriteIngredient() {
         return writeIngredient;
     }
 
-    public void setWriteIngredient(Ingredient writeIngredient)
-    {
+    public void setWriteIngredient(Ingredient writeIngredient) {
         this.writeIngredient = writeIngredient;
     }
-    
-    
+
 }

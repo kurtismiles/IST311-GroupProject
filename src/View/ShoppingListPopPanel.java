@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
-import Model.IngredientDescription;
 import Model.Recipe;
-import Model.RecipeList;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -52,10 +45,10 @@ public class ShoppingListPopPanel extends JPanel {
 
         JLabel shopLabelName = new JLabel("Shopping List Name:");
         shopLabelName.setBounds(50, 50, 120, 30);
-        
+
         JLabel recipeLabel = new JLabel("Recipes Included:");
         recipeLabel.setBounds(50, 90, 160, 30);
-        
+
         this.shoppingName = new JTextField();
         this.shoppingName.setBounds(180, 50, 160, 30);
         setupRecipeList();
@@ -194,18 +187,16 @@ public class ShoppingListPopPanel extends JPanel {
         for (int i = 0; i < this.recipeMenu.size(); i++) {
             int index = 0;
 
-            for (int j = 0; j < recipeList.size(); j++) 
-            {
+            for (int j = 0; j < recipeList.size(); j++) {
 
-                if (recipeList.get(j).getName() == this.recipeMenu.get(i).getSelectedItem().toString())
-                {
+                if (recipeList.get(j).getName() == this.recipeMenu.get(i).getSelectedItem().toString()) {
                     index = j;
                     break;
-                    
+
                 }
 
             }
-            
+
             food.add(this.recipeList.get(index));
 
         }

@@ -1,13 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<java version="14.0.1" class="java.beans.XMLDecoder">
+<java version="1.8.0_111" class="java.beans.XMLDecoder">
  <object class="java.util.ArrayList">
   <void method="add">
    <object class="Model.Recipe">
+    <void property="categories">
+     <object class="java.util.HashMap">
+      <void method="put">
+       <string>Breakfast</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Spicy</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Dinner</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Sweet</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Bitter</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Salty</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Sour</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Lunch</string>
+       <boolean>false</boolean>
+      </void>
+     </object>
+    </void>
     <void property="description">
-     <string>A delicious breakfast</string>
+     <string>Bacon Pie</string>
     </void>
     <void property="ingredients">
      <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient">
+          <void property="description">
+           <string>Ground wheat for baking</string>
+          </void>
+          <void property="name">
+           <string>Flour</string>
+          </void>
+          <void property="tags">
+           <string>#baking</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient">
+          <void property="description">
+           <string>Cow`s milk</string>
+          </void>
+          <void property="name">
+           <string>Milk</string>
+          </void>
+          <void property="tags">
+           <string>#moo</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
       <void method="add">
        <object class="Model.IngredientDescription">
         <void property="ingredient">
@@ -24,7 +106,7 @@
          </object>
         </void>
         <void property="number">
-         <float>5.0</float>
+         <float>1.0</float>
         </void>
         <void property="unit">
          <string>oz</string>
@@ -47,135 +129,9 @@
          </object>
         </void>
         <void property="number">
-         <float>0.5</float>
-        </void>
-        <void property="unit">
-         <string>lb</string>
-        </void>
-       </object>
-      </void>
-     </object>
-    </void>
-    <void property="name">
-     <string>Egg &amp; Bacon</string>
-    </void>
-    <void property="tags">
-     <string>#delicious</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="Model.Recipe">
-    <void property="description">
-     <string>A simple peanut butter &amp; jelly sandwich</string>
-    </void>
-    <void property="ingredients">
-     <object class="java.util.ArrayList">
-      <void method="add">
-       <object class="Model.IngredientDescription">
-        <void property="ingredient">
-         <object class="Model.Ingredient">
-          <void property="description">
-           <string>Bread made from wheat</string>
-          </void>
-          <void property="name">
-           <string>Bread</string>
-          </void>
-          <void property="tags">
-           <string>#bread #gluten</string>
-          </void>
-         </object>
-        </void>
-        <void property="number">
-         <float>2.0</float>
-        </void>
-        <void property="unit">
-         <string>oz</string>
-        </void>
-       </object>
-      </void>
-      <void method="add">
-       <object class="Model.IngredientDescription">
-        <void property="ingredient">
-         <object class="Model.Ingredient">
-          <void property="description">
-           <string>Mashed up peanuts</string>
-          </void>
-          <void property="name">
-           <string>Peanut Butter</string>
-          </void>
-          <void property="tags">
-           <string>#peanuts</string>
-          </void>
-         </object>
-        </void>
-        <void property="number">
          <float>1.0</float>
         </void>
         <void property="unit">
-         <string>tablespoon</string>
-        </void>
-       </object>
-      </void>
-      <void method="add">
-       <object class="Model.IngredientDescription">
-        <void property="ingredient">
-         <object class="Model.Ingredient">
-          <void property="description">
-           <string>Grape Jelly</string>
-          </void>
-          <void property="name">
-           <string>Jelly</string>
-          </void>
-          <void property="tags">
-           <string>#sweet</string>
-          </void>
-         </object>
-        </void>
-        <void property="number">
-         <float>1.0</float>
-        </void>
-        <void property="unit">
-         <string>tablespoon</string>
-        </void>
-       </object>
-      </void>
-     </object>
-    </void>
-    <void property="name">
-     <string>Peanut Butter &amp; Jelly</string>
-    </void>
-    <void property="tags">
-     <string>#sandwich</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="Model.Recipe">
-    <void property="description">
-     <string>Pretty plain but it might be good with something</string>
-    </void>
-    <void property="ingredients">
-     <object class="java.util.ArrayList">
-      <void method="add">
-       <object class="Model.IngredientDescription">
-        <void property="ingredient">
-         <object class="Model.Ingredient">
-          <void property="description">
-           <string>Bread made from wheat</string>
-          </void>
-          <void property="name">
-           <string>Bread</string>
-          </void>
-          <void property="tags">
-           <string>#bread #gluten</string>
-          </void>
-         </object>
-        </void>
-        <void property="number">
-         <float>3.0</float>
-        </void>
-        <void property="unit">
          <string>oz</string>
         </void>
        </object>
@@ -185,116 +141,13 @@
         <void property="ingredient">
          <object class="Model.Ingredient">
           <void property="description">
-           <string>Churned from Cow`s Milk</string>
+           <string>Pepper for flavor</string>
           </void>
           <void property="name">
-           <string>Butter</string>
+           <string>Pepper</string>
           </void>
           <void property="tags">
-           <string>#dairy #fats</string>
-          </void>
-         </object>
-        </void>
-        <void property="number">
-         <float>1.0</float>
-        </void>
-        <void property="unit">
-         <string>tablespoon</string>
-        </void>
-       </object>
-      </void>
-     </object>
-    </void>
-    <void property="name">
-     <string>Buttered Bread</string>
-    </void>
-    <void property="tags">
-     <string>#plain</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="Model.Recipe">
-    <void property="description">
-     <string>Just sqeeze it</string>
-    </void>
-    <void property="ingredients">
-     <object class="java.util.ArrayList">
-      <void method="add">
-       <object class="Model.IngredientDescription">
-        <void property="ingredient">
-         <object class="Model.Ingredient">
-          <void property="description">
-           <string>An orange fruit</string>
-          </void>
-          <void property="name">
-           <string>Orange</string>
-          </void>
-          <void property="tags">
-           <string>#fruit #sweet</string>
-          </void>
-         </object>
-        </void>
-        <void property="number">
-         <float>16.0</float>
-        </void>
-        <void property="unit">
-         <string>oz</string>
-        </void>
-       </object>
-      </void>
-     </object>
-    </void>
-    <void property="name">
-     <string>Orange Juice</string>
-    </void>
-    <void property="tags">
-     <string>#Juice</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="Model.Recipe">
-    <void property="description">
-     <string>Minecraft cake, just put it in the crafting table</string>
-    </void>
-    <void property="ingredients">
-     <object class="java.util.ArrayList">
-      <void method="add">
-       <object class="Model.IngredientDescription">
-        <void property="ingredient">
-         <object class="Model.Ingredient">
-          <void property="description">
-           <string>Cow`s milk</string>
-          </void>
-          <void property="name">
-           <string>Milk</string>
-          </void>
-          <void property="tags">
-           <string>#moo</string>
-          </void>
-         </object>
-        </void>
-        <void property="number">
-         <float>6.0</float>
-        </void>
-        <void property="unit">
-         <string>oz</string>
-        </void>
-       </object>
-      </void>
-      <void method="add">
-       <object class="Model.IngredientDescription">
-        <void property="ingredient">
-         <object class="Model.Ingredient">
-          <void property="description">
-           <string>Egg from a chicken</string>
-          </void>
-          <void property="name">
-           <string>Eggs</string>
-          </void>
-          <void property="tags">
-           <string>#baking</string>
+           <string>#spicy</string>
           </void>
          </object>
         </void>
@@ -322,13 +175,239 @@
          </object>
         </void>
         <void property="number">
-         <float>3.0</float>
+         <float>1.0</float>
         </void>
         <void property="unit">
          <string>oz</string>
         </void>
        </object>
       </void>
+     </object>
+    </void>
+    <void property="name">
+     <string>Pot Pie</string>
+    </void>
+    <void property="tags">
+     <string>#Delicious</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="categories">
+     <object class="java.util.HashMap">
+      <void method="put">
+       <string>Breakfast</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Spicy</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Dinner</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Sweet</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Bitter</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Salty</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Sour</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Lunch</string>
+       <boolean>false</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="description">
+     <string>Testing</string>
+    </void>
+    <void property="favorite">
+     <boolean>true</boolean>
+    </void>
+    <void property="ingredients">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient" id="Ingredient0">
+          <void property="description">
+           <string>Ground wheat for baking</string>
+          </void>
+          <void property="name">
+           <string>Flour</string>
+          </void>
+          <void property="tags">
+           <string>#baking</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient0"/>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient0"/>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient0"/>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient0"/>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient0"/>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient0"/>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object idref="Ingredient0"/>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="name">
+     <string>Testing</string>
+    </void>
+    <void property="rating">
+     <int>3</int>
+    </void>
+    <void property="tags">
+     <string>#boring</string>
+    </void>
+   </object>
+  </void>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="categories">
+     <object class="java.util.HashMap">
+      <void method="put">
+       <string>Breakfast</string>
+       <boolean>true</boolean>
+      </void>
+      <void method="put">
+       <string>Spicy</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Dinner</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Sweet</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Bitter</string>
+       <boolean>true</boolean>
+      </void>
+      <void method="put">
+       <string>Salty</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Sour</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Lunch</string>
+       <boolean>false</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="description">
+     <string>A scoop of delicious flour for breakfast</string>
+    </void>
+    <void property="ingredients">
+     <object class="java.util.ArrayList">
       <void method="add">
        <object class="Model.IngredientDescription">
         <void property="ingredient">
@@ -345,86 +424,6 @@
          </object>
         </void>
         <void property="number">
-         <float>6.0</float>
-        </void>
-        <void property="unit">
-         <string>oz</string>
-        </void>
-       </object>
-      </void>
-     </object>
-    </void>
-    <void property="name">
-     <string>Cake</string>
-    </void>
-    <void property="tags">
-     <string>#cake #delicious</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="Model.Recipe">
-    <void property="description">
-     <string>A perfect topping and breakfast option</string>
-    </void>
-    <void property="ingredients">
-     <object class="java.util.ArrayList">
-      <void method="add">
-       <object class="Model.IngredientDescription">
-        <void property="ingredient">
-         <object class="Model.Ingredient">
-          <void property="description">
-           <string>Egg from a chicken</string>
-          </void>
-          <void property="name">
-           <string>Eggs</string>
-          </void>
-          <void property="tags">
-           <string>#baking</string>
-          </void>
-         </object>
-        </void>
-        <void property="number">
-         <float>2.0</float>
-        </void>
-        <void property="unit">
-         <string>cup</string>
-        </void>
-       </object>
-      </void>
-     </object>
-    </void>
-    <void property="name">
-     <string>Boiled Eggs</string>
-    </void>
-    <void property="tags">
-     <string>#protein</string>
-    </void>
-   </object>
-  </void>
-  <void method="add">
-   <object class="Model.Recipe">
-    <void property="description">
-     <string>Another Test</string>
-    </void>
-    <void property="ingredients">
-     <object class="java.util.ArrayList">
-      <void method="add">
-       <object class="Model.IngredientDescription">
-        <void property="ingredient">
-         <object class="Model.Ingredient">
-          <void property="description">
-           <string>letters</string>
-          </void>
-          <void property="name">
-           <string>EFWOINNWOEFNWOIEFNOWENFIOWENFIWNEIOFNWOEFNWEOIFNWIOEFNWIOEFNOWNEFOINWEIFONWEIFONWEOFINWEIOFNWEOIFNWEFIOWNEFOIWENFOIWEFNOWIENFOWNEFIOWENFOIWENFOIWENFIOWENFOWENFWIEOFNIWEFNOWEIFNWEOIFNWOEIFNWIOEFNWIOFNWEOIFNWOIEFNWEFIOWEFNWEOIFNWEOIFNWEOIFNWEOFNWEIOFNWEOIFNWIOENFIWEOFNIOWEFNOWEIFNWEIOFNEOWIFNWEIOFNWEIOFNWEOIFNWEOFWENOFWENFOIWENFOWEFNIOEWNFIOWENFOIWENFIOWENFIOWEFNWOIFNWOEFNWOEFNIWEFNWEIFNWEOFIWINEOOINNOFWENOWNOFINOEFNOIFENOWEFNONOEWFONFWEEFWIWIEINOFENIOFNENOIFWENOINOIFWENOIWEFOINEFNWOINOIFWENONOINOINIINWENFWEINFOWNFKWENFIOWRENOVIRNVJFVSDNVINERWUIVNEIRNVEIRUV</string>
-          </void>
-          <void property="tags">
-           <string>#wow</string>
-          </void>
-         </object>
-        </void>
-        <void property="number">
          <float>1.0</float>
         </void>
         <void property="unit">
@@ -435,10 +434,13 @@
      </object>
     </void>
     <void property="name">
-     <string>Test</string>
+     <string>Flour Breakfast</string>
+    </void>
+    <void property="rating">
+     <int>-1</int>
     </void>
     <void property="tags">
-     <string>#uh no</string>
+     <string>#Flour4Breakfast</string>
     </void>
    </object>
   </void>
