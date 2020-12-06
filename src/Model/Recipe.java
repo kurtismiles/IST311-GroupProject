@@ -20,22 +20,31 @@ public class Recipe {
     public Recipe() {
     }
 
-    public Recipe(String name, String description, ArrayList<IngredientDescription> ingredients, String tags) {
+    public Recipe(String name, String description, ArrayList<IngredientDescription> ingredients, String tags, ArrayList<String> categories) {
         this.name = name;
         this.description = description;
         this.tags = tags;
         this.ingredients = ingredients;
         this.rating = -1;
         this.favorite = false;
-        categories = new HashMap();
-        categories.put("Sweet", false);
-        categories.put("Spicy", false);
-        categories.put("Salty", false);
-        categories.put("Sour", false);
-        categories.put("Bitter", false);
-        categories.put("Breakfast", false);
-        categories.put("Lunch", false);
-        categories.put("Dinner", false);
+        this.categories = new HashMap();
+        this.categories.put("Sweet", false);
+        this.categories.put("Spicy", false);
+        this.categories.put("Salty", false);
+        this.categories.put("Sour", false);
+        this.categories.put("Bitter", false);
+        this.categories.put("Breakfast", false);
+        this.categories.put("Lunch", false);
+        this.categories.put("Dinner", false);
+        
+        
+        for (int i = 0; i < categories.size(); ++i)
+        {
+            if(this.categories.containsKey(categories.get(i)))
+            {
+                this.categories.replace(categories.get(i), true);
+            }
+        }
 
     }
 

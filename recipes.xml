@@ -365,5 +365,84 @@
     </void>
    </object>
   </void>
+  <void method="add">
+   <object class="Model.Recipe">
+    <void property="categories">
+     <object class="java.util.HashMap">
+      <void method="put">
+       <string>Breakfast</string>
+       <boolean>true</boolean>
+      </void>
+      <void method="put">
+       <string>Spicy</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Dinner</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Sweet</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Bitter</string>
+       <boolean>true</boolean>
+      </void>
+      <void method="put">
+       <string>Salty</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Sour</string>
+       <boolean>false</boolean>
+      </void>
+      <void method="put">
+       <string>Lunch</string>
+       <boolean>false</boolean>
+      </void>
+     </object>
+    </void>
+    <void property="description">
+     <string>A scoop of delicious flour for breakfast</string>
+    </void>
+    <void property="ingredients">
+     <object class="java.util.ArrayList">
+      <void method="add">
+       <object class="Model.IngredientDescription">
+        <void property="ingredient">
+         <object class="Model.Ingredient">
+          <void property="description">
+           <string>Ground wheat for baking</string>
+          </void>
+          <void property="name">
+           <string>Flour</string>
+          </void>
+          <void property="tags">
+           <string>#baking</string>
+          </void>
+         </object>
+        </void>
+        <void property="number">
+         <float>1.0</float>
+        </void>
+        <void property="unit">
+         <string>oz</string>
+        </void>
+       </object>
+      </void>
+     </object>
+    </void>
+    <void property="name">
+     <string>Flour Breakfast</string>
+    </void>
+    <void property="rating">
+     <int>-1</int>
+    </void>
+    <void property="tags">
+     <string>#Flour4Breakfast</string>
+    </void>
+   </object>
+  </void>
  </object>
 </java>

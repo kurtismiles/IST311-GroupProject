@@ -89,7 +89,7 @@ public class RecipeController {
                                 && !popup.getRecipePanel().getIngredientData().isEmpty() && !popup.getRecipePanel().getTagsText().getText().isEmpty()) {
                             //if non are empty, create a new recipe
                             model.writeRecipe(new Recipe(popup.getRecipePanel().getNameText().getText(), popup.getRecipePanel().getDescriptionText().getText(),
-                                    popup.getRecipePanel().getIngredientData(), popup.getRecipePanel().getTagsText().getText()));
+                                    popup.getRecipePanel().getIngredientData(), popup.getRecipePanel().getTagsText().getText(), popup.getRecipePanel().getCategoryData()));
 
                             //dispose popup frame
                             popup.dispose();
@@ -116,6 +116,21 @@ public class RecipeController {
                         popup.getRecipePanel().removeIngredient();
                     }
                 });
+                
+                popup.getRecipePanel().getCategoryAdd().addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        popup.getRecipePanel().addCategory();
+                    }
+                });
+                
+                popup.getRecipePanel().getCategoryDel().addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent ae) {
+                        popup.getRecipePanel().removeCategory();
+                    }
+                });
+                
             }
 
         });
