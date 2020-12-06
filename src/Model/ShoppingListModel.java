@@ -57,7 +57,6 @@ public class ShoppingListModel {
 
                 id.add(recipes.get(i).getIngredients().get(j));
                 
-
             }
         }
         
