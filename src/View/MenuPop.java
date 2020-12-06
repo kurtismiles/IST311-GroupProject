@@ -26,7 +26,7 @@ public class MenuPop extends JFrame {
         popPanel = new MenuPopPanel(getReadRecipe());
 
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        setBounds(250, 100, 800, 500);
+        setBounds(250, 100, 800, 550);
         setBackground(Color.BLUE);
 
         add(popPanel);

@@ -4,6 +4,7 @@ import Model.ShoppingList;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -64,8 +65,10 @@ public class ShoppingListPanel extends JPanel {
         gbc[0].gridx = 0;
         gbc[1].gridx = 0;
 
-        ip[5].add(new JLabel("Shopping Lists"), gbc[1]);
-
+        JLabel title = new JLabel("ShoppingList");
+        title.setFont(new Font(Font.MONOSPACED, Font.BOLD, 36));
+        ip[5].add(title, gbc[1]);
+        
         gbc[1].gridx = 1;
         JLabel spacing5 = new JLabel();
         spacing5.setPreferredSize(new Dimension(400, 40));

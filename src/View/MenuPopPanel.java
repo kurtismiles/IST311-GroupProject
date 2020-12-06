@@ -25,6 +25,7 @@ public class MenuPopPanel extends JPanel {
     private JLabel descriptionMenu;
     private JLabel[][] ingredientMenu;
     private JLabel tagsMenu;
+    private JLabel categoriesMenu;
 
     private JButton x2;
     private JButton reset;
@@ -67,9 +68,14 @@ public class MenuPopPanel extends JPanel {
         JLabel menuTags_label = new JLabel("Tags: ");
         menuTags_label.setBounds(150, 125 + (25 * this.readRecipe.getIngredients().size()), 250, 30);
         menuTags_label.setFont(new Font("Times New Roman", Font.BOLD, 16));
+        
+        JLabel menuCategories_label = new JLabel("Categories: ");
+        menuCategories_label.setBounds(150, 175 + (25 * this.readRecipe.getIngredients().size()), 250, 30);
+        menuCategories_label.setFont(new Font("Times New Roman", Font.BOLD, 16));
 
         descriptionMenu = new JLabel(this.readRecipe.getDescription());
         descriptionMenu.setBounds(300, 55, 490, 30);
+       
 
         ingredientMenu = new JLabel[3][this.readRecipe.getIngredients().size()];
         for (int i = 0; i < 3; i++) {
@@ -80,22 +86,29 @@ public class MenuPopPanel extends JPanel {
 
         tagsMenu = new JLabel(this.readRecipe.getTags());
         tagsMenu.setBounds(300, 125 + (25 * this.readRecipe.getIngredients().size()), 490, 30); //25 dif
+      
+        categoriesMenu = new JLabel(this.readRecipe.categoriesToString());
+        categoriesMenu.setBounds(300, 175 + (25 * this.readRecipe.getIngredients().size()), 490, 30);
 
         this.x2 = new JButton("x 2");
         this.reset = new JButton("Reset");
         this.half = new JButton("1/2");
-        this.half.setBounds(300, 125 + (25 * this.readRecipe.getIngredients().size() + 30), 60, 30);
-        this.reset.setBounds(360, 125 + (25 * this.readRecipe.getIngredients().size() + 30), 100, 30);
-        this.x2.setBounds(460, 125 + (25 * this.readRecipe.getIngredients().size()) + 30, 60, 30);
+        this.half.setBounds(570, 470, 60, 30);
+        this.reset.setBounds(630, 470, 100, 30);
+        this.x2.setBounds(730, 470, 60, 30);
+        
+        
         add(x2);
         add(reset);
         add(half);
-
         add(logo);
+        
         add(menuDescription_label);
         add(menuIngredient_label);
         add(menuTags_label);
+        add(menuCategories_label);
         add(descriptionMenu);
+        add(categoriesMenu);
 
         add(this.favorite);
         for (int i = 0; i < this.ratings.length; i++) {
@@ -142,12 +155,14 @@ public class MenuPopPanel extends JPanel {
 
         tagsMenu = new JLabel(ingredientInput.getTags());
         tagsMenu.setBounds(300, 105, 490, 30);
+        
 
         add(logo);
         add(menuDescription_label);
         add(menuTags_label);
         add(descriptionMenu);
         add(tagsMenu);
+    
         add(this.favorite);
         for (int i = 0; i < this.ratings.length; i++) {
             add(this.ratings[i]);
@@ -393,7 +408,7 @@ public class MenuPopPanel extends JPanel {
         this.ratings = (new JButton[5]);
         for (int i = 0; i < this.ratings.length; i++) {
             this.ratings[i] = new JButton(starfill);
-            this.ratings[i].setBounds(10 + (52 * i), 400, 50, 50);
+            this.ratings[i].setBounds(10 + (52 * i), 450, 50, 50);
             this.ratings[i].setToolTipText("Click here to rate this recipe!");
             this.ratings[i].setBorderPainted(false);
             this.ratings[i].setContentAreaFilled(false);

@@ -246,11 +246,17 @@ public class IngredientPanel extends JPanel {
     private void setupTop() {   //IP 3
         resetPosition();
         this.position.gridx = 0;
-        ip[3].add(new JLabel("Ingredients"), this.position);
+        
+        JLabel title = new JLabel("Ingredients");
+        title.setFont(new Font(Font.MONOSPACED, Font.BOLD, 36));
+        ip[3].add(title, this.position);
+        
+        
         this.position.gridx = 1;
         space[2].setPreferredSize(new Dimension(400, 40));
         ip[3].add(space[2], this.position);
         this.position.gridx = 2;
+        
         ip[3].add(back, this.position);
     }
 

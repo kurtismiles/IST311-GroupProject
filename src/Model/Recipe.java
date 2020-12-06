@@ -1,5 +1,6 @@
 package Model;
 
+import com.sun.tools.javac.util.StringUtils;
 import java.util.ArrayList;
 import java.util.HashMap;
 
@@ -16,6 +17,7 @@ public class Recipe {
     private int rating;
     private boolean favorite;
     private HashMap categories;
+    private String builder;
 
     public Recipe() {
     }
@@ -47,6 +49,8 @@ public class Recipe {
         }
 
     }
+    
+    
 
     /**
      * @return the name
@@ -146,4 +150,24 @@ public class Recipe {
         this.categories = categories;
     }
 
+    // Returns a string representation of selected categories
+    public String categoriesToString()
+    {
+        builder = new String();
+        
+        this.categories.forEach((k,v) -> {if(v.equals(true))
+        {
+            System.out.println(k.toString());
+            builder = builder.concat(k.toString() + ", " );
+            
+        }
+        });
+        
+        builder = builder.trim();
+        return builder.substring(0, builder.length() - 1);
+        
+        
+    }
+
+        
 }

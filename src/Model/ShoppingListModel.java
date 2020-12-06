@@ -51,6 +51,7 @@ public class ShoppingListModel {
         for (int i = 0; i < recipes.size(); i++) {
             for (int j = 0; j < recipes.get(i).getIngredients().size(); j++) {
                 id.add(recipes.get(i).getIngredients().get(j));
+
             }
         }
 
