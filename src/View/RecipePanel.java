@@ -4,31 +4,28 @@
 package View;
 
 import Model.Recipe;
-import java.awt.Container;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
 
 public class RecipePanel extends JPanel {
-
+    
     private JButton back;
     private JButton create;
     private JButton delete, save;
     private JScrollBar scroll;
     private Image background;
-
+    
     private JPanel dataPanel;
     JButton[] jb;
-
+    
     public RecipePanel() {
-
+        
         background = (new ImageIcon("Images/RecipePanelBackground.png")).getImage();
-
+        
         setLayout(new GridBagLayout());
         JPanel ip[] = new JPanel[6];
         GridBagConstraints gbc[] = new GridBagConstraints[2];
@@ -57,7 +54,9 @@ public class RecipePanel extends JPanel {
         //---------------------------IP 5
         gbc[0].gridx = 0;
         gbc[1].gridx = 0;
-        ip[5].add(new JLabel("Recipes"), gbc[1]);
+        JLabel title = new JLabel("Recipes");
+        title.setFont(new Font(Font.MONOSPACED, Font.BOLD, 36));
+        ip[5].add(title, gbc[1]);
         gbc[1].gridx = 1;
         JLabel spacing5 = new JLabel();
         spacing5.setPreferredSize(new Dimension(400, 40));
@@ -122,11 +121,11 @@ public class RecipePanel extends JPanel {
     public void setBackButton(JButton back) {
         this.back = back;
     }
-
+    
     public JButton getCreateButton() {
         return create;
     }
-
+    
     public void setCreateButton(JButton create) {
         this.create = create;
     }
@@ -134,8 +133,7 @@ public class RecipePanel extends JPanel {
     /**
      * @return the jb
      */
-    public JButton[] getJb() 
-    {
+    public JButton[] getJb() {
         return jb;
     }
 
@@ -187,11 +185,11 @@ public class RecipePanel extends JPanel {
     public JScrollBar getScroll() {
         return scroll;
     }
-
+    
     public void setScrollpos(int pos) {
         this.scroll.setValue(this.scroll.getValue() + pos);
     }
-
+    
     @Override
     protected void paintComponent(Graphics g) {
         super.paintComponent(g);
@@ -210,14 +208,14 @@ public class RecipePanel extends JPanel {
             pos.gridy = i;
             dataPanel.add(jb[i], pos);
         }
-
+        
     }
 
     //updates the jb JButton array with data from recipeList starting on position firstLine
     public void updateDataPanel(ArrayList<Recipe> recipeList, int firstLine) {
-
+        
         int displayLine = firstLine;
-
+        
         if (recipeList.size() < 5) {
             for (int i = 0; i < recipeList.size(); ++i) {
                 jb[i].setText(recipeList.get(i).getName());

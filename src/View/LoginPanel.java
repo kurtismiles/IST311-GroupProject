@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import javax.swing.*;
@@ -21,7 +16,7 @@ public class LoginPanel extends JPanel
         Color cake = new Color(255, 253, 219);
         Color sblue = new Color(187, 244, 255);
         //Color icing = new Color(0, 0, 0);
-//------------------------------
+        //------------------------------
         setLayout(new BorderLayout());
         //setBackground(Color.darkGray);   //loading tester
         user = new JTextField("Sam@yahoo.com", 30);  //remove login info later

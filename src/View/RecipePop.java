@@ -1,40 +1,33 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
 import Model.Ingredient;
 import java.awt.Color;
 import java.util.ArrayList;
 import javax.swing.JFrame;
-import javax.swing.JPanel;
 
 /**
  *
  * @author Kurtis
  */
-public class RecipePop extends JFrame
-{
-    
+public class RecipePop extends JFrame {
+
     private RecipePopPanel recipePanel;
     private ArrayList<Ingredient> ingredientList;
-    
-    public RecipePop(){}
-    
-    public RecipePop(ArrayList<Ingredient> ingredientList)
-    {
+
+    public RecipePop() {
+    }
+
+    public RecipePop(ArrayList<Ingredient> ingredientList) {
         this.ingredientList = ingredientList;
         recipePanel = new RecipePopPanel(this.ingredientList);
-        
+
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setBounds(250, 100, 800, 500);
         setBackground(Color.BLUE);
-       
+
         add(recipePanel);
         setVisible(true);
-      
+
     }
 
     /**

@@ -1,22 +1,15 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 /**
  *
  * @author Kurtis
  */
-public class IngredientModel
-{
+public class IngredientModel {
 
     private IngredientList ingredientData;
-    
-    public IngredientModel()
-    {
-        ingredientData = new IngredientList();    
+
+    public IngredientModel() {
+        ingredientData = new IngredientList();
     }
 
     /**
@@ -33,27 +26,20 @@ public class IngredientModel
         this.ingredientData = ingredientData;
     }
 
-    
-    
-    public void writeIngredient(Ingredient input)
-    {
+    public void writeIngredient(Ingredient input) {
         ingredientData.addIngredient(input);
         ingredientData.saveXMLList();
         refreshIngredientList();
     }
-    
-    public void removeIngredient(Ingredient input)
-    {
+
+    public void removeIngredient(Ingredient input) {
         ingredientData.removeIngredient(input);
         ingredientData.saveXMLList();
         refreshIngredientList();
     }
-    
-    
-    public void refreshIngredientList()
-    {
+
+    public void refreshIngredientList() {
         ingredientData = new IngredientList();
     }
 
-    
 }

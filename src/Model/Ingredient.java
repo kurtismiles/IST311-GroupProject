@@ -4,16 +4,16 @@ package Model;
  *
  * @author Kurtis
  */
-public class Ingredient
-{
+public class Ingredient {
+
     private String name;
     private String description;
     private String tags;
-    
-    public Ingredient(){}
-    
-    public Ingredient(String name, String description, String tags)
-    {
+
+    public Ingredient() {
+    }
+
+    public Ingredient(String name, String description, String tags) {
         this.name = name;
         this.description = description;
         this.tags = tags;
@@ -60,7 +60,5 @@ public class Ingredient
     public void setTags(String tags) {
         this.tags = tags;
     }
-    
-    
-    
+
 }

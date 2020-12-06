@@ -4,12 +4,9 @@
 package View;
 
 import Model.Ingredient;
-import java.awt.Container;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
 import java.awt.*;
 import java.util.ArrayList;
 import javax.swing.*;
@@ -19,92 +16,50 @@ public class IngredientPanel extends JPanel {
     private JButton back;
     private JButton create;
     private JButton delete, save;
+    private JButton[] jb;
+
     private JScrollBar scroll;
     private Image background;
+
     private JPanel dataPanel;
-    JButton[] jb;
+    private JPanel ip[];
+
+    private GridBagConstraints position;
+    private JLabel space[];
 
     public IngredientPanel() {
 
         background = (new ImageIcon("Images/RecipePanelBackground.png")).getImage();
 
         setLayout(new GridBagLayout());
-        JPanel ip[] = new JPanel[6];
-        GridBagConstraints gbc[] = new GridBagConstraints[2];
-        for (int i = 0; i < ip.length; i++) {
-            ip[i] = new JPanel();
+        initializer();
+        paintGun();
+
+        for (int i = 0; i < this.ip.length; i++) {
+            if (i != 2) {
+                this.ip[i].setLayout(new GridBagLayout());
+            }
         }
-        for (int i = 0; i < gbc.length; i++) {
-            gbc[i] = new GridBagConstraints();
-        }
-        //---------------------------Inner Panel Layouts
-        ip[0].setLayout(new GridBagLayout());
-        //---------------------------Initialize Back+Create Button
-        back = new JButton("back");
-        create = new JButton("Create");
-        //---------------------------IP 2
-        initializeDataPanel();
-        dataPanel.setBackground(Color.orange);
-        //---------------------------IP 1
-        ip[1].setLayout(new BorderLayout());
-        JLabel search = new JLabel("Search/Sort");
-        search.setPreferredSize(new Dimension(10, 40));
-        ip[1].add(search, "North");
-        this.scroll = new JScrollBar();
-        ip[1].add(this.scroll, "East");
-        ip[1].add(dataPanel, "Center");
-        //---------------------------IP 5
-        gbc[0].gridx = 0;
-        gbc[1].gridx = 0;
-        ip[5].add(new JLabel("Ingredients"), gbc[1]);
-        gbc[1].gridx = 1;
-        JLabel spacing5 = new JLabel();
-        spacing5.setPreferredSize(new Dimension(400, 40));
-        ip[5].add(spacing5, gbc[1]);
-        gbc[1].gridx = 2;
-        ip[5].add(back, gbc[1]);
-        ip[5].setBackground(Color.white);
-        ip[0].add(ip[5], gbc[0]);
-        //---------------------------IP 0
-        gbc[1].gridy = 2;
-        gbc[1].ipadx = 40;
-        gbc[1].ipady = 40;
-        ip[1].setBackground(Color.pink);
-        gbc[0].gridy = 1;
-        ip[0].add(ip[1], gbc[0]);
-        //---------------------------IP 3
-        ip[3].setLayout(new GridBagLayout());
-        gbc[1] = new GridBagConstraints();
-        gbc[1].gridx = 0;
-        this.save = new JButton("Save");
-        ip[3].add(this.save, gbc[1]);
-        //---------------------------Spacing Label 1
-        gbc[1].gridx = 1;
-        JLabel spacing1 = new JLabel();
-        spacing1.setPreferredSize(new Dimension(300, 40));
-        ip[3].add(spacing1, gbc[1]);
-        //---------------------------Create Button
-        gbc[1].gridx = 2;
-        ip[3].add(create, gbc[1]);
-        //---------------------------Spacing Label 2
-        gbc[1].gridx = 3;
-        JLabel spacing2 = new JLabel();
-        spacing2.setPreferredSize(new Dimension(20, 40));
-        ip[3].add(spacing2, gbc[1]);
-        //---------------------------Delete Button
-        gbc[1].gridx = 4;
-        this.delete = new JButton("Delete");
-        ip[3].add(this.delete, gbc[1]);
-        gbc[0].gridy = 4;
-        ip[3].setBackground(Color.white);
-        ip[0].add(ip[3], gbc[0]);
+
+        setupTop();
+        setupMiddle();
+        setupBottom();
+        resetPosition();
+        this.position.gridy = 0;
+        this.ip[0].add(ip[3], this.position);
+        this.position.gridy = 1;
+        this.ip[0].add(ip[2], this.position);
+        this.position.gridy = 2;
+        this.position.ipadx = 40;
+        this.position.ipady = 40;
+        this.ip[0].add(ip[1], this.position);
+
         //---------------------------Final
-        gbc[0] = new GridBagConstraints();
-        gbc[0].ipadx = 20;
-        gbc[0].ipady = 20;
-        ip[0].setBackground(Color.white);
-        ip[0].setBorder(BorderFactory.createLineBorder(Color.black, 3));
-        add(ip[0], gbc[0]);
+        resetPosition();
+        this.position.ipadx = 20;
+        this.position.ipady = 20;
+
+        add(this.ip[0], this.position);
         // Create was here
     }
 
@@ -197,17 +152,16 @@ public class IngredientPanel extends JPanel {
     }
 
     public void initializeDataPanel() {
-        dataPanel = new JPanel();
-        dataPanel.setLayout(new GridBagLayout());
-        GridBagConstraints pos = new GridBagConstraints();
-        jb = new JButton[5];
-        for (int i = 0; i < jb.length; i++) {
-            jb[i] = new JButton();
-            jb[i].setPreferredSize(new Dimension(500, 100));
-            pos.gridy = i;
-            dataPanel.add(jb[i], pos);
+//        resetPosition();
+        this.dataPanel = new JPanel();
+        this.dataPanel.setLayout(new GridBagLayout());
+        this.jb = new JButton[5];
+        for (int i = 0; i < this.jb.length; i++) {
+            this.jb[i] = new JButton();
+            this.jb[i].setPreferredSize(new Dimension(500, 100));
+            this.position.gridy = i;
+            this.dataPanel.add(this.jb[i], this.position);
         }
-
     }
 
     public void updateDataPanel(ArrayList<Ingredient> ingredientList, int firstLine) {
@@ -225,7 +179,93 @@ public class IngredientPanel extends JPanel {
                 ++displayLine;
             }
         }
-
     }
 
+    private void resetPosition() {
+        this.position = new GridBagConstraints();
+    }
+
+    private void initializer() {   //image in constructor
+        this.ip = new JPanel[4];
+        for (int i = 0; i < this.ip.length; i++) {
+            this.ip[i] = new JPanel();
+        }
+
+        this.space = new JLabel[3];
+        for (int i = 0; i < this.space.length; i++) {
+            this.space[i] = new JLabel();
+        }
+
+        this.scroll = new JScrollBar();
+
+        this.save = new JButton("Save");
+        this.back = new JButton("back");
+        this.create = new JButton("Create");
+        this.delete = new JButton("Delete");
+
+        resetPosition();
+
+        initializeDataPanel();
+    }
+
+    private void setupBottom() {   //IP 1
+        resetPosition();
+        //---------------------------Save Button
+        this.position.gridx = 0;
+        ip[1].add(this.save, this.position.gridx);
+
+        //---------------------------Spacing Label 1
+        this.position.gridx = 1;
+        this.space[0].setPreferredSize(new Dimension(300, 40));
+        this.ip[1].add(this.space[0], this.position.gridx);
+
+        //---------------------------Create Button
+        this.position.gridx = 2;
+        this.ip[1].add(this.create, this.position.gridx);
+
+        //---------------------------Spacing Label 2
+        this.position.gridx = 3;
+        this.space[1].setPreferredSize(new Dimension(20, 40));
+        this.ip[1].add(this.space[1], this.position);
+
+        //---------------------------Delete Button
+        this.position.gridx = 4;
+        this.ip[1].add(this.delete, this.position);
+    }
+
+    private void setupMiddle() {   //IP 2
+        resetPosition();
+        this.ip[2].setLayout(new BorderLayout());
+        JLabel search = new JLabel("Search/Sort");
+        search.setPreferredSize(new Dimension(10, 40));
+        ip[2].add(search, "North");
+        ip[2].add(this.scroll, "East");
+        ip[2].add(this.dataPanel, "Center");
+    }
+
+    private void setupTop() {   //IP 3
+        resetPosition();
+        this.position.gridx = 0;
+        
+        JLabel title = new JLabel("Ingredients");
+        title.setFont(new Font(Font.MONOSPACED, Font.BOLD, 36));
+        ip[3].add(title, this.position);
+        
+        
+        this.position.gridx = 1;
+        space[2].setPreferredSize(new Dimension(400, 40));
+        ip[3].add(space[2], this.position);
+        this.position.gridx = 2;
+        
+        ip[3].add(back, this.position);
+    }
+
+    private void paintGun() {
+        this.dataPanel.setBackground(Color.orange);
+        this.ip[1].setBackground(Color.white);
+        this.ip[2].setBackground(Color.pink);
+        this.ip[3].setBackground(Color.white);
+        this.ip[0].setBackground(Color.white);
+        this.ip[0].setBorder(BorderFactory.createLineBorder(Color.black, 3));
+    }
 }

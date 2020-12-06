@@ -1,13 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package View;
 
-import Model.IngredientDescription;
 import Model.Recipe;
-import Model.RecipeList;
 import java.util.ArrayList;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -50,11 +43,19 @@ public class ShoppingListPopPanel extends JPanel {
         this.addBtn = new JButton("+");
         this.delBtn = new JButton("-");
 
+        JLabel shopLabelName = new JLabel("Shopping List Name:");
+        shopLabelName.setBounds(50, 50, 120, 30);
+
+        JLabel recipeLabel = new JLabel("Recipes Included:");
+        recipeLabel.setBounds(50, 90, 160, 30);
+
         this.shoppingName = new JTextField();
-        this.shoppingName.setBounds(200, 170, 160, 30);
+        this.shoppingName.setBounds(180, 50, 160, 30);
         setupRecipeList();
 
+        add(shopLabelName);
         add(this.shoppingName);
+        add(recipeLabel);
         checkMenu();
 
     }
@@ -186,18 +187,16 @@ public class ShoppingListPopPanel extends JPanel {
         for (int i = 0; i < this.recipeMenu.size(); i++) {
             int index = 0;
 
-            for (int j = 0; j < recipeList.size(); j++) 
-            {
+            for (int j = 0; j < recipeList.size(); j++) {
 
-                if (recipeList.get(j).getName() == this.recipeMenu.get(i).getSelectedItem().toString())
-                {
+                if (recipeList.get(j).getName() == this.recipeMenu.get(i).getSelectedItem().toString()) {
                     index = j;
                     break;
-                    
+
                 }
 
             }
-            
+
             food.add(this.recipeList.get(index));
 
         }
@@ -217,14 +216,14 @@ public class ShoppingListPopPanel extends JPanel {
 //    }
     public void checkMenu() {
         for (int i = 0; i < this.recipeMenu.size(); i++) {
-            this.recipeMenu.get(i).setBounds(200, 200 + (i * 30), 160, 30);
+            this.recipeMenu.get(i).setBounds(180, 90 + (i * 30), 160, 30);
             add(this.recipeMenu.get(i));
             if (i == this.recipeMenu.size() - 1) {
-                this.addBtn.setBounds(200, 200 + (i * 30) + 30, 60, 20);
+                this.addBtn.setBounds(180, 90 + (i * 30) + 40, 60, 20);
                 add(this.addBtn);
-                this.delBtn.setBounds(260, 200 + (i * 30) + 30, 60, 20);
+                this.delBtn.setBounds(240, 90 + (i * 30) + 40, 60, 20);
                 add(this.delBtn);
-                this.createBtn.setBounds(200, 200 + (i * 30) + 50, 100, 30);
+                this.createBtn.setBounds(180, 90 + (i * 30) + 70, 100, 30);
                 add(this.createBtn);
             }
         }

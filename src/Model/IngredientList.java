@@ -13,26 +13,22 @@ import java.util.ArrayList;
  * @author Kurtis
  */
 public class IngredientList implements Scrollable, XMLData {
-    
+
     private ArrayList<Ingredient> ingredientList;
-   
+
     private int totalLines;
     private int firstLine;
     private int lastLine;
-    
-    
-    public IngredientList()
-    {
-       ingredientList = new ArrayList<>();
-       loadXMLList();
-       
-       totalLines = 5;
-       firstLine = 0;
-       lastLine = 4;
-       
+
+    public IngredientList() {
+        ingredientList = new ArrayList<>();
+        totalLines = 5;
+        firstLine = 0;
+        lastLine = 4;
+
+        loadXMLList();
     }
-    
-    
+
     /**
      * @return the ingredientList
      */
@@ -47,8 +43,9 @@ public class IngredientList implements Scrollable, XMLData {
         this.ingredientList = ingredientList;
     }
     
-    
-    //=========Methods Implemented from Scrollable Interface===========
+    //===================================================================
+    //========= Methods Implemented from Scrollable Interface ===========
+    //===================================================================
     
     /**
      * @return the totalLines
@@ -98,49 +95,48 @@ public class IngredientList implements Scrollable, XMLData {
         this.lastLine = lastLine;
     }
 
- 
-    //retreives recipeList ArrayList from recipes.xml
+    //================================================================
+    //========= Methods Implemented from XMLData Interface ===========
+    //================================================================
+    
+    //retreives ingredientList ArrayList from ingredients.xml
     @Override
-    public void loadXMLList()
-    {          
-        try
-        {
-          XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("ingredients.xml")));
+    public void loadXMLList() {
+        try {
+            XMLDecoder de = new XMLDecoder(new BufferedInputStream(new FileInputStream("ingredients.xml")));
             setIngredientList((ArrayList<Ingredient>) de.readObject());
-          de.close();
-                
-        } catch (Exception xx)
-        {
+            de.close();
+
+        } catch (Exception xx) {
             System.out.println("Unable to load XML file");
         }
     }
-    
-    //saves recipeList ArrayList to recipes.xml
+
+    //saves ingredientList ArrayList to ingredients.xml
     @Override
-    public void saveXMLList()
-    {
-        try
-        {
-          XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("ingredients.xml")));
-          xe.writeObject(getIngredientList());
-          xe.close();
-                
-        } catch (Exception xx)
-        {
+    public void saveXMLList() {
+        try {
+            XMLEncoder xe = new XMLEncoder(new BufferedOutputStream(new FileOutputStream("ingredients.xml")));
+            xe.writeObject(getIngredientList());
+            xe.close();
+
+        } catch (Exception xx) {
             System.out.println("Unable to save XML file");
         }
     }
-         
-    //adds a new recipe to RecipeList ArrayList
-    public void addIngredient(Ingredient input)
-    {
+    
+    //===================================
+    //========= Class Methods ===========
+    //===================================
+    
+    //adds a new ingredient to IngredientList ArrayList
+    public void addIngredient(Ingredient input) {
         getIngredientList().add(input);
     }
-      
-    //removes a recipe from RecipeList ArrayList
-    public void removeIngredient(Ingredient input)
-    {
+
+    //removes a ingredient from IngredientList ArrayList
+    public void removeIngredient(Ingredient input) {
         getIngredientList().remove(input);
     }
-    
+
 }
